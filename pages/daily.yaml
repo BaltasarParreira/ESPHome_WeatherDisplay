@@ -6,16 +6,18 @@
     border_opa: transp
     bg_image_src: bg_img
     bg_image_opa: 100%
+    radius: 0px
     layout:
       type: flex
       flex_flow: row_wrap
       flex_align_main: center
+    scrollbar_mode: "OFF"
     widgets:
 
       # CURRENT WEATHER
       - obj:
           width: 100%
-          height: 375
+          height: 350
           bg_color: black
           bg_opa: 70%
           border_opa: transp
@@ -32,7 +34,7 @@
                 text_color: white
             - obj:
                 width: 500px
-                height: 80px
+                height: 50px
                 bg_opa: transp
                 border_opa: transp
                 layout:
@@ -74,6 +76,7 @@
                         flex_flow: column
                         flex_align_cross: center
                         flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
                         - label:
                             align: center
@@ -107,6 +110,7 @@
                         flex_flow: column
                         flex_align_cross: center
                         flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
                         - label:
                             align: center
@@ -140,6 +144,7 @@
                         flex_flow: column
                         flex_align_cross: center
                         flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
                         - label:
                             align: center
@@ -173,6 +178,7 @@
                         flex_flow: column
                         flex_align_cross: center
                         flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
                         - label:
                             align: center
@@ -206,8 +212,8 @@
 
       # WEEKLY FORECAST
       - obj:
-          width: 200
-          height: 385
+          width: 195
+          height: 400
           bg_color: black
           bg_opa: 70%
           border_opa: transp
@@ -217,6 +223,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_day1_time
@@ -271,8 +278,8 @@
                 pad_top: -10px
 
       - obj:
-          width: 200
-          height: 385
+          width: 195
+          height: 400
           bg_color: black
           bg_opa: 70%
           border_opa: transp
@@ -282,6 +289,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_day2_time
@@ -336,8 +344,8 @@
                 pad_top: -10px
 
       - obj:
-          width: 200
-          height: 385
+          width: 195
+          height: 400
           bg_color: black
           bg_opa: 70%
           border_opa: transp
@@ -347,6 +355,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_day3_time
@@ -401,8 +410,8 @@
                 pad_top: -10px
 
       - obj:
-          width: 200
-          height: 385
+          width: 195
+          height: 400
           bg_color: black
           bg_opa: 70%
           border_opa: transp
@@ -412,6 +421,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_day4_time
@@ -466,8 +476,8 @@
                 pad_top: -10px
 
       - obj:
-          width: 200
-          height: 385
+          width: 195
+          height: 400
           bg_color: black
           bg_opa: 70%
           border_opa: transp
@@ -477,6 +487,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_day5_time
@@ -531,8 +542,8 @@
                 pad_top: -10px
 
       - obj:
-          width: 200
-          height: 385
+          width: 195
+          height: 400
           bg_color: black
           bg_opa: 70%
           border_opa: transp
@@ -542,6 +553,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_day6_time
@@ -594,11 +606,3 @@
                 text_font: sm
                 text_color: white
                 pad_top: -10px
-
-
-
-
-
-
-
-

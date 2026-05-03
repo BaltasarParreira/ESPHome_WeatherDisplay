@@ -5,6 +5,7 @@
     border_opa: transp
     bg_image_src: bg_img
     bg_image_opa: 100%
+    radius: 0px
     layout:
       type: flex
       flex_flow: row
@@ -72,7 +73,7 @@
                         - label:
                             text_font: xsm
                             text_color: white
-                            text: "TEMPERATURE"
+                            text: "TEMP"
                         - label:
                             id: lbl_upstairs_temp
                             text_font: lg
@@ -151,7 +152,7 @@
                         - label:
                             text_font: xsm
                             text_color: white
-                            text: "TEMPERATURE"
+                            text: "TEMP"
                         - label:
                             text_font: lg
                             text_color: white
@@ -183,6 +184,7 @@
                             pad_top: -15px
                             pad_bottom: -15px
 
+      # OUTSIDE TEMP
       - obj:
           width: 49%
           height: 100%
@@ -206,50 +208,22 @@
                   flex_align_main: center
                   flex_align_cross: center
                   flex_align_track: center
-                  flex_flow: row_wrap
+                  flex_flow: column
                 widgets:
-                  - obj:
-                      width: 99%
-                      height: 40px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
-                        flex_flow: row
-                      pad_top: -25px
-                      pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: sm
-                            text_color: white
-                            text: "AVERAGE"
-                  - obj:
-                      width: 35%
-                      height: 60px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_flow: column
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
+                  - label:
+                      text_font: sm
+                      text_color: white
+                      text: "AVERAGE"
+                  - label:
+                      text_font: xsm
+                      text_color: white
+                      text: "TEMP"
+                  - label:
+                      id: lbl_avg_temp
+                      text_font: lg
+                      text_color: white
                       pad_top: -15px
                       pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: xsm
-                            text_color: white
-                            text: "TEMPERATURE"
-                        - label:
-                            id: lbl_avg_temp
-                            text_font: lg
-                            text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px
             - obj:
                 width: 75%
                 height: 20%
@@ -261,51 +235,22 @@
                   flex_align_main: center
                   flex_align_cross: center
                   flex_align_track: center
-                  flex_flow: row_wrap
+                  flex_flow: column
                 widgets:
-                  - obj:
-                      width: 99%
-                      height: 40px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
-                        flex_flow: row
-                      pad_top: -25px
-                      pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: sm
-                            text_color: white
-                            text: "NORTH"
-                  - obj:
-                      width: 35%
-                      height: 60px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_flow: column
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
+                  - label:
+                      text_font: sm
+                      text_color: white
+                      text: "NORTH"
+                  - label:
+                      text_font: xsm
+                      text_color: white
+                      text: "TEMP"
+                  - label:
+                      id: lbl_north_temp
+                      text_font: lg
+                      text_color: white
                       pad_top: -15px
                       pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: xsm
-                            text_color: white
-                            text: "TEMPERATURE"
-                        - label:
-                            id: lbl_north_temp
-                            text_font: lg
-                            text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px
-
             - obj:
                 width: 75%
                 height: 20%
@@ -317,51 +262,22 @@
                   flex_align_main: center
                   flex_align_cross: center
                   flex_align_track: center
-                  flex_flow: row_wrap
+                  flex_flow: column
                 widgets:
-                  - obj:
-                      width: 99%
-                      height: 40px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
-                        flex_flow: row
-                      pad_top: -25px
-                      pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: sm
-                            text_color: white
-                            text: "EAST"
-                  - obj:
-                      width: 35%
-                      height: 60px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_flow: column
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
+                  - label:
+                      text_font: sm
+                      text_color: white
+                      text: "EAST"
+                  - label:
+                      text_font: xsm
+                      text_color: white
+                      text: "TEMP"
+                  - label:
+                      id: lbl_east_temp
+                      text_font: lg
+                      text_color: white
                       pad_top: -15px
                       pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: xsm
-                            text_color: white
-                            text: "TEMPERATURE"
-                        - label:
-                            id: lbl_east_temp
-                            text_font: lg
-                            text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px
-
             - obj:
                 width: 75%
                 height: 20%
@@ -373,47 +289,19 @@
                   flex_align_main: center
                   flex_align_cross: center
                   flex_align_track: center
-                  flex_flow: row_wrap
+                  flex_flow: column
                 widgets:
-                  - obj:
-                      width: 99%
-                      height: 40px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
-                        flex_flow: row
-                      pad_top: -25px
-                      pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: sm
-                            text_color: white
-                            text: "WEST"
-                  - obj:
-                      width: 35%
-                      height: 60px
-                      bg_opa: transp
-                      border_opa: transp
-                      layout:
-                        type: flex
-                        flex_flow: column
-                        flex_align_main: center
-                        flex_align_cross: center
-                        flex_align_track: center
+                  - label:
+                      text_font: sm
+                      text_color: white
+                      text: "WEST"
+                  - label:
+                      text_font: xsm
+                      text_color: white
+                      text: "TEMP"
+                  - label:
+                      id: lbl_west_temp
+                      text_font: lg
+                      text_color: white
                       pad_top: -15px
                       pad_bottom: -15px
-                      widgets:
-                        - label:
-                            text_font: xsm
-                            text_color: white
-                            text: "TEMPERATURE"
-                        - label:
-                            id: lbl_west_temp
-                            text_font: lg
-                            text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px

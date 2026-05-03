@@ -98,7 +98,6 @@ display:
     reset_pin: GPIO27
     auto_clear_enabled: false
     show_test_card: false
-    rotation: 90
     id: my_display
 
 wifi:
@@ -129,6 +128,7 @@ switch:
     internal: true
 
 lvgl:
+  rotation: 90
   touchscreens:
     - touchscreen_id: my_touch
   byte_order: little_endian

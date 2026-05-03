@@ -5,6 +5,7 @@
     border_opa: transp
     bg_image_src: bg_img
     bg_image_opa: 100%
+    radius: 0px
     layout:
       type: flex
       flex_flow: row_wrap
@@ -14,7 +15,7 @@
     widgets:
       # HOURLY FORECAST
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -25,6 +26,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour0_time
@@ -78,7 +80,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -89,6 +91,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour1_time
@@ -142,7 +145,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -153,6 +156,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour2_time
@@ -206,7 +210,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -217,6 +221,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour3_time
@@ -270,7 +275,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -281,6 +286,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour4_time
@@ -334,7 +340,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -345,6 +351,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour5_time
@@ -398,7 +405,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -409,6 +416,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour6_time
@@ -462,7 +470,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -473,6 +481,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour7_time
@@ -526,7 +535,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -537,6 +546,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour8_time
@@ -590,7 +600,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -601,6 +611,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour9_time
@@ -654,7 +665,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -665,6 +676,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour10_time
@@ -718,7 +730,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -729,6 +741,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour11_time
@@ -782,7 +795,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -793,6 +806,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour12_time
@@ -846,7 +860,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -857,6 +871,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour13_time
@@ -910,7 +925,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -921,6 +936,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour14_time
@@ -974,7 +990,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -985,6 +1001,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour15_time
@@ -1038,7 +1055,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -1049,6 +1066,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour16_time
@@ -1102,7 +1120,7 @@
                 text_color: white
                 pad_top: -10px
       - obj:
-          width: 130
+          width: 127
           height: 370
           bg_color: black
           bg_opa: 70%
@@ -1113,6 +1131,7 @@
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
+          scrollbar_mode: "OFF"
           widgets:
             - label:
                 id: lbl_hour17_time
