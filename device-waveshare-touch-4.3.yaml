@@ -1,0 +1,219 @@
+substitutions:
+  font: "fonts/OpenSans-Medium.ttf"
+
+esphome:
+  name: weatherdisplay
+  friendly_name: WeatherDisplay
+  on_boot:
+    priority: -10
+    then:
+      - delay: 2s
+      - script.execute: apply_timezone
+      - light.turn_on:
+          id: backlight
+          brightness: 100%
+          transition_length: 500ms
+      - script.execute: backlight_wake_timeout
+  platformio_options:
+    board_build.arduino.memory_type: qio_opi   # --> Bal
+    board_upload.maximum_ram_size: 524288   # --> Bal
+    board_build.flash_mode: dio
+    build_flags:
+      - "-DCONFIG_LV_DISP_DEF_REFR_PERIOD=10"
+      - "-DLV_DRAW_SW_SUPPORT_RGB565=1"
+      - "-DCONFIG_COMPILER_OPTIMIZATION_PERF=y"
+      - "-Wno-deprecated-declarations"
+#      - "-DBOARD_HAS_PSRAM"
+  min_version: "2025.8.0"   # --> Bal
+
+esp32:
+  variant: esp32s3
+  flash_size: 16MB
+  cpu_frequency: 240MHz
+  framework:
+    type: esp-idf
+    sdkconfig_options:
+      CONFIG_ESP_TASK_WDT_TIMEOUT_S: "60"
+      CONFIG_LWIP_IPV6: "n"
+      CONFIG_LWIP_SO_LINGER: "y"
+      CONFIG_MBEDTLS_DYNAMIC_BUFFER: "y"
+      CONFIG_FREERTOS_PLACE_FUNCTIONS_INTO_FLASH: "y"
+      CONFIG_RINGBUF_PLACE_FUNCTIONS_INTO_FLASH: "y"
+
+build:
+  flash_mode: dio
+  flash_freq: 40MHz
+  arduino_memory_type: qio_qspi
+
+psram:
+  mode: octal
+  speed: 80MHz
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  power_save_mode: none
+  fast_connect: true
+
+logger:
+  hardware_uart: USB_SERIAL_JTAG
+  level: DEBUG
+  logs:
+    lvgl: DEBUG
+    display: DEBUG
+    app: DEBUG
+
+api:
+ota:
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Lisbon
+
+# -----------------------------
+# BACKLIGHT (correct pin for Waveshare 4.3")
+# -----------------------------
+output:
+  - platform: ledc
+    pin: GPIO16
+    id: backlight_pwm
+    frequency: 20000Hz
+
+light:
+  - platform: monochromatic
+    id: lcd_backlight
+    name: "Backlight"
+    output: backlight_pwm
+    restore_mode: ALWAYS_ON
+
+script:
+  - id: backlight_watchdog
+    mode: restart
+    then:
+      - light.turn_on: lcd_backlight
+      - delay: 2min
+      - light.turn_off: lcd_backlight
+
+ch422g:
+  - id: ch422g_hub
+
+i2c:
+  id: i2c_bus
+  sda: GPIO08
+  scl: GPIO09
+  scan: true
+  frequency: 400kHz
+
+# -----------------------------
+# TOUCHSCREEN (GT911)
+# -----------------------------
+touchscreen:
+  - platform: gt911
+    id: tft_touch
+    display: tft_display
+    i2c_id: i2c_bus
+    interrupt_pin: GPIO4
+    reset_pin:
+        ch422g: ch422g_hub
+        number: 1
+        mode: OUTPUT
+    on_touch:
+      then:
+        - script.execute: backlight_watchdog
+        - if:
+            condition:
+              light.is_on: lcd_backlight
+            then:
+              - lvgl.page.next:
+            else:
+              - light.turn_on: lcd_backlight
+
+# -----------------------------
+# DISPLAY (OFFICIAL ESPHOME MODEL)
+# -----------------------------
+display:
+  - platform: mipi_rgb
+    model: ESP32-S3-TOUCH-LCD-4.3
+    id: tft_display
+    update_interval: never
+    auto_clear_enabled: false
+    color_order: RGB
+    pclk_frequency: 16MHZ
+    dimensions:
+      width: 800
+      height: 480
+    de_pin:
+      number: 5
+    hsync_pin:
+      number: 46
+      ignore_strapping_warning: true
+    vsync_pin:
+      number: 3
+      ignore_strapping_warning: true
+    pclk_pin: 7
+    reset_pin:
+      ch422g: ch422g_hub
+      number: 3
+    hsync_back_porch: 30
+    hsync_front_porch: 210
+    hsync_pulse_width: 30
+    vsync_back_porch: 4
+    vsync_front_porch: 4
+    vsync_pulse_width: 4
+    data_pins:
+      red:
+        - 1         #r3
+        - 2         #r4
+        - 42        #r5
+        - 41        #r6
+        - 40        #r7
+      blue:
+        - 14        #b3
+        - 38        #b4
+        - 18        #b5
+        - 17        #b6
+        - 10        #b7
+      green:
+        - 39        #g2
+        - 0         #g3
+        - 45        #g4
+        - 48        #g5
+        - 47        #g6
+        - 21        #g7
+
+# -----------------------------
+# LVGL
+# -----------------------------
+lvgl:
+  rotation: 0
+  byte_order: little_endian
+  color_depth: 16
+  color_format: RGB565
+  buffer_size: 51200
+  touchscreens:
+    - touchscreen_id: my_touch
+
+  pages:
+    - id: home_page
+      widgets: !include pages/home.yaml
+    - id: daily_page
+      widgets: !include pages/daily.yaml
+    - id: hourly_page
+      widgets: !include pages/hourly.yaml
+
+# -----------------------------
+# REQUIRED DUMMY SWITCH
+# -----------------------------
+switch:
+  - platform: homeassistant
+    id: any_id
+
+packages:
+  - !include data/fonts.yaml
+  - !include data/images.yaml
+  - !include data/mappings.yaml
+  - !include data/text_sensors.yaml
+  - !include data/times.yaml
+    entity_id: switch.any_id
+    internal: true
