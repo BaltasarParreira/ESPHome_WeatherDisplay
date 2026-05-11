@@ -39,11 +39,10 @@ esp32:
       CONFIG_MBEDTLS_DYNAMIC_BUFFER: "y"
       CONFIG_FREERTOS_PLACE_FUNCTIONS_INTO_FLASH: "y"
       CONFIG_RINGBUF_PLACE_FUNCTIONS_INTO_FLASH: "y"
-
-build:
-  flash_mode: dio
-  flash_freq: 40MHz
-  arduino_memory_type: qio_qspi
+  build:
+    flash_mode: dio
+    flash_freq: 40MHz
+    arduino_memory_type: qio_qspi
 
 psram:
   mode: octal
