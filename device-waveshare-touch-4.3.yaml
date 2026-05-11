@@ -216,4 +216,4 @@ packages:
   - !include data/text_sensors.yaml
   - !include data/times.yaml
 #    entity_id: switch.any_id
-    internal: true
+#    internal: true
