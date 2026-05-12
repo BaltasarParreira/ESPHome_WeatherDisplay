@@ -29,8 +29,8 @@
             flex_align_track: center
           widgets:
             - obj:
-                width: 45%
-                height: 60px
+                width: 50%
+                height: 100px
                 bg_opa: transp
                 border_opa: transp
                 layout:
@@ -50,8 +50,8 @@
                       text_font: lg
                       text_color: white
             - obj:
-               width: 45%
-               height: 60px
+               width: 50%
+               height: 100px
                bg_opa: transp
                border_opa: transp
                layout:
