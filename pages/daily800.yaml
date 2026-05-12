@@ -99,26 +99,33 @@
                         - label: {text: "HUMIDITY", text_font: xsm, text_color: white, pad_top: 15px}
                         - label: {id: lbl_day0_curhum, text_font: md, text_color: white, pad_top: -10px}
 
-                  - obj: { <<: *stat_col, widgets: [
-                      - label: {text: "HIGH / LOW", text_font: xsm, text_color: white},
-                      - label: {id: lbl_day0_temp, text_font: md, text_color: white, pad_top: -10px},
-                      - label: {text: "PRECIPITATION", text_font: xsm, text_color: white, pad_top: 15px},
-                      - label: {id: lbl_day0_pre, text_font: md, text_color: white, pad_top: -10px}
-                    ]}
+                  # Column 2
+                  - obj:
+                      <<: *stat_col
+                      widgets:
+                        - label: {text: "HIGH / LOW", text_font: xsm, text_color: white}
+                        - label: {id: lbl_day0_temp, text_font: md, text_color: white, pad_top: -10px}
+                        - label: {text: "PRECIPITATION", text_font: xsm, text_color: white, pad_top: 15px}
+                        - label: {id: lbl_day0_pre, text_font: md, text_color: white, pad_top: -10px}
 
-                  - obj: { <<: *stat_col, widgets: [
-                      - label: {text: "WIND SPEED", text_font: xsm, text_color: white},
-                      - label: {id: lbl_day0_wind, text_font: md, text_color: white, pad_top: -10px},
-                      - label: {text: "PRESSURE", text_font: xsm, text_color: white, pad_top: 15px},
-                      - label: {id: lbl_day0_pres, text_font: md, text_color: white, pad_top: -10px}
-                    ]}
+                  # Column 3
+                  - obj:
+                      <<: *stat_col
+                      widgets:
+                        - label: {text: "WIND SPEED", text_font: xsm, text_color: white}
+                        - label: {id: lbl_day0_wind, text_font: md, text_color: white, pad_top: -10px}
+                        - label: {text: "PRESSURE", text_font: xsm, text_color: white, pad_top: 15px}
+                        - label: {id: lbl_day0_pres, text_font: md, text_color: white, pad_top: -10px}
 
-                  - obj: { <<: *stat_col, widgets: [
-                      - label: {text: "SUNRISE", text_font: xsm, text_color: white},
-                      - label: {id: lbl_day0_sunr, text_font: md, text_color: white, pad_top: -10px},
-                      - label: {text: "SUNSET", text_font: xsm, text_color: white, pad_top: 15px},
-                      - label: {id: lbl_day0_suns, text_font: md, text_color: white, pad_top: -10px}
-                    ]}
+                  # Column 4
+                  - obj:
+                      <<: *stat_col
+                      widgets:
+                        - label: {text: "SUNRISE", text_font: xsm, text_color: white}
+                        - label: {id: lbl_day0_sunr, text_font: md, text_color: white, pad_top: -10px}
+                        - label: {text: "SUNSET", text_font: xsm, text_color: white, pad_top: 15px}
+                        - label: {id: lbl_day0_suns, text_font: md, text_color: white, pad_top: -10px}
+
 
             # FOOTER
             - label:
