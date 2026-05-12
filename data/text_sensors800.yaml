@@ -21,14 +21,14 @@ text_sensor:
               update_fmt(id(lbl_day0_suns),    "d0_suns", "");
               update_fmt(id(lbl_day0_pres),    "d0_pres", " hPa");
 
-              lv_obj_t* day_times[] = {nullptr, id(lbl_day1_time), id(lbl_day2_time), id(lbl_day3_time), id(lbl_day4_time), id(lbl_day5_time)};
-              lv_obj_t* day_temps[] = {id(lbl_day0_temp), id(lbl_day1_temp), id(lbl_day2_temp), id(lbl_day3_temp), id(lbl_day4_temp), id(lbl_day5_temp)};
-              lv_obj_t* day_pres[]  = {id(lbl_day0_pre),  id(lbl_day1_pre),  id(lbl_day2_pre),  id(lbl_day3_pre),  id(lbl_day4_pre),  id(lbl_day5_pre)};
-              lv_obj_t* day_winds[] = {id(lbl_day0_wind), id(lbl_day1_wind), id(lbl_day2_wind), id(lbl_day3_wind), id(lbl_day4_wind), id(lbl_day5_wind)};
-              lv_obj_t* day_conds[] = {id(lbl_day0_cond), id(lbl_day1_cond), id(lbl_day2_cond), id(lbl_day3_cond), id(lbl_day4_cond), id(lbl_day5_cond)};
-              lv_obj_t* day_imgs[]  = {id(img_day0_code), id(img_day1_code), id(img_day2_code), id(img_day3_code), id(img_day4_code), id(img_day5_code)};
+              lv_obj_t* day_times[] = {nullptr, id(lbl_day1_time), id(lbl_day2_time), id(lbl_day3_time), id(lbl_day4_time)};
+              lv_obj_t* day_temps[] = {id(lbl_day0_temp), id(lbl_day1_temp), id(lbl_day2_temp), id(lbl_day3_temp), id(lbl_day4_temp)};
+              lv_obj_t* day_pres[]  = {id(lbl_day0_pre), id(lbl_day1_pre), id(lbl_day2_pre), id(lbl_day3_pre), id(lbl_day4_pre)};
+              lv_obj_t* day_winds[] = {id(lbl_day0_wind), id(lbl_day1_wind), id(lbl_day2_wind), id(lbl_day3_wind), id(lbl_day4_wind)};
+              lv_obj_t* day_conds[] = {id(lbl_day0_cond), id(lbl_day1_cond), id(lbl_day2_cond), id(lbl_day3_cond), id(lbl_day4_cond)};
+              lv_obj_t* day_imgs[]  = {id(img_day0_code), id(img_day1_code), id(img_day2_code), id(img_day3_code), id(img_day4_code)};
 
-              for (int i = 0; i < 7; i++) {
+              for (int i = 0; i < 5; i++) {
                 std::string prefix = "d" + std::to_string(i);
 
                 if (day_times[i] != nullptr) update_fmt(day_times[i], (prefix + "_t").c_str(), "");
