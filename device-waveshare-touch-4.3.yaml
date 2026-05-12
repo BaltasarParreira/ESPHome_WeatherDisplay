@@ -182,10 +182,10 @@ display:
 # -----------------------------
 lvgl:
   rotation: 0
-  byte_order: little_endian
-  color_depth: 16
-  color_format: RGB565
-  buffer_size: 51200
+#  byte_order: little_endian
+#  color_depth: 16
+#  color_format: RGB565
+  buffer_size: 14%
   touchscreens:
     - touchscreen_id: my_touch
 
