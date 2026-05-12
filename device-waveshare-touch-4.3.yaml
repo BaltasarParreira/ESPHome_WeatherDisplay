@@ -105,7 +105,7 @@ i2c:
 # -----------------------------
 touchscreen:
   - platform: gt911
-    id: tft_touch
+    id: my_touch
     display: tft_display
     i2c_id: i2c_bus
     interrupt_pin: GPIO4
