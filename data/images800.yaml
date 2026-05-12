@@ -1,4 +1,4 @@
-mimage:
+image:
   defaults:
     type: rgb565
     byte_order: little_endian
