@@ -30,7 +30,7 @@
           widgets:
             - obj:
                 width: 45%
-                height: 100% #40px
+                height: 60px
                 bg_opa: transp
                 border_opa: transp
                 layout:
@@ -51,7 +51,7 @@
                       text_color: white
             - obj:
                width: 45%
-               height: 100% #40px
+               height: 60px
                bg_opa: transp
                border_opa: transp
                layout:
