@@ -28,12 +28,8 @@
             flex_align_cross: center
             flex_align_track: center
           widgets:
-            - label:
-                id: lbl_datetime
-                text_font: xlg
-                text_color: white
             - obj:
-                width: 500px
+                width: 50%
                 height: 40px
                 bg_opa: transp
                 border_opa: transp
@@ -52,6 +48,24 @@
                   - label:
                       id: lbl_day0_cond
                       text_font: lg
+                      text_color: white
+            - obj:
+                width: 50%
+                height: 40px
+                bg_opa: transp
+                border_opa: transp
+                layout:
+                  type: flex
+                  flex_flow: row
+                  flex_align_cross: center
+                  flex_align_track: center
+                pad_top: 0 #-10px
+                pad_bottom: 0 #-10px
+                align: center
+                widgets:
+                  - label:
+                      id: lbl_datetime
+                      text_font: xlg
                       text_color: white
 
             - obj:
