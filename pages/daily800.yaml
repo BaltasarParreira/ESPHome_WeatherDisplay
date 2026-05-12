@@ -252,7 +252,7 @@
 
       # WEEKLY FORECAST
       - obj:
-          width: 160
+          width: 155
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -318,7 +318,7 @@
                 pad_top: -10px
 
       - obj:
-          width: 160
+          width: 155
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -384,7 +384,7 @@
                 pad_top: -10px
 
       - obj:
-          width: 160
+          width: 155
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -450,7 +450,7 @@
                 pad_top: -10px
 
       - obj:
-          width: 160
+          width: 155
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -516,7 +516,7 @@
                 pad_top: -10px
 
       - obj:
-          width: 160
+          width: 155
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -582,7 +582,7 @@
                 pad_top: -10px
 
       # - obj:
-          # width: 160
+          # width: 155
           # height: 400
           # bg_color: black
           # bg_opa: 70%
