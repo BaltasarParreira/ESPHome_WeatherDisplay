@@ -24,7 +24,7 @@
           radius: 15px
           layout:
             type: flex
-            flex_flow: row          # Changed from row to column to stack rows
+            flex_flow: column               # Changed from row to column to stack rows
             flex_align_main: start     # Aligns rows to the top
             flex_align_cross: center   # Centers rows horizontally
             #flex_align_track: center
