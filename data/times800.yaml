@@ -1,0 +1,15 @@
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+    on_time:
+      - seconds: 0
+        minutes: /1
+        then:
+          - lvgl.label.update:
+              id: lbl_datetime
+              text: !lambda return id(homeassistant_time).now().strftime("%A, %B %e\n%I:%M %p");
+    on_time_sync:
+        then:
+          - lvgl.label.update:
+              id: lbl_datetime
+              text: !lambda return id(homeassistant_time).now().strftime("%A, %B %e\n%I:%M %p");
