@@ -48,7 +48,7 @@ logger:
     display: DEBUG
     app: DEBUG
 
-#api:
+api:
 #ota:
 
 time:
