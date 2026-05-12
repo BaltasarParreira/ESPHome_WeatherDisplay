@@ -29,7 +29,7 @@
             flex_align_track: center
           widgets:
             - obj:
-                width: 500px
+                width: 100%
                 height: 50px
                 bg_opa: transp
                 border_opa: cover
