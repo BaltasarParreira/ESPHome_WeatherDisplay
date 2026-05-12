@@ -1,3 +1,4 @@
+
 - obj:
     width: 100%
     height: 100%
@@ -8,29 +9,91 @@
     radius: 0px
     layout:
       type: flex
-      flex_flow: column
+      flex_flow: row_wrap
       flex_align_main: center
-      flex_align_cross: center
     scrollbar_mode: "OFF"
     widgets:
 
-      # CURRENT WEATHER CONTAINER (Centered on 800x480 screen)
+      # CURRENT WEATHER
       - obj:
-          width: 95%
-          height: 420px        # Increased height for 480px total screen
+          width: 100%
+          height: 350
           bg_color: black
           bg_opa: 50%
           border_opa: transp
-          radius: 20px
+          radius: 15px
           layout:
             type: flex
-            flex_flow: column
-            flex_align_main: start
-            flex_align_cross: center
-            pad_row: 10        # Small gap between row 1 and row 2
+            flex_flow: column               # Changed from row to column to stack rows
+            flex_align_main: start     # Aligns rows to the top
+            flex_align_cross: center   # Centers rows horizontally
+            #flex_align_track: center
+            pad_row: 0       # Space between stacked rows
+            pad_column: 0    # Space between side-by-side columns (if any)
+          align: top_mid
           widgets:
-            
-            # ROW 1: ICON AND TIME
+            - obj:
+                width: 100%
+                height: 120
+                bg_opa: transp
+                border_opa: transp
+                layout:
+                  type: flex
+                  flex_flow: row
+                  flex_align_cross: center
+                  flex_align_track: center
+                pad_top: 0px
+                pad_bottom: 0px
+                align: center
+                widgets:
+                  - obj:
+                      width: 50%
+                      bg_opa: transp
+                      border_opa: transp
+                      border_width: 0       # Forces the border size to zero
+                      outline_width: 0      # Removes the focus/outer outline
+                      shadow_width: 0       # Removes the default bottom/left drop shadow
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        #flex_align_track: center
+                        flex_align_main: center
+                        pad_row: 0
+                      scrollbar_mode: "OFF"
+                      widgets:
+                        - image:
+                           id: img_day0_code
+                           src: missing
+                           width: 80px   
+                           height: 80px
+                        - label:
+                           id: lbl_day0_cond
+                           text_font: lg
+                           text_color: white
+                           pad_top: -20px
+                  - obj:
+                      width: 50%
+                      bg_opa: transp
+                      border_opa: transp
+                      border_width: 0       # Forces the border size to zero
+                      outline_width: 0      # Removes the focus/outer outline
+                      shadow_width: 0       # Removes the default bottom/left drop shadow
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        #flex_align_track: center
+                        flex_align_main: center
+                        pad_row: 0
+                      scrollbar_mode: "OFF"
+                      widgets:
+                        - label:
+                           id: lbl_datetime
+                           text_font: xlg
+                           text_color: white
+
+
             - obj:
                 width: 100%
                 height: 150px
@@ -39,107 +102,157 @@
                 layout:
                   type: flex
                   flex_flow: row
-                  flex_align_cross: center
+                  flex_align_cross: space_around
+                  flex_align_track: space_around
+                pad_top: 0px
+                pad_bottom: 0px
                 widgets:
-                  # Column: Icon & Condition
                   - obj:
-                      width: 50%
+                      width: 24%
+                      bg_opa: transp
+                      border_opa: transp
                       layout:
                         type: flex
                         flex_flow: column
-                        flex_align_main: center
                         flex_align_cross: center
-                      widgets:
-                        - image:
-                           id: img_day0_code
-                           src: missing
-                           width: 110px
-                           height: 110px
-                        - label:
-                           id: lbl_day0_cond
-                           text_font: lg
-                           text_color: white
-                           pad_top: -25px
-                  # Column: Clock
-                  - obj:
-                      width: 50%
-                      layout:
-                        type: flex
-                        flex_flow: column
-                        flex_align_main: center
-                        flex_align_cross: center
+                        flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
                         - label:
-                           id: lbl_datetime
-                           text_font: xlg
-                           text_color: white
-                           text_align: center
-
-            # ROW 2: 4-COLUMN STATS GRID
-            - obj:
-                width: 100%
-                height: 230px
-                bg_opa: transp
-                border_opa: transp
-                layout:
-                  type: flex
-                  flex_flow: row
-                  flex_align_main: space_around
-                  flex_align_cross: center
-                widgets:
-                  # Template for all 4 columns
-                  - obj: &stat_col
-                      width: 23%
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "TEMPERATURE"
+                        - label:
+                            id: lbl_day0_curtemp
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                        - label:
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "HUMIDITY"
+                        - label:
+                            id: lbl_day0_curhum
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                            pad_bottom: -15px
+                  - obj:
+                      width: 24%
+                      bg_opa: transp
+                      border_opa: transp
                       layout:
                         type: flex
                         flex_flow: column
                         flex_align_cross: center
+                        flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
-                        - label: {text: "TEMPERATURE", text_font: xsm, text_color: white}
-                        - label: {id: lbl_day0_curtemp, text_font: md, text_color: white, pad_top: -10px}
-                        - label: {text: "HUMIDITY", text_font: xsm, text_color: white, pad_top: 15px}
-                        - label: {id: lbl_day0_curhum, text_font: md, text_color: white, pad_top: -10px}
-
-                  # Column 2
+                        - label:
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "HIGH / LOW"
+                        - label:
+                            id: lbl_day0_temp
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                        - label:
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "PRECIPITATIONS"
+                        - label:
+                            id: lbl_day0_pre
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                            pad_bottom: -15px
                   - obj:
-                      <<: *stat_col
+                      width: 24%
+                      bg_opa: transp
+                      border_opa: transp
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
-                        - label: {text: "HIGH / LOW", text_font: xsm, text_color: white}
-                        - label: {id: lbl_day0_temp, text_font: md, text_color: white, pad_top: -10px}
-                        - label: {text: "PRECIPITATION", text_font: xsm, text_color: white, pad_top: 15px}
-                        - label: {id: lbl_day0_pre, text_font: md, text_color: white, pad_top: -10px}
-
-                  # Column 3
+                        - label:
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "WIND SPEED"
+                        - label:
+                            id: lbl_day0_wind
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                        - label:
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "PRESSURE"
+                        - label:
+                            id: lbl_day0_pres
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                            pad_bottom: -15px
                   - obj:
-                      <<: *stat_col
+                      width: 24%
+                      bg_opa: transp
+                      border_opa: transp
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        flex_align_track: center
+                      scrollbar_mode: "OFF"
                       widgets:
-                        - label: {text: "WIND SPEED", text_font: xsm, text_color: white}
-                        - label: {id: lbl_day0_wind, text_font: md, text_color: white, pad_top: -10px}
-                        - label: {text: "PRESSURE", text_font: xsm, text_color: white, pad_top: 15px}
-                        - label: {id: lbl_day0_pres, text_font: md, text_color: white, pad_top: -10px}
-
-                  # Column 4
-                  - obj:
-                      <<: *stat_col
-                      widgets:
-                        - label: {text: "SUNRISE", text_font: xsm, text_color: white}
-                        - label: {id: lbl_day0_sunr, text_font: md, text_color: white, pad_top: -10px}
-                        - label: {text: "SUNSET", text_font: xsm, text_color: white, pad_top: 15px}
-                        - label: {id: lbl_day0_suns, text_font: md, text_color: white, pad_top: -10px}
-
-
-            # FOOTER
+                        - label:
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "SUNRISE"
+                        - label:
+                            id: lbl_day0_sunr
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                        - label:
+                            align: center
+                            text_font: xsm
+                            text_color: white
+                            text: "SUNSET"
+                        - label:
+                            id: lbl_day0_suns
+                            align: center
+                            text_font: md
+                            text_color: white
+                            pad_top: -15px
+                            pad_bottom: -15px
             - label:
                 id: lbl_last_update
-                text_font: xsm
-                text_color: gray
-                align: bottom_mid
-
+                align: right_mid
+                text_font: xxsm
+                text_color: white
 
 
       # WEEKLY FORECAST
       - obj:
-          width: 155
+          width: 195
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -205,7 +318,7 @@
                 pad_top: -10px
 
       - obj:
-          width: 155
+          width: 195
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -271,7 +384,7 @@
                 pad_top: -10px
 
       - obj:
-          width: 155
+          width: 195
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -337,7 +450,7 @@
                 pad_top: -10px
 
       - obj:
-          width: 155
+          width: 195
           height: 400
           bg_color: black
           bg_opa: 70%
@@ -402,74 +515,74 @@
                 text_color: white
                 pad_top: -10px
 
-      - obj:
-          width: 155
-          height: 400
-          bg_color: black
-          bg_opa: 70%
-          border_opa: transp
-          radius: 15px
-          layout:
-            type: flex
-            flex_flow: column_wrap
-            flex_align_cross: center
-            flex_align_track: center
-          scrollbar_mode: "OFF"
-          widgets:
-            - label:
-                id: lbl_day5_time
-                text_font: xlg
-                text_color: white
-                pad_top: -10px
-                pad_bottom: -5px
-            - image:
-                id: img_day5_code
-                src: missing
-                align: center
-                pad_top: -15px
-                pad_bottom: -25px
-            - label:
-                id: lbl_day5_cond
-                align: center
-                text_font: sm
-                text_color: white
-                pad_bottom: 30px
-            - label:
-                align: center
-                text_font: xxsm
-                text_color: white
-                text: "HIGH / LOW"
-            - label:
-                align: center
-                id: lbl_day5_temp
-                text_font: sm
-                text_color: white
-                pad_top: -10px
-            - label:
-                align: center
-                text_font: xxsm
-                text_color: white
-                text: "PRECIPITATIONS"
-            - label:
-                align: center
-                id: lbl_day5_pre
-                text_font: sm
-                text_color: white
-                pad_top: -10px
-            - label:
-                align: center
-                text_font: xxsm
-                text_color: white
-                text: "WIND SPEED"
-            - label:
-                align: center
-                id: lbl_day5_wind
-                text_font: sm
-                text_color: white
-                pad_top: -10px
+      # - obj:
+          # width: 195
+          # height: 400
+          # bg_color: black
+          # bg_opa: 70%
+          # border_opa: transp
+          # radius: 15px
+          # layout:
+            # type: flex
+            # flex_flow: column_wrap
+            # flex_align_cross: center
+            # flex_align_track: center
+          # scrollbar_mode: "OFF"
+          # widgets:
+            # - label:
+                # id: lbl_day5_time
+                # text_font: xlg
+                # text_color: white
+                # pad_top: -10px
+                # pad_bottom: -5px
+            # - image:
+                # id: img_day5_code
+                # src: missing
+                # align: center
+                # pad_top: -15px
+                # pad_bottom: -25px
+            # - label:
+                # id: lbl_day5_cond
+                # align: center
+                # text_font: sm
+                # text_color: white
+                # pad_bottom: 30px
+            # - label:
+                # align: center
+                # text_font: xxsm
+                # text_color: white
+                # text: "HIGH / LOW"
+            # - label:
+                # align: center
+                # id: lbl_day5_temp
+                # text_font: sm
+                # text_color: white
+                # pad_top: -10px
+            # - label:
+                # align: center
+                # text_font: xxsm
+                # text_color: white
+                # text: "PRECIPITATIONS"
+            # - label:
+                # align: center
+                # id: lbl_day5_pre
+                # text_font: sm
+                # text_color: white
+                # pad_top: -10px
+            # - label:
+                # align: center
+                # text_font: xxsm
+                # text_color: white
+                # text: "WIND SPEED"
+            # - label:
+                # align: center
+                # id: lbl_day5_wind
+                # text_font: sm
+                # text_color: white
+                # pad_top: -10px
 
       # - obj:
-          # width: 155
+          # width: 195
           # height: 400
           # bg_color: black
           # bg_opa: 70%
