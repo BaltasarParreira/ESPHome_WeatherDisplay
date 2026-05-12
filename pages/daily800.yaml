@@ -19,7 +19,7 @@
           width: 100%
           height: 350
           bg_color: black
-          bg_opa: 70%
+          bg_opa: 40%
           border_opa: transp
           radius: 15px
           layout:
@@ -34,7 +34,7 @@
           widgets:
             - obj:
                 width: 100%
-                height: 110px
+                height: 120px
                 bg_opa: transp
                 border_opa: transp
                 layout:
