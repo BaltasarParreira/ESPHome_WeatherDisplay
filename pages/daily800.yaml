@@ -88,7 +88,7 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
+                            pad_top: 0 #-15px
                         - label:
                             align: center
                             text_font: xsm
@@ -99,8 +99,8 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px
+                            pad_top: 0 #-15px
+                            pad_bottom: 0 #-15px
                   - obj:
                       width: 24%
                       bg_opa: transp
@@ -122,7 +122,7 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
+                            pad_top: 0 #-15px
                         - label:
                             align: center
                             text_font: xsm
@@ -133,8 +133,8 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px
+                            pad_top: 0 #-15px
+                            pad_bottom: 0 #-15px
                   - obj:
                       width: 24%
                       bg_opa: transp
@@ -156,7 +156,7 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
+                            pad_top: 0 #-15px
                         - label:
                             align: center
                             text_font: xsm
@@ -167,8 +167,8 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px
+                            pad_top: 0 #-15px
+                            pad_bottom: 0 #-15px
                   - obj:
                       width: 24%
                       bg_opa: transp
@@ -190,7 +190,7 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
+                            pad_top: 0 #-15px
                         - label:
                             align: center
                             text_font: xsm
@@ -201,8 +201,8 @@
                             align: center
                             text_font: md
                             text_color: white
-                            pad_top: -15px
-                            pad_bottom: -15px
+                            pad_top: 0 #-15px
+                            pad_bottom: 0 #-15px
             - label:
                 id: lbl_last_update
                 align: right_mid
