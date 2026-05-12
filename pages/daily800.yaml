@@ -24,13 +24,13 @@
           radius: 15px
           layout:
             type: flex
-            flex_flow: column_wrap
+            flex_flow: row
             flex_align_cross: center
             flex_align_track: center
           widgets:
             - obj:
                 width: 45%
-                height: 40px
+                height: 100% #40px
                 bg_opa: transp
                 border_opa: transp
                 layout:
@@ -51,7 +51,7 @@
                       text_color: white
             - obj:
                width: 45%
-               height: 40px
+               height: 100% #40px
                bg_opa: transp
                border_opa: transp
                layout:
