@@ -42,8 +42,8 @@
                   flex_flow: row
                   flex_align_cross: center
                   flex_align_track: center
-                pad_top: -10px
-                pad_bottom: -10px
+                pad_top: 0 #-10px
+                pad_bottom: 0 #-10px
                 align: center
                 widgets:
                   - image:
@@ -64,8 +64,8 @@
                   flex_flow: row
                   flex_align_cross: space_around
                   flex_align_track: space_around
-                pad_top: -30px
-                pad_bottom: -30px
+                pad_top: 0 #-30px
+                pad_bottom: 0 #-30px
                 widgets:
                   - obj:
                       width: 24%
