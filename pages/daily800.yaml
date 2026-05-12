@@ -52,6 +52,7 @@
                       widgets:
                         - image:
                            id: img_day0_code
+                           src: missing
                            width: 110px
                            height: 110px
                         - label:
