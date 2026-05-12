@@ -186,9 +186,11 @@ lvgl:
 #    - id: home_page
 #      widgets: !include pages/home.yaml
     - id: daily_page
-      widgets: !include pages/daily800.yaml
+      #widgets: !include pages/daily800.yaml
+      widgets: !include_empty 
     - id: hourly_page
-      widgets: !include pages/hourly.yaml
+      #widgets: !include pages/hourly.yaml
+      widgets: !include_empty 
 
 # -----------------------------
 # REQUIRED DUMMY SWITCH
@@ -211,5 +213,7 @@ packages:
       - data/mappings.yaml
       - data/text_sensors.yaml
       - data/times.yaml
+      - pages/daily800.yaml
+      - pages/hourly.yaml
 #    entity_id: switch.any_id
 #    internal: true
