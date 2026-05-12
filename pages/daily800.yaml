@@ -29,7 +29,7 @@
             flex_align_track: center
           widgets:
             - obj:
-                width: 50%
+                width: 45%
                 height: 40px
                 bg_opa: transp
                 border_opa: transp
@@ -50,23 +50,23 @@
                       text_font: lg
                       text_color: white
             - obj:
-                width: 50%
-                height: 40px
-                bg_opa: transp
-                border_opa: transp
-                layout:
-                  type: flex
-                  flex_flow: column
-                  flex_align_cross: center
-                  flex_align_track: center
-                pad_top: 0 #-10px
-                pad_bottom: 0 #-10px
-                align: center
-                widgets:
-                  - label:
-                      id: lbl_datetime
-                      text_font: xlg
-                      text_color: white
+               width: 45%
+               height: 40px
+               bg_opa: transp
+               border_opa: transp
+               layout:
+                 type: flex
+                 flex_flow: column
+                 flex_align_cross: center
+                 flex_align_track: center
+               pad_top: 0 #-10px
+               pad_bottom: 0 #-10px
+               align: center
+               widgets:
+                 - label:
+                     id: lbl_datetime
+                     text_font: xlg
+                     text_color: white
 
             - obj:
                 width: 100%
