@@ -183,10 +183,10 @@ lvgl:
     - touchscreen_id: my_touch
 
   pages:
-    - id: home_page
-      widgets: !include pages/home.yaml
+#    - id: home_page
+#      widgets: !include pages/home.yaml
     - id: daily_page
-      widgets: !include pages/daily.yaml
+      widgets: !include pages/daily800.yaml
     - id: hourly_page
       widgets: !include pages/hourly.yaml
 
