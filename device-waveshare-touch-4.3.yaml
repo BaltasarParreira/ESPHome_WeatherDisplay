@@ -48,8 +48,8 @@ logger:
     display: DEBUG
     app: DEBUG
 
-api:
-ota:
+#api:
+#ota:
 
 time:
   - platform: sntp
