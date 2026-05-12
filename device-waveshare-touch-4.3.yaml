@@ -203,6 +203,8 @@ lvgl:
 switch:
   - platform: homeassistant
     id: any_id
+    entity_id: switch.any_id
+    internal: true
 
 packages:
   - !include data/fonts.yaml
