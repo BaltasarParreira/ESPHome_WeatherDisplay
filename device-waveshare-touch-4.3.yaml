@@ -201,7 +201,7 @@ switch:
 
 packages:
   - !include data/fonts.yaml
-  - !include data/images.yaml
+  - !include data/images800.yaml
   - !include data/mappings.yaml
   - !include data/text_sensors.yaml
   - !include data/times.yaml
