@@ -55,7 +55,9 @@
                         type: flex
                         flex_flow: column
                         flex_align_cross: center
-                        flex_align_track: center
+                        #flex_align_track: center
+                        flex_align_main: center
+                        pad_row: 5
                       scrollbar_mode: "OFF"
                       widgets:
                     
