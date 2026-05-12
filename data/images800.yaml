@@ -92,6 +92,7 @@ image:
       transparency: alpha_channel
     - file: "img/bg1_800.png"
       id: bg_img
+      resize: 800x480 
 #    - file: "img/home_ico.png"
 #      id: home_img
 #      transparency: alpha_channel
