@@ -34,9 +34,9 @@
           widgets:
             - obj:
                 width: 100%
-                height: 120px
+                height: 120
                 bg_opa: transp
-                border_opa: transp
+                border_opa: cover
                 layout:
                   type: flex
                   flex_flow: row
@@ -46,7 +46,6 @@
                 pad_bottom: 0px
                 align: center
                 widgets:
-                
                   - obj:
                       width: 50%
                       bg_opa: transp
@@ -57,10 +56,9 @@
                         flex_align_cross: center
                         #flex_align_track: center
                         flex_align_main: center
-                        pad_row: 5
+                        pad_row: 0
                       scrollbar_mode: "OFF"
                       widgets:
-                    
                         - image:
                            id: img_day0_code
                            src: missing
@@ -68,7 +66,6 @@
                            id: lbl_day0_cond
                            text_font: lg
                            text_color: white
-
                   - obj:
                       width: 50%
                       bg_opa: transp
@@ -80,7 +77,6 @@
                         flex_align_track: center
                       scrollbar_mode: "OFF"
                       widgets:
-
                         - label:
                            id: lbl_datetime
                            text_font: xlg
