@@ -36,7 +36,7 @@
                 width: 500px
                 height: 40px
                 bg_opa: transp
-                border_opa: cover
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: row
@@ -56,9 +56,9 @@
 
             - obj:
                 width: 100%
-                height: 140px
+                height: 130px
                 bg_opa: transp
-                border_opa: cover
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: row
