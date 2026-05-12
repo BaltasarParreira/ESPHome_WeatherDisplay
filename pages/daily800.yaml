@@ -32,11 +32,12 @@
                 id: lbl_datetime
                 text_font: xlg
                 text_color: white
+                border_opa: cover
             - obj:
                 width: 500px
                 height: 50px
                 bg_opa: transp
-                border_opa: cover
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: row
