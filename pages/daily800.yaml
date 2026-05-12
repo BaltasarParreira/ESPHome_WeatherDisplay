@@ -28,10 +28,6 @@
             flex_align_cross: center
             flex_align_track: center
           widgets:
-            - label:
-                id: lbl_datetime
-                text_font: xlg
-                text_color: white
             - obj:
                 width: 500px
                 height: 50px
@@ -46,13 +42,44 @@
                 pad_bottom: -30px
                 align: center
                 widgets:
-                  - image:
-                      id: img_day0_code
-                      src: missing
-                  - label:
-                      id: lbl_day0_cond
-                      text_font: lg
-                      text_color: white
+                
+                  - obj:
+                      width: 50%
+                      bg_opa: transp
+                      border_opa: transp
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        flex_align_track: center
+                      scrollbar_mode: "OFF"
+                      widgets:
+                    
+                        - image:
+                           id: img_day0_code
+                           src: missing
+                        - label:
+                           id: lbl_day0_cond
+                           text_font: lg
+                           text_color: white
+
+                  - obj:
+                      width: 50%
+                      bg_opa: transp
+                      border_opa: transp
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        flex_align_track: center
+                      scrollbar_mode: "OFF"
+                      widgets:
+
+                        - label:
+                           id: lbl_datetime
+                           text_font: xlg
+                           text_color: white
+
 
             - obj:
                 width: 100%
