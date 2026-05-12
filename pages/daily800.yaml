@@ -32,7 +32,6 @@
                 id: lbl_datetime
                 text_font: xlg
                 text_color: white
-                border_opa: cover
             - obj:
                 width: 500px
                 height: 50px
