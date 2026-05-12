@@ -49,7 +49,10 @@ logger:
     app: DEBUG
 
 api:
+
 #ota:
+
+json:
 
 time:
   - platform: sntp
