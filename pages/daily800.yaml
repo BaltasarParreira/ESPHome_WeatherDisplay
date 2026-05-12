@@ -65,6 +65,8 @@
                         - image:
                            id: img_day0_code
                            src: missing
+                           width: 80px   
+                           height: 80px
                         - label:
                            id: lbl_day0_cond
                            text_font: lg
