@@ -204,5 +204,5 @@ packages:
   - !include data/fonts.yaml
   - !include data/images800.yaml
   - !include data/mappings.yaml
-  - !include data/text_sensors.yaml
+  - !include data/text_sensors800.yaml
   - !include data/times800.yaml
