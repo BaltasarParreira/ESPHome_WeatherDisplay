@@ -28,8 +28,8 @@
             flex_align_main: start     # Aligns rows to the top
             flex_align_cross: center   # Centers rows horizontally
             #flex_align_track: center
-          pad_row: 0       # Space between stacked rows
-          pad_column: 0    # Space between side-by-side columns (if any)
+            pad_row: 0       # Space between stacked rows
+            pad_column: 0    # Space between side-by-side columns (if any)
           align: top_mid
           widgets:
             - obj:
