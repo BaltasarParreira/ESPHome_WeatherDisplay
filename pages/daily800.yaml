@@ -68,25 +68,25 @@
                      text_font: xlg
                      text_color: white
 
-      - obj:
-            width: 100%
-            height: 130px
-            bg_opa: transp
-            border_opa: transp
-            layout:
-              type: flex
-              flex_flow: row
-              flex_align_cross: space_around
-              flex_align_track: space_around
-            pad_top: 0 #-30px
-            pad_bottom: 0 #-30px
-            widgets:
-              - obj:
-                  width: 24%
-                  bg_opa: transp
-                  border_opa: transp
-                  layout:
-                    type: flex
+            - obj:
+               width: 100%
+               height: 130px
+               bg_opa: transp
+               border_opa: transp
+               layout:
+               type: flex
+               flex_flow: row
+               flex_align_cross: space_around
+                 flex_align_track: space_around
+               pad_top: 0 #-30px
+               pad_bottom: 0 #-30px
+               widgets:
+                 - obj:
+                    width: 24%
+                    bg_opa: transp
+                    border_opa: transp
+                    layout:
+                     type: flex
                     flex_flow: column
                     flex_align_cross: center
                     flex_align_track: center
@@ -224,21 +224,21 @@
                 text_color: white
 
 
-      # WEEKLY FORECAST
-      - obj:
-          width: 195
-          height: 400
-          bg_color: black
-          bg_opa: 70%
-          border_opa: transp
-          radius: 15px
-          layout:
+            # WEEKLY FORECAST
+            - obj:
+            width: 195
+            height: 400
+            bg_color: black
+            bg_opa: 70%
+            border_opa: transp
+            radius: 15px
+            layout:
             type: flex
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
-          scrollbar_mode: "OFF"
-          widgets:
+            scrollbar_mode: "OFF"
+            widgets:
             - label:
                 id: lbl_day1_time
                 text_font: xlg
@@ -291,20 +291,20 @@
                 text_color: white
                 pad_top: -10px
 
-      - obj:
-          width: 195
-          height: 400
-          bg_color: black
-          bg_opa: 70%
-          border_opa: transp
-          radius: 15px
-          layout:
+            - obj:
+            width: 195
+            height: 400
+            bg_color: black
+            bg_opa: 70%
+            border_opa: transp
+            radius: 15px
+            layout:
             type: flex
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
-          scrollbar_mode: "OFF"
-          widgets:
+            scrollbar_mode: "OFF"
+            widgets:
             - label:
                 id: lbl_day2_time
                 text_font: xlg
@@ -357,20 +357,20 @@
                 text_color: white
                 pad_top: -10px
 
-      - obj:
-          width: 195
-          height: 400
-          bg_color: black
-          bg_opa: 70%
-          border_opa: transp
-          radius: 15px
-          layout:
+            - obj:
+            width: 195
+            height: 400
+            bg_color: black
+            bg_opa: 70%
+            border_opa: transp
+            radius: 15px
+            layout:
             type: flex
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
-          scrollbar_mode: "OFF"
-          widgets:
+            scrollbar_mode: "OFF"
+            widgets:
             - label:
                 id: lbl_day3_time
                 text_font: xlg
@@ -423,20 +423,20 @@
                 text_color: white
                 pad_top: -10px
 
-      - obj:
-          width: 195
-          height: 400
-          bg_color: black
-          bg_opa: 70%
-          border_opa: transp
-          radius: 15px
-          layout:
+            - obj:
+            width: 195
+            height: 400
+            bg_color: black
+            bg_opa: 70%
+            border_opa: transp
+            radius: 15px
+            layout:
             type: flex
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
-          scrollbar_mode: "OFF"
-          widgets:
+            scrollbar_mode: "OFF"
+            widgets:
             - label:
                 id: lbl_day4_time
                 text_font: xlg
@@ -489,20 +489,20 @@
                 text_color: white
                 pad_top: -10px
 
-      - obj:
-          width: 195
-          height: 400
-          bg_color: black
-          bg_opa: 70%
-          border_opa: transp
-          radius: 15px
-          layout:
+            - obj:
+            width: 195
+            height: 400
+            bg_color: black
+            bg_opa: 70%
+            border_opa: transp
+            radius: 15px
+            layout:
             type: flex
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
-          scrollbar_mode: "OFF"
-          widgets:
+            scrollbar_mode: "OFF"
+            widgets:
             - label:
                 id: lbl_day5_time
                 text_font: xlg
@@ -555,20 +555,20 @@
                 text_color: white
                 pad_top: -10px
 
-      - obj:
-          width: 195
-          height: 400
-          bg_color: black
-          bg_opa: 70%
-          border_opa: transp
-          radius: 15px
-          layout:
+            - obj:
+            width: 195
+            height: 400
+            bg_color: black
+            bg_opa: 70%
+            border_opa: transp
+            radius: 15px
+            layout:
             type: flex
             flex_flow: column_wrap
             flex_align_cross: center
             flex_align_track: center
-          scrollbar_mode: "OFF"
-          widgets:
+            scrollbar_mode: "OFF"
+            widgets:
             - label:
                 id: lbl_day6_time
                 text_font: xlg
