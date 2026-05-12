@@ -17,9 +17,9 @@
       # CURRENT WEATHER
       - obj:
           width: 100%
-          height: 350
+          height: 300
           bg_color: black
-          bg_opa: 50%
+          bg_opa: 40%
           border_opa: transp
           radius: 15px
           layout:
@@ -42,8 +42,8 @@
                   flex_flow: row
                   flex_align_cross: center
                   flex_align_track: center
-                pad_top: -20px
-                pad_bottom: -20px
+                pad_top: -10px
+                pad_bottom: -10px
                 align: center
                 widgets:
                   - image:
