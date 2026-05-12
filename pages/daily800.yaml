@@ -24,7 +24,7 @@
           radius: 15px
           layout:
             type: flex
-            flex_flow: column          # Changed from row to column to stack rows
+            flex_flow: row          # Changed from row to column to stack rows
             flex_align_main: start     # Aligns rows to the top
             flex_align_cross: center   # Centers rows horizontally
             #flex_align_track: center
@@ -32,16 +32,16 @@
           widgets:
             - obj:
                 width: 100%
-                height: 80px
+                height: 100px
                 bg_opa: transp
-                border_opa: cover
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: row
                   flex_align_cross: center
                   flex_align_track: center
-                pad_top: -30px
-                pad_bottom: -30px
+                pad_top: 5px # -30px
+                pad_bottom: 5px # -30px
                 align: center
                 widgets:
                 
