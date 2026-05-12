@@ -36,7 +36,7 @@
                 width: 100%
                 height: 120
                 bg_opa: transp
-                border_opa: cover
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: row
@@ -50,6 +50,9 @@
                       width: 50%
                       bg_opa: transp
                       border_opa: transp
+                      border_width: 0       # Forces the border size to zero
+                      outline_width: 0      # Removes the focus/outer outline
+                      shadow_width: 0       # Removes the default bottom/left drop shadow
                       layout:
                         type: flex
                         flex_flow: column
@@ -66,15 +69,21 @@
                            id: lbl_day0_cond
                            text_font: lg
                            text_color: white
+                           pad_top: -10px
                   - obj:
                       width: 50%
                       bg_opa: transp
                       border_opa: transp
+                      border_width: 0       # Forces the border size to zero
+                      outline_width: 0      # Removes the focus/outer outline
+                      shadow_width: 0       # Removes the default bottom/left drop shadow
                       layout:
                         type: flex
                         flex_flow: column
                         flex_align_cross: center
-                        flex_align_track: center
+                        #flex_align_track: center
+                        flex_align_main: center
+                        pad_row: 0
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
