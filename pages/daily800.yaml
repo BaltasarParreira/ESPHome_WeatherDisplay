@@ -27,12 +27,13 @@
             flex_flow: row          # Changed from row to column to stack rows
             flex_align_main: start     # Aligns rows to the top
             flex_align_cross: center   # Centers rows horizontally
+            flex_gap: 0px 
             #flex_align_track: center
           align: top_mid
           widgets:
             - obj:
                 width: 100%
-                height: 100px
+                height: 110px
                 bg_opa: transp
                 border_opa: transp
                 layout:
@@ -40,8 +41,8 @@
                   flex_flow: row
                   flex_align_cross: center
                   flex_align_track: center
-                pad_top: 5px # -30px
-                pad_bottom: 5px # -30px
+                pad_top: 0px
+                pad_bottom: 0px
                 align: center
                 widgets:
                 
@@ -93,8 +94,8 @@
                   flex_flow: row
                   flex_align_cross: space_around
                   flex_align_track: space_around
-                pad_top: -30px
-                pad_bottom: -30px
+                pad_top: 0px
+                pad_bottom: 0px
                 widgets:
                   - obj:
                       width: 24%
