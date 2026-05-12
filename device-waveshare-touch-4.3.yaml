@@ -186,11 +186,9 @@ lvgl:
 #    - id: home_page
 #      widgets: !include pages/home.yaml
     - id: daily_page
-      #widgets: !include pages/daily800.yaml
-      widgets: !include_empty 
+      widgets: !include pages/daily800.yaml
     - id: hourly_page
-      #widgets: !include pages/hourly.yaml
-      widgets: !include_empty 
+      widgets: !include pages/hourly.yaml
 
 # -----------------------------
 # REQUIRED DUMMY SWITCH
@@ -202,18 +200,8 @@ switch:
     internal: true
 
 packages:
-  # Pulling all your files from a central repository
-  my_remote_data:
-    url: https://github.com/BaltasarParreira/ESPHome_WeatherDisplay
-    ref: master            # Optional: defaults to the main branch
-    refresh: 1s          # Optional: how often to check for updates
-    files:
-      - data/fonts.yaml
-      - data/images800.yaml
-      - data/mappings.yaml
-      - data/text_sensors.yaml
-      - data/times.yaml
-      - pages/daily800.yaml
-      - pages/hourly.yaml
-#    entity_id: switch.any_id
-#    internal: true
+  - !include data/fonts.yaml
+  - !include data/images800.yaml
+  - !include data/mappings.yaml
+  - !include data/text_sensors.yaml
+  - !include data/times.yaml
