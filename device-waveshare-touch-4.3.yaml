@@ -50,7 +50,8 @@ logger:
 
 api:
 
-#ota:
+ota:
+  platform: esphome
 
 json:
 
