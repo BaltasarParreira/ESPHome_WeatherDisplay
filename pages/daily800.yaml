@@ -287,7 +287,15 @@
 
             # INSIDE
             - label:
-                id: lbl_inside_temp
+                id: lbl_l_inside_temp
+                align: right_mid
+                text_font: lg
+                text_color: white
+                pad_top: 0
+                pad_bottom: 0
+                
+            - label:
+                id: lbl_w_inside_temp
                 align: right_mid
                 text_font: lg
                 text_color: white
