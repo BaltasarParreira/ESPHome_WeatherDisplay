@@ -60,8 +60,8 @@
 
                   # LEFT SIDE
                   - obj:
-                      #styles: clean_box
-                      width: 50%
+                      styles: clean_box
+                      width: 48%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -89,8 +89,8 @@
 
                   # RIGHT SIDE
                   - obj:
-                      #styles: clean_box
-                      width: 50%
+                      styles: clean_box
+                      width: 48%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -283,4 +283,3 @@
                 text_color: white
                 pad_top: 0
                 pad_bottom: 0
-
