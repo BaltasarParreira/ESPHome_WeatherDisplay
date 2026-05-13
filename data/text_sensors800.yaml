@@ -84,7 +84,7 @@ text_sensor:
             id: lbl_l_inside_temp
             text:
               format: "Near shelf: %.1f °C"
-              args: [ 'x.c_str()' ]
+              args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
     id: ha_w_room_temperature
@@ -96,7 +96,7 @@ text_sensor:
             id: lbl_w_inside_temp
             text:
               format: "Near window: %.1f °C"
-              args: [ 'x.c_str()' ]
+              args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
     id: ha_outside_temperature
@@ -108,7 +108,7 @@ text_sensor:
             id: lbl_outside_temp
             text:
               format: "Outside: %.1f °C"
-              args: [ 'x.c_str()' ]
+              args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
     id: ha_inside_humidity
@@ -120,7 +120,7 @@ text_sensor:
             id: lbl_inside_hum
             text:
               format: "Inside: %.2f %"
-              args: [ 'x.c_str()' ]
+              args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
     id: ha_outside_humidity
@@ -132,4 +132,4 @@ text_sensor:
             id: lbl_outside_hum
             text:
               format: "Outside: %.2f %"
-              args: [ 'x.c_str()' ]
+              args: [ 'atof(x.c_str())' ]
