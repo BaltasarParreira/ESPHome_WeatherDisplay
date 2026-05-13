@@ -16,12 +16,12 @@ esphome:
 #      - "-DBOARD_HAS_PSRAM"
   min_version: "2025.8.0"   # --> Bal
   on_boot:
-  priority: 800.0  # Runs early during framework hardware initialization
-  then:
-    - lambda: |-
-        setenv("TZ", "WET0WEST-1,M3.5.0/1,M10.5.0/2", 1);
-        tzset();
-        ESP_LOGI("main", "Forced POSIX Lisbon timezone onto ESP-IDF backend");
+    priority: 800.0  # Runs early during framework hardware initialization
+    then:
+      - lambda: |-
+          setenv("TZ", "WET0WEST-1,M3.5.0/1,M10.5.0/2", 1);
+          tzset();
+          ESP_LOGI("main", "Forced POSIX Lisbon timezone onto ESP-IDF backend");
 
 
 esp32:
