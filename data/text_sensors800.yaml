@@ -72,7 +72,7 @@ text_sensor:
 
               return true;
             });
-			
+
 
   - platform: homeassistant
     id: ha_room_temperature
@@ -85,7 +85,7 @@ text_sensor:
             text:
               format: "Near shelf temp: %s °C"
               args: [ 'x.c_str()' ]
-			  
+
   - platform: homeassistant
     id: ha_room_temperature
     entity_id: sensor.mynspanel_temperature
@@ -97,7 +97,7 @@ text_sensor:
             text:
               format: "Near window temp: %s °C"
               args: [ 'x.c_str()' ]
-			  
+
   - platform: homeassistant
     id: ha_room_temperature
     entity_id: sensor.indoor_outdoor_meter_3e5e_temperature
