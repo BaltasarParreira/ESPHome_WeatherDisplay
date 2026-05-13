@@ -189,6 +189,8 @@ lvgl:
 #  byte_order: little_endian
 #  color_depth: 16
 #  color_format: RGB565
+  offset_x: 1
+  offset_y: 0
   buffer_size: 14%
   touchscreens:
     - touchscreen_id: my_touch
