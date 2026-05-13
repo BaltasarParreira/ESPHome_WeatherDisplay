@@ -100,7 +100,7 @@
                         type: flex
                         flex_flow: column
                         flex_align_cross: center
-                        flex_align_main: center
+                        flex_align_main: right
                         pad_row: 0
                         pad_column: 0
                       scrollbar_mode: "OFF"
