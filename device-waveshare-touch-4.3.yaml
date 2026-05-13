@@ -176,6 +176,16 @@ display:
 # -----------------------------
 lvgl:
   rotation: 0
+  style_definitions:
+    - id: clean_box
+      border_width: 0
+      outline_width: 0
+      shadow_width: 0
+      pad_all: 0
+      # Force removal of residual lines
+      border_opa: 0%
+      outline_opa: 0%
+      shadow_opa: 0%
 #  byte_order: little_endian
 #  color_depth: 16
 #  color_format: RGB565
