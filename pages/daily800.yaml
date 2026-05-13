@@ -131,7 +131,7 @@
                 pad_bottom: 0
                 widgets:
                   - obj:
-                      width: 24%
+                      width: 25%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -167,7 +167,7 @@
                             pad_top: -15px
                             pad_bottom: -15px
                   - obj:
-                      width: 24%
+                      width: 25%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -203,7 +203,7 @@
                             pad_top: -15px
                             pad_bottom: -15px
                   - obj:
-                      width: 24%
+                      width: 25%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -239,7 +239,7 @@
                             pad_top: -15px
                             pad_bottom: -15px
                   - obj:
-                      width: 24%
+                      width: 25%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
