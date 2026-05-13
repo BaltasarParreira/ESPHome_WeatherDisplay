@@ -60,7 +60,7 @@
 
                   # LEFT SIDE
                   - obj:
-                      styles: clean_box
+                      #styles: clean_box
                       width: 50%
                       bg_opa: transp
                       border_opa: transp
@@ -89,7 +89,7 @@
 
                   # RIGHT SIDE
                   - obj:
-                      styles: clean_box
+                      #styles: clean_box
                       width: 50%
                       bg_opa: transp
                       border_opa: transp
@@ -109,13 +109,6 @@
                             id: lbl_datetime
                             text_font: xlg
                             text_color: white
-                      - obj:
-                          width: 1
-                          height: 100%
-                          bg_color: black
-                          bg_opa: 100%
-                          align: right_mid
-
 
             # SECOND ROW (METRICS)
             - obj:
