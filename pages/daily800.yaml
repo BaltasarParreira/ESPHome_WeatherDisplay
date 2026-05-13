@@ -40,7 +40,7 @@
 
             # TOP ROW
             - obj:
-                width: 720
+                width: 740
                 height: 120
                 bg_opa: transp
                 border_opa: transp
