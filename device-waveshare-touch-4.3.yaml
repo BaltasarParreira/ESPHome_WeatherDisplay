@@ -125,6 +125,7 @@ touchscreen:
             then:
               - lvgl.page.next:
             else:
+              - lvgl.page.show: daily_page
               - light.turn_on: lcd_backlight
 
 # -----------------------------
