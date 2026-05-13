@@ -83,7 +83,7 @@ text_sensor:
         - lvgl.label.update:
             id: lbl_l_inside_temp
             text:
-              format: "Near shelf: %s °C"
+              format: "Near shelf: %.1f °C"
               args: [ 'x.c_str()' ]
 
   - platform: homeassistant
@@ -95,7 +95,7 @@ text_sensor:
         - lvgl.label.update:
             id: lbl_w_inside_temp
             text:
-              format: "Near window: %s °C"
+              format: "Near window: %.1f °C"
               args: [ 'x.c_str()' ]
 
   - platform: homeassistant
@@ -107,7 +107,7 @@ text_sensor:
         - lvgl.label.update:
             id: lbl_outside_temp
             text:
-              format: "Outside: %s °C"
+              format: "Outside: %.1f °C"
               args: [ 'x.c_str()' ]
 
   - platform: homeassistant
@@ -119,7 +119,7 @@ text_sensor:
         - lvgl.label.update:
             id: lbl_inside_hum
             text:
-              format: "Inside: %s %"
+              format: "Inside: %.2f %"
               args: [ 'x.c_str()' ]
 
   - platform: homeassistant
@@ -131,5 +131,5 @@ text_sensor:
         - lvgl.label.update:
             id: lbl_outside_hum
             text:
-              format: "Outside: %s %"
+              format: "Outside: %.2f %"
               args: [ 'x.c_str()' ]
