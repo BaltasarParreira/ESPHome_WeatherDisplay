@@ -75,14 +75,14 @@ time:
 output:
   - platform: ledc
     pin: GPIO6
-    id: backlight_pwm
+    id: backlight
     frequency: 20000Hz
 
 light:
   - platform: monochromatic
     id: lcd_backlight
-    name: "Backlight"
-    output: backlight_pwm
+    name: "backlight"
+    output: backlight
     restore_mode: ALWAYS_ON
 
 script:
