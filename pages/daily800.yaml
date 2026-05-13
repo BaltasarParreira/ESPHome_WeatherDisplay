@@ -243,11 +243,11 @@
                             text_color: white
                             pad_top: -15px
                             pad_bottom: -15px
-            - label:
-                id: lbl_last_update
-                align: right_mid
-                text_font: xxsm
-                text_color: white
+#            - label:
+#                id: lbl_last_update
+#                align: right_mid
+#                text_font: xxsm
+#                text_color: white
 
 
       # WEEKLY FORECAST
@@ -329,6 +329,9 @@
 
             - obj:
                 width: 24%
+                bg_color: black
+                bg_opa: 70%
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: column    # Stack day, icon, temp vertically
@@ -388,6 +391,9 @@
 
             - obj:
                 width: 24%
+                bg_color: black
+                bg_opa: 70%
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: column    # Stack day, icon, temp vertically
@@ -447,6 +453,9 @@
 
             - obj:
                 width: 24%
+                bg_color: black
+                bg_opa: 70%
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: column    # Stack day, icon, temp vertically
