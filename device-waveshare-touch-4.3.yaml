@@ -58,6 +58,11 @@ json:
 time:
   - platform: sntp
     id: sntp_time
+    # 1. Provide the direct textual string to block default mappings
+    timezone: "Europe/Lisbon"
+    
+  - platform: choice
+    # 2. Force feed the POSIX parameters directly to the underlying ESP-IDF C compiler environment
     timezone: "WET0WEST-1,M3.5.0/1,M10.5.0/2"
 
 # -----------------------------
