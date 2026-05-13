@@ -7,9 +7,9 @@ time:
         then:
           - lvgl.label.update:
               id: lbl_datetime
-              text: !lambda return id(homeassistant_time).now().strftime("%H:%M\n%A, %B %e");
+              text: !lambda return id(sntp_time).state.strftime("%H:%M\n%A, %B %e");
     on_time_sync:
         then:
           - lvgl.label.update:
               id: lbl_datetime
-              text: !lambda return id(homeassistant_time).now().strftime("%H:%M\n%A, %B %e");
+              text: !lambda return id(sntp_time).state.strftime("%H:%M\n%A, %B %e");
