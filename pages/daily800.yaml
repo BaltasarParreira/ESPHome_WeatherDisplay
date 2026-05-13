@@ -252,7 +252,7 @@
 
       # WEEKLY FORECAST
       - obj:
-          width: 98%          # Use the full 800px width
+          width: 100%          # Use the full 800px width
           height: 120px       # Short height for a single row of icons
           bg_color: black
           bg_opa: 70%
@@ -266,7 +266,10 @@
           scrollbar_mode: "OFF"
           widgets:
             - obj:
-                width: 22%
+                width: 24%
+                bg_color: black
+                bg_opa: 70%
+                border_opa: transp
                 layout:
                   type: flex
                   flex_flow: column    # Stack day, icon, temp vertically
@@ -325,7 +328,7 @@
                         pad_top: -10px
 
             - obj:
-                width: 22%
+                width: 24%
                 layout:
                   type: flex
                   flex_flow: column    # Stack day, icon, temp vertically
@@ -384,7 +387,7 @@
                         pad_top: -10px
 
             - obj:
-                width: 22%
+                width: 24%
                 layout:
                   type: flex
                   flex_flow: column    # Stack day, icon, temp vertically
@@ -443,7 +446,7 @@
                         pad_top: -10px
 
             - obj:
-                width: 22%
+                width: 24%
                 layout:
                   type: flex
                   flex_flow: column    # Stack day, icon, temp vertically
