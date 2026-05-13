@@ -100,9 +100,10 @@
                         type: flex
                         flex_flow: column
                         flex_align_cross: center
-                        flex_align_main: right
+                        flex_align_main: center
                         pad_row: 0
                         pad_column: 0
+                      align: right_mid
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
