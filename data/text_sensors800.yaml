@@ -109,3 +109,27 @@ text_sensor:
             text:
               format: "Outside temp: %s °C"
               args: [ 'x.c_str()' ]
+
+  - platform: homeassistant
+    id: ha_inside_humidity
+    entity_id: sensor.rm4_mini_humidity
+    # Trigger a real-time redraw on the screen whenever the HA state updates
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lbl_inside_hum
+            text:
+              format: "Inside humidity: %s %"
+              args: [ 'x.c_str()' ]
+
+  - platform: homeassistant
+    id: ha_outside_humidity
+    entity_id: sensor.indoor_outdoor_meter_3e5e_humidity
+    # Trigger a real-time redraw on the screen whenever the HA state updates
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lbl_outside_hum
+            text:
+              format: "Outside humidity: %s %"
+              args: [ 'x.c_str()' ]
