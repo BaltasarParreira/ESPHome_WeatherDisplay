@@ -17,42 +17,86 @@
       # CURRENT WEATHER
       - obj:
           width: 100%
-          height: 350
+          height: 100% #350
           bg_color: black
-          bg_opa: 70%
+          bg_opa: 50%
           border_opa: transp
-          #radius: 15px
+          border_width: 0
+          shadow_width: 0
+          radius: 15px
           layout:
             type: flex
-            flex_flow: column
-            flex_align_cross: center
-            flex_align_track: center
+            flex_flow: column               # Changed from row to column to stack rows
+            flex_align_main: start     # Aligns rows to the top
+            flex_align_cross: center   # Centers rows horizontally
+            #flex_align_track: center
+            pad_row: 0       # Space between stacked rows
+            pad_column: 0    # Space between side-by-side columns (if any)
+          align: top_mid
           widgets:
-            - label:
-                id: lbl_datetime
-                text_font: xlg
-                text_color: white
             - obj:
-                width: 500px
-                height: 50px
+                width: 100%
+                height: 120
                 bg_opa: transp
                 border_opa: transp
+                border_width: 0
+                shadow_width: 0
                 layout:
                   type: flex
                   flex_flow: row
                   flex_align_cross: center
                   flex_align_track: center
-                pad_top: -30px
-                pad_bottom: -30px
+                pad_top: 0px
+                pad_bottom: 0px
                 align: center
                 widgets:
-                  - image:
-                      id: img_day0_code
-                      src: missing
-                  - label:
-                      id: lbl_day0_cond
-                      text_font: lg
-                      text_color: white
+                  - obj:
+                      styles: clean_box
+                      width: 50%
+                      bg_opa: transp
+                      border_opa: transp
+                      border_width: 0
+                      shadow_width: 0
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        #flex_align_track: center
+                        flex_align_main: center
+                        pad_row: 0
+                      scrollbar_mode: "OFF"
+                      widgets:
+                        - image:
+                           id: img_day0_code
+                           src: missing
+                           width: 80px   
+                           height: 80px
+                        - label:
+                           id: lbl_day0_cond
+                           text_font: lg
+                           text_color: white
+                           pad_top: -20px
+                  - obj:
+                      styles: clean_box
+                      width: 50%
+                      bg_opa: transp
+                      border_opa: transp
+                      border_width: 0
+                      shadow_width: 0
+                      layout:
+                        type: flex
+                        flex_flow: column
+                        flex_align_cross: center
+                        #flex_align_track: center
+                        flex_align_main: center
+                        pad_row: 0
+                      scrollbar_mode: "OFF"
+                      widgets:
+                        - label:
+                           id: lbl_datetime
+                           text_font: xlg
+                           text_color: white
+
 
             - obj:
                 width: 100%
@@ -64,13 +108,15 @@
                   flex_flow: row
                   flex_align_cross: space_around
                   flex_align_track: space_around
-                pad_top: -30px
-                pad_bottom: -30px
+                pad_top: 0px
+                pad_bottom: 0px
                 widgets:
                   - obj:
                       width: 24%
                       bg_opa: transp
                       border_opa: transp
+                      border_width: 0
+                      shadow_width: 0
                       layout:
                         type: flex
                         flex_flow: column
@@ -105,6 +151,8 @@
                       width: 24%
                       bg_opa: transp
                       border_opa: transp
+                      border_width: 0
+                      shadow_width: 0
                       layout:
                         type: flex
                         flex_flow: column
@@ -139,6 +187,8 @@
                       width: 24%
                       bg_opa: transp
                       border_opa: transp
+                      border_width: 0
+                      shadow_width: 0
                       layout:
                         type: flex
                         flex_flow: column
@@ -173,6 +223,8 @@
                       width: 24%
                       bg_opa: transp
                       border_opa: transp
+                      border_width: 0
+                      shadow_width: 0
                       layout:
                         type: flex
                         flex_flow: column
@@ -208,3 +260,5 @@
                 align: right_mid
                 text_font: xxsm
                 text_color: white
+
+
