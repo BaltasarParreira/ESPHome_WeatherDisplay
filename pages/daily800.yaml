@@ -296,10 +296,10 @@
             border_opa: transp
             radius: 15px
             layout:
-            type: flex
-            flex_flow: column_wrap
-            flex_align_cross: center
-            flex_align_track: center
+              type: flex
+              flex_flow: column_wrap
+              flex_align_cross: center
+              flex_align_track: center
             scrollbar_mode: "OFF"
             widgets:
               - label:
@@ -340,10 +340,10 @@
             border_opa: transp
             radius: 15px
             layout:
-            type: flex
-            flex_flow: column_wrap
-            flex_align_cross: center
-            flex_align_track: center
+              type: flex
+              flex_flow: column_wrap
+              flex_align_cross: center
+              flex_align_track: center
             scrollbar_mode: "OFF"
             widgets:
               - label:
