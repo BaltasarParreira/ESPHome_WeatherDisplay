@@ -109,6 +109,13 @@
                             id: lbl_datetime
                             text_font: xlg
                             text_color: white
+                    - obj:
+                        width: 1
+                        height: 100%
+                        bg_color: black
+                        bg_opa: 100%
+                        align: right_mid
+
 
             # SECOND ROW (METRICS)
             - obj:
@@ -284,9 +291,3 @@
                 pad_top: 0
                 pad_bottom: 0
 
-- obj:
-    width: 1
-    height: 100%
-    bg_color: black
-    bg_opa: 100%
-    align: right_mid
