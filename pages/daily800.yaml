@@ -61,7 +61,7 @@
                   # LEFT SIDE
                   - obj:
                       styles: clean_box
-                      width: 50%
+                      width: 400px 
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -79,8 +79,8 @@
                         - image:
                             id: img_day0_code
                             src: missing
-                            width: 80
-                            height: 80
+                            width: 120px
+                            height: 120px
                         - label:
                             id: lbl_day0_cond
                             text_font: lg
@@ -90,7 +90,7 @@
                   # RIGHT SIDE
                   - obj:
                       styles: clean_box
-                      width: 50%
+                      width: 400px 
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
