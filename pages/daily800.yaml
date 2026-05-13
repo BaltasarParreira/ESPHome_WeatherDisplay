@@ -39,76 +39,71 @@
           widgets:
 
             # TOP ROW
-            - obj:
-                width: 100%
-                height: 120
-                bg_opa: transp
-                border_opa: transp
-                border_width: 0
-                shadow_width: 0
-                radius: 0
-                layout:
-                  type: flex
-                  flex_flow: row
-                  flex_align_cross: center
-                  flex_align_track: center
-                  pad_row: 0
-                  pad_column: 0
-                pad_top: 0
-                pad_bottom: 0
-                widgets:
+- obj:
+    width: 100%
+    height: 140px        # increased to allow larger icon
+    bg_opa: transp
+    border_opa: transp
+    border_width: 0
+    shadow_width: 0
+    radius: 0
+    layout:
+      type: flex
+      flex_flow: row
+      flex_align_cross: center
+      pad_row: 0
+      pad_column: 0
+    widgets:
 
-                  # LEFT SIDE
-                  - obj:
-                      styles: clean_box
-                      width: 400px 
-                      bg_opa: transp
-                      border_opa: transp
-                      border_width: 0
-                      shadow_width: 0
-                      radius: 0
-                      layout:
-                        type: flex
-                        flex_flow: column
-                        flex_align_cross: center
-                        flex_align_main: center
-                        pad_row: 0
-                        pad_column: 0
-                      scrollbar_mode: "OFF"
-                      widgets:
-                        - image:
-                            id: img_day0_code
-                            src: missing
-                            width: 120px
-                            height: 120px
-                        - label:
-                            id: lbl_day0_cond
-                            text_font: lg
-                            text_color: white
-                            pad_top: -10   # was -20, reduced to avoid clipping line
+      # LEFT SIDE (ICON + CONDITION)
+      - obj:
+          width: 400px     # FIXED — prevents rounding gaps
+          height: 140px
+          bg_opa: transp
+          border_opa: transp
+          border_width: 0
+          shadow_width: 0
+          radius: 0
+          layout:
+            type: flex
+            flex_flow: column
+            flex_align_cross: center
+            flex_align_main: center
+            pad_row: 0
+            pad_column: 0
+          widgets:
+            - image:
+                id: img_day0_code
+                src: missing
+                width: 140px     # enlarged
+                height: 140px
+            - label:
+                id: lbl_day0_cond
+                text_font: lg
+                text_color: white
+                pad_top: -10
 
-                  # RIGHT SIDE
-                  - obj:
-                      styles: clean_box
-                      width: 400px 
-                      bg_opa: transp
-                      border_opa: transp
-                      border_width: 0
-                      shadow_width: 0
-                      radius: 0
-                      layout:
-                        type: flex
-                        flex_flow: column
-                        flex_align_cross: center
-                        flex_align_main: center
-                        pad_row: 0
-                        pad_column: 0
-                      scrollbar_mode: "OFF"
-                      widgets:
-                        - label:
-                            id: lbl_datetime
-                            text_font: xlg
-                            text_color: white
+      # RIGHT SIDE (DATE/TIME)
+      - obj:
+          width: 400px     # FIXED — prevents rounding gaps
+          height: 140px
+          bg_opa: transp
+          border_opa: transp
+          border_width: 0
+          shadow_width: 0
+          radius: 0
+          layout:
+            type: flex
+            flex_flow: column
+            flex_align_cross: center
+            flex_align_main: center
+            pad_row: 0
+            pad_column: 0
+          widgets:
+            - label:
+                id: lbl_datetime
+                text_font: xlg
+                text_color: white
 
             # SECOND ROW (METRICS)
             - obj:
