@@ -284,3 +284,21 @@
                 text_color: white
                 pad_top: 0
                 pad_bottom: 0
+
+            # INSIDE
+            - label:
+                id: lbl_inside_temp
+                align: right_mid
+                text_font: lg
+                text_color: white
+                pad_top: 0
+                pad_bottom: 0
+
+            # OUTSIDE
+            - label:
+                id: lbl_outside_temp
+                align: right_mid
+                text_font: lg
+                text_color: white
+                pad_top: 0
+                pad_bottom: 0
