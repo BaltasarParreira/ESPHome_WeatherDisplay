@@ -127,8 +127,10 @@ display:
     id: tft_display
     update_interval: never
     auto_clear_enabled: false
+    show_test_card: false
     color_order: RGB
-    pclk_frequency: 16MHZ
+    pclk_frequency: 33MHz # 16MHZ
+    pclk_inverted: false
     dimensions:
       width: 800
       height: 480
@@ -144,12 +146,18 @@ display:
     reset_pin:
       ch422g: ch422g_hub
       number: 3
-    hsync_back_porch: 30
-    hsync_front_porch: 210
-    hsync_pulse_width: 30
-    vsync_back_porch: 4
-    vsync_front_porch: 4
-    vsync_pulse_width: 4
+    #hsync_back_porch: 30
+    #hsync_front_porch: 210
+    #hsync_pulse_width: 30
+    #vsync_back_porch: 4
+    #vsync_front_porch: 4
+    #vsync_pulse_width: 4
+    hsync_pulse_width: 48
+    hsync_back_porch: 40
+    hsync_front_porch: 40
+    vsync_pulse_width: 3
+    vsync_back_porch: 29
+    vsync_front_porch: 13
     data_pins:
       red:
         - 1         #r3
