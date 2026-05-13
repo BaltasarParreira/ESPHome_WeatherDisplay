@@ -58,7 +58,7 @@ json:
 time:
   - platform: sntp
     id: sntp_time
-    timezone: "WET0WEST,M3.5.0/1,M10.5.0/2"
+    timezone: "WET0WEST-1,M3.5.0/1,M10.5.0/2"
 
 # -----------------------------
 # BACKLIGHT (correct pin for Waveshare 4.3")
