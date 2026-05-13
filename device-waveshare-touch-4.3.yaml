@@ -74,7 +74,7 @@ time:
 # -----------------------------
 output:
   - platform: ledc
-    pin: GPIO16
+    pin: GPIO6
     id: backlight_pwm
     frequency: 20000Hz
 
