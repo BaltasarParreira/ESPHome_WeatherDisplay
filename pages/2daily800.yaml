@@ -13,7 +13,7 @@
       flex_align_main: center
     scrollbar_mode: "OFF"
     widgets:
-	
+
      # WEEKLY FORECAST
       - obj:
           width: 155
