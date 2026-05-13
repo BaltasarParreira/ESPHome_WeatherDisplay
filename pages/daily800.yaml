@@ -21,7 +21,7 @@
       # CURRENT WEATHER
       - obj:
           width: 100%
-          height: 320
+          height: 280
           bg_color: black
           bg_opa: 50%
           border_opa: transp
@@ -289,7 +289,7 @@
       # THIRD ROW (INSIDE/OUTSIDE, TEMP/HUM)
       - obj:
           width: 100%
-          height: 160
+          height: 200
           bg_color: black
           bg_opa: 50%
           border_opa: transp
