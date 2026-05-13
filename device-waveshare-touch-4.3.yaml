@@ -15,6 +15,14 @@ esphome:
       - "-Wno-deprecated-declarations"
 #      - "-DBOARD_HAS_PSRAM"
   min_version: "2025.8.0"   # --> Bal
+  on_boot:
+  priority: 800.0  # Runs early during framework hardware initialization
+  then:
+    - lambda: |-
+        setenv("TZ", "WET0WEST-1,M3.5.0/1,M10.5.0/2", 1);
+        tzset();
+        ESP_LOGI("main", "Forced POSIX Lisbon timezone onto ESP-IDF backend");
+
 
 esp32:
   variant: esp32s3
@@ -58,12 +66,8 @@ json:
 time:
   - platform: sntp
     id: sntp_time
-    # 1. Provide the direct textual string to block default mappings
-    timezone: "Europe/Lisbon"
-    
-  - platform: choice
-    # 2. Force feed the POSIX parameters directly to the underlying ESP-IDF C compiler environment
-    timezone: "WET0WEST-1,M3.5.0/1,M10.5.0/2"
+    #timezone: "Europe/Lisbon"
+    #timezone: "WET0WEST-1,M3.5.0/1,M10.5.0/2"
 
 # -----------------------------
 # BACKLIGHT (correct pin for Waveshare 4.3")
