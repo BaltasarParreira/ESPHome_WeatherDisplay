@@ -24,7 +24,7 @@
           radius: 15px
           layout:
             type: flex
-            flex_flow: column_wrap
+            flex_flow: column
             flex_align_cross: center
             flex_align_track: center
           widgets:
