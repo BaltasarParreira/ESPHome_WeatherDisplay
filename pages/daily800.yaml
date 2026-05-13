@@ -24,6 +24,7 @@
           border_width: 0
           shadow_width: 0
           radius: 15px
+          clip_content: false
           layout:
             type: flex
             flex_flow: column               # Changed from row to column to stack rows
