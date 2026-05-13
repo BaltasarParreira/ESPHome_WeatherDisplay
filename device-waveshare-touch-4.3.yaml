@@ -127,10 +127,8 @@ display:
     id: tft_display
     update_interval: never
     auto_clear_enabled: false
-    show_test_card: false
     color_order: RGB
     pclk_frequency: 16MHZ
-    pclk_inverted: false
     dimensions:
       width: 800
       height: 480
