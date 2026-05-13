@@ -302,7 +302,6 @@
             flex_align_cross: center
             pad_row: 0
             pad_column: 0
-          align: top_mid
           widgets:
             # RIGHT SIDE
             - obj:
