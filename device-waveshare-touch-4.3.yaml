@@ -188,7 +188,7 @@ lvgl:
 #      widgets: !include pages/home.yaml
     - id: daily_page
       widgets: !include pages/daily800.yaml
-    - id: 2daily_page
+    - id: daily_page2
       widgets: !include pages/2daily800.yaml
     - id: hourly_page
       widgets: !include pages/hourly.yaml
