@@ -21,7 +21,7 @@
       # CURRENT WEATHER
       - obj:
           width: 100%
-          height: 270
+          height: 260
           bg_color: black
           bg_opa: 50%
           border_opa: transp
@@ -114,7 +114,7 @@
             # SECOND ROW (METRICS)
             - obj:
                 width: 100%
-                height: 150
+                height: 140
                 bg_opa: transp
                 border_opa: transp
                 border_width: 0
@@ -281,13 +281,13 @@
 
 
             # LAST UPDATE LABEL
-            - label:
-                id: lbl_last_update
-                align: right_mid
-                text_font: xxsm
-                text_color: white
-                pad_top: 0
-                pad_bottom: 0
+            #- label:
+            #    id: lbl_last_update
+            #    align: right_mid
+            #    text_font: xxsm
+            #    text_color: white
+            #    pad_top: 0
+            #    pad_bottom: 0
 
 
       # THIRD ROW (INSIDE/OUTSIDE, TEMP/HUM)
