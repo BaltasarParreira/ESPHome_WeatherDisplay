@@ -62,7 +62,7 @@
 
                   # LEFT SIDE
                   - obj:
-                      styles: clean_box
+                      #styles: clean_box
                       width: 50%
                       bg_opa: transp
                       border_opa: cover
@@ -92,7 +92,7 @@
 
                   # RIGHT SIDE
                   - obj:
-                      styles: clean_box
+                      #styles: clean_box
                       width: 50%
                       bg_opa: transp
                       border_opa: cover
