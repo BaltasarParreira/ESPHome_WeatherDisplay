@@ -336,15 +336,6 @@
                   - obj:
                       width: 100%
                       height: 30
-                      bg_color: black
-                      bg_opa: 50%
-                      border_opa: transp
-                      radius: 15px
-                      layout:
-                        type: flex
-                        flex_flow: column_wrap
-                        flex_align_cross: center
-                        flex_align_track: center
                       scrollbar_mode: "OFF"
                       pad_top: 6px
                       pad_bottom: 0
