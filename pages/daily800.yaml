@@ -375,7 +375,7 @@
                         - label:
                             id: lbl_outside_temp
                             width: 100%
-                            text_font: md
+                            text_font: mdb
                             text_color: cyan
                             text_align: center
 
@@ -437,7 +437,7 @@
                         - label:
                             id: lbl_w_inside_temp
                             width: 100%
-                            text_font: md
+                            text_font: mdb
                             text_color: white
                             text_align: center
 
@@ -499,7 +499,7 @@
                         - label:
                             id: lbl_l_inside_temp
                             width: 100%
-                            text_font: md
+                            text_font: mdb
                             text_color: yellow
                             text_align: center
 
@@ -561,7 +561,7 @@
                         - label:
                             id: lbl_outside_hum
                             width: 100%
-                            text_font: md
+                            text_font: mdb
                             text_color: cyan
                             text_align: center
 
@@ -623,6 +623,6 @@
                         - label:
                             id: lbl_inside_hum
                             width: 100%
-                            text_font: md
+                            text_font: mdb
                             text_color: yellow
                             text_align: center
