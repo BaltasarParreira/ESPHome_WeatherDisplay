@@ -64,7 +64,8 @@
                   - obj:
                       #styles: clean_box
                       width: 50%
-                      bg_opa: transp
+                      bg_color: 0x0000FF           # Bright Blue background for testing
+                      bg_opa: 30%                  # Semi-transparent blue block
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
@@ -96,7 +97,8 @@
                   - obj:
                       styles: clean_box
                       width: 50%
-                      bg_opa: transp
+                      bg_color: 0x0000FF           # Bright Blue background for testing
+                      bg_opa: 30%                  # Semi-transparent blue block
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
@@ -330,6 +332,7 @@
                       flex_align_track: center
                     scrollbar_mode: "OFF"
                     pad_top: 6px
+                    pad_bottom: 0
                     widgets:
                       - label:
                           align: center
@@ -376,6 +379,7 @@
                       flex_align_track: center
                     scrollbar_mode: "OFF"
                     pad_top: 6px
+                    pad_bottom: 0
                     widgets:
                       - label:
                           align: center
