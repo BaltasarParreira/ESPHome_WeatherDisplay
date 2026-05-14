@@ -64,9 +64,9 @@
                   - obj:
                       #styles: clean_box
                       width: 50%
-                      #bg_color: 0x0000FF           # Bright Blue background for testing
-                      #bg_opa: 30%                  # Semi-transparent blue block
-                      bg_opa: transp
+                      bg_color: 0x0000FF           # Bright Blue background for testing
+                      bg_opa: 30%                  # Semi-transparent blue block
+                      #bg_opa: transp
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
@@ -77,29 +77,33 @@
                         flex_flow: column
                         flex_align_cross: center
                         flex_align_main: center
-                        pad_row: 0
+                        pad_row: 2px
                         pad_column: 0
                       scrollbar_mode: "OFF"
                       widgets:
-                        - image:
-                            id: img_day0_code
-                            src: missing
-                            width: 80
-                            height: 80
-                            align: center
-                        - label:
-                            id: lbl_day0_cond
-                            text_font: lg
-                            text_color: white
-                            pad_top: -10
-                            text_align: center
+                          # Temporary placeholder box matching the image dimensions to stabilize the layout
+                          - obj:
+                              id: img_day0_code
+                              width: 80
+                              height: 80
+                              bg_opa: transp
+                              border_opa: transp
+                              align: center         # Hard locks widget anchor to center
+                          - label:
+                              id: lbl_day0_cond
+                              width: 100%
+                              text_font: lg
+                              text_color: white
+                              text_align: center    # Centers text inside bounding box
+                              align: center 
 
                   # RIGHT SIDE
                   - obj:
                       styles: clean_box
                       width: 50%
-                      bg_color: 0x0000FF           # Bright Blue background for testing
-                      bg_opa: 30%                  # Semi-transparent blue block
+                      #bg_color: 0x0000FF           # Bright Blue background for testing
+                      #bg_opa: 30%                  # Semi-transparent blue block
+                      bg_opa: transp
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
