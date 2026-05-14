@@ -15,6 +15,6 @@
     widgets:
       - label:
           id: clock_label
-          text_font: roboto_thin160_font
+          text_font: xxxl
           text_color: 0xFFFFFF
           text: "00:00"
