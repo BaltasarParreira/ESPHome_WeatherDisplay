@@ -117,7 +117,7 @@
                             text_font: xlg
                             text_color: white
                             text_align: center
-                            pad_top: 4px
+                            pad_top: 6px
 
             # SECOND ROW (METRICS)
             - obj:
