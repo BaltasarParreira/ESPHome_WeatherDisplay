@@ -380,7 +380,7 @@
                             width: SIZE_CONTENT
                             text_font: md
                             text_color: white
-                            text_align: left
+                            pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
 
