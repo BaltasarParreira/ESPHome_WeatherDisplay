@@ -1,7 +1,7 @@
 font:
   - file: ${font}
     id: xxxl
-    size: 160
+    size: 60
     bpp: 4
 
   - file: ${font}
