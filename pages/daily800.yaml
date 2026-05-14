@@ -344,7 +344,7 @@
                       widgets:
                       - label:
                           id: out_txt
-                          text_font: sd
+                          text_font: sm
                           text_color: white
                           text: "OUTSIDE"
                           align: center
