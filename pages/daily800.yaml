@@ -169,7 +169,7 @@
                             text_font: sm
                             text_color: white
                             pad_top: -15px
-                            pad_bottom: -15px
+                            pad_bottom: -10px
                   - obj:
                       width: 25%
                       bg_opa: transp
@@ -206,7 +206,7 @@
                             text_font: sm
                             text_color: white
                             pad_top: -15px
-                            pad_bottom: -15px
+                            pad_bottom: -10px
                   - obj:
                       width: 25%
                       bg_opa: transp
@@ -243,7 +243,7 @@
                             text_font: sm
                             text_color: white
                             pad_top: -15px
-                            pad_bottom: -15px
+                            pad_bottom: -10px
                   - obj:
                       width: 25%
                       bg_opa: transp
@@ -280,7 +280,7 @@
                             text_font: sm
                             text_color: white
                             pad_top: -15px
-                            pad_bottom: -15px
+                            pad_bottom: -10px
 
 
             # LAST UPDATE LABEL
@@ -329,7 +329,15 @@
                           align: center
                           text_font: xsm
                           text_color: white
-                          text: "TEMPERATURE"
+                          text: "TEMPERATURE SENSORS"
+                      # OUTSIDE
+                      - label:
+                          id: lbl_outside_temp
+                          align: left_mid
+                          text_font: xsm
+                          text_color: white
+                          pad_top: 0
+                          pad_bottom: 0
                       # INSIDE
                       - label:
                           id: lbl_l_inside_temp
@@ -345,14 +353,7 @@
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
-                      # OUTSIDE
-                      - label:
-                          id: lbl_outside_temp
-                          align: left_mid
-                          text_font: xsm
-                          text_color: white
-                          pad_top: 0
-                          pad_bottom: 10
+
 
               # RIGHT SIDE
               - obj:
@@ -373,18 +374,18 @@
                           align: center
                           text_font: xsm
                           text_color: white
-                          text: "HUMIDITY"
-                      # INSIDE
+                          text: "HUMIDITY SENSORS"
+                      # OUTSIDE
                       - label:
-                          id: lbl_inside_hum
+                          id: lbl_outside_hum
                           align: left_mid
                           text_font: xsm
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
-                      # OUTSIDE
+                      # INSIDE
                       - label:
-                          id: lbl_outside_hum
+                          id: lbl_inside_hum
                           align: left_mid
                           text_font: xsm
                           text_color: white
