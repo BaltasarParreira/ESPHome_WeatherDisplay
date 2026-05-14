@@ -362,64 +362,27 @@
                         flex_flow: row 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 0
+                        pad_row: 5px
                       scrollbar_mode: "OFF"
                       widgets:
-                          - obj:
-                              #styles: clean_box
-                              width: SIZE_CONTENT
-                              height: SIZE_CONTENT
-                              bg_opa: transp
-                              border_opa: transp
-                              border_width: 0
-                              shadow_width: 0
-                              radius: 0
-                              pad_all: 0
-                              layout:
-                                type: flex
-                                flex_flow: column
-                                flex_align_cross: center
-                                flex_align_main: center
-                                #pad_row: 2px
-                                #pad_column: 0
-                              scrollbar_mode: "OFF"
-                              widgets:
-                                - label:
-                                    id: out_temp_icon
-                                    text_font: icon_font
-                                    text_color: white
-                                    text: "\U000F10C3"
-                                    #align: center
-                                    #pad_top: -10px
-                                    #pad_bottom: -5px
-                                    width: SIZE_CONTENT
-                          - obj:
-                              #styles: clean_box
-                              width: SIZE_CONTENT
-                              height: SIZE_CONTENT
-                              bg_opa: transp
-                              border_opa: transp
-                              border_width: 0
-                              shadow_width: 0
-                              radius: 0
-                              pad_all: 0
-                              layout:
-                                type: flex
-                                flex_flow: column
-                                flex_align_cross: center
-                                flex_align_main: center
-                                #pad_row: 2px
-                                #pad_column: 0
-                              scrollbar_mode: "OFF"
-                              widgets:
-                                - label:
-                                    id: lbl_outside_temp
-                                    width: SIZE_CONTENT
-                                    text_font: md
-                                    text_color: white
-                                    text_align: center
-                                    #pad_top: -10px
-                                    #pad_bottom: -5px
+                        - label:
+                            id: out_temp_icon
+                            width: SIZE_CONTENT
+                            text_font: icon_font
+                            text_color: white
+                            text: "\U000F10C3"
+                            #align: center
+                            #pad_top: -10px
+                            #pad_bottom: -5px
+
+                        - label:
+                            id: lbl_outside_temp
+                            width: SIZE_CONTENT
+                            text_font: md
+                            text_color: white
+                            text_align: left
+                            #pad_top: -10px
+                            #pad_bottom: -5px
 
               - obj:
                   width: 140
