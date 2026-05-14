@@ -9,11 +9,11 @@ text_sensor:
             parse_json(x, [](JsonObject root) -> bool {
               if (root.isNull()) return false;
 
-              auto update_fmt = [&](lv_obj_t* obj, const char* key, const char* unit) {
-                if (root[key].is<const char*>()) {
-                  lv_label_set_text_fmt(obj, "%s%s", root[key].as<const char*>(), unit);
-                }
-              };
+              #auto update_fmt = [&](lv_obj_t* obj, const char* key, const char* unit) {
+              #  if (root[key].is<const char*>()) {
+              #    lv_label_set_text_fmt(obj, "%s%s", root[key].as<const char*>(), unit);
+              #  }
+              #};
 
               update_fmt(id(lbl_day0_curtemp), "cur_t", "°C");
               update_fmt(id(lbl_day0_curhum),  "cur_h", "%");
