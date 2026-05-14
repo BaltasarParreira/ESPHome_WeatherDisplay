@@ -154,7 +154,7 @@
                         - label:
                             id: lbl_day0_curtemp
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                         - label:
@@ -166,7 +166,7 @@
                         - label:
                             id: lbl_day0_curhum
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                             pad_bottom: -15px
@@ -191,7 +191,7 @@
                         - label:
                             id: lbl_day0_temp
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                         - label:
@@ -203,7 +203,7 @@
                         - label:
                             id: lbl_day0_pre
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                             pad_bottom: -15px
@@ -228,7 +228,7 @@
                         - label:
                             id: lbl_day0_wind
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                         - label:
@@ -240,7 +240,7 @@
                         - label:
                             id: lbl_day0_pres
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                             pad_bottom: -15px
@@ -265,7 +265,7 @@
                         - label:
                             id: lbl_day0_sunr
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                         - label:
@@ -277,7 +277,7 @@
                         - label:
                             id: lbl_day0_suns
                             align: center
-                            text_font: md
+                            text_font: sm
                             text_color: white
                             pad_top: -15px
                             pad_bottom: -15px
