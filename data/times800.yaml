@@ -9,6 +9,11 @@ time:
               id: lbl_datetime
               text: !lambda |-
                 auto t = id(sntp_time).now();
+                return t.strftime("%H:%M\n%A, %B %e");.
+          - lvgl.label.update:
+              id: clock_saver
+              text: !lambda |-
+                auto t = id(sntp_time).now();
                 return t.strftime("%H:%M\n%A, %B %e");
     on_time_sync:
         then:
@@ -17,3 +22,9 @@ time:
               text: !lambda |-
                 auto t = id(sntp_time).now();
                 return t.strftime("%H:%M\n%A, %B %e");
+          - lvgl.label.update:
+              id: clock_saver
+              text: !lambda |-
+                auto t = id(sntp_time).now();
+                return t.strftime("%H:%M\n%A, %B %e");
+
