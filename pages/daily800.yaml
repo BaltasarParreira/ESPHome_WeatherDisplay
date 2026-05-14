@@ -281,13 +281,14 @@
 
 
             # LAST UPDATE LABEL
-            #- label:
-            #    id: lbl_last_update
-            #    align: right_mid
-            #    text_font: xxsm
-            #    text_color: white
-            #    pad_top: 0
-            #    pad_bottom: 0
+            - label:
+                id: lbl_last_update
+                align: right_mid
+                text_font: xxsm
+                text_color: white
+                pad_top: 0
+                pad_bottom: 0
+                hidden: true
 
 
       # THIRD ROW (INSIDE/OUTSIDE, TEMP/HUM)
