@@ -84,6 +84,10 @@ light:
     name: "backlight"
     output: backlight
     restore_mode: ALWAYS_ON
+    # This block triggers every time HA or ESPHome turns the light on
+    on_turn_on:
+      then:
+        - script.execute: backlight_watchdog
 
 script:
   - id: backlight_watchdog
