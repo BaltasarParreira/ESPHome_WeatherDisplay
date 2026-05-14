@@ -378,6 +378,8 @@
                             text_font: mdb
                             text_color: cyan
                             text_align: center
+                            pad_all: 0
+                            margin_all: 0
 
               - obj:
                   width: 140
@@ -440,6 +442,8 @@
                             text_font: mdb
                             text_color: white
                             text_align: center
+                            pad_all: 0
+                            margin_all: 0
 
               - obj:
                   width: 140
@@ -502,6 +506,8 @@
                             text_font: mdb
                             text_color: yellow
                             text_align: center
+                            pad_all: 0
+                            margin_all: 0
 
               - obj:
                   width: 140
@@ -564,6 +570,8 @@
                             text_font: mdb
                             text_color: cyan
                             text_align: center
+                            pad_all: 0
+                            margin_all: 0
 
               - obj:
                   width: 140
@@ -626,3 +634,5 @@
                             text_font: mdb
                             text_color: yellow
                             text_align: center
+                            pad_all: 0
+                            margin_all: 0
