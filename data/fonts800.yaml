@@ -1,5 +1,10 @@
 font:
   - file: ${font}
+    id: xxxl
+    size: 160
+    bpp: 4
+
+  - file: ${font}
     id: xlg
     size: 38
     bpp: 4
