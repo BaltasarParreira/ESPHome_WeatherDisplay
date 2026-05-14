@@ -64,9 +64,7 @@
                   - obj:
                       #styles: clean_box
                       width: 50%
-                      bg_color: 0x0000FF           # Bright Blue background for testing
-                      bg_opa: 30%                  # Semi-transparent blue block
-                      #bg_opa: transp
+                      bg_opa: transp
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
@@ -98,8 +96,6 @@
                   - obj:
                       styles: clean_box
                       width: 50%
-                      #bg_color: 0x0000FF           # Bright Blue background for testing
-                      #bg_opa: 30%                  # Semi-transparent blue block
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -346,7 +342,7 @@
                           id: lbl_outside_temp
                           align: left_mid
                           text_font: xsmb
-                          text_color: white
+                          text_color: yellow
                           pad_top: 0
                           pad_bottom: 0
                       # INSIDE
@@ -354,14 +350,14 @@
                           id: lbl_l_inside_temp
                           align: left_mid
                           text_font: xsmb
-                          text_color: white
+                          text_color: cyan
                           pad_top: 0
                           pad_bottom: 0
                       - label:
                           id: lbl_w_inside_temp
                           align: left_mid
                           text_font: xsmb
-                          text_color: white
+                          text_color: cyan
                           pad_top: 0
                           pad_bottom: 0
 
@@ -393,7 +389,7 @@
                           id: lbl_outside_hum
                           align: left_mid
                           text_font: xsmb
-                          text_color: white
+                          text_color: yellow
                           pad_top: 0
                           pad_bottom: 0
                       # INSIDE
@@ -401,6 +397,6 @@
                           id: lbl_inside_hum
                           align: left_mid
                           text_font: xsmb
-                          text_color: white
+                          text_color: cyan
                           pad_top: 0
                           pad_bottom: 0
