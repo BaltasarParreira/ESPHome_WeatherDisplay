@@ -66,9 +66,9 @@ text_sensor:
                 }
               }
 
-              #if (root["updated"].is<const char*>()) {
-              #  lv_label_set_text_fmt(id(lbl_last_update), "Updated: %s", root["updated"].as<const char*>());
-              #}
+              if (root["updated"].is<const char*>()) {
+                lv_label_set_text_fmt(id(lbl_last_update), "Updated: %s", root["updated"].as<const char*>());
+              }
 
               return true;
             });
