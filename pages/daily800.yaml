@@ -55,7 +55,7 @@
                   flex_align_track: center
                   pad_row: 0
                   pad_column: 0
-                pad_top: 0
+                pad_top: -10px
                 pad_bottom: 0
                 scrollbar_mode: "OFF"
                 widgets:
@@ -130,7 +130,7 @@
                   pad_row: 0
                   pad_column: 0
                 pad_top: -20px
-                pad_bottom: 0
+                pad_bottom: -10px
                 scrollbar_mode: "OFF"
                 widgets:
                   - obj:
@@ -298,7 +298,7 @@
       
       - obj:
           width: 100%               # Fills the screen width to maximize the gap spacing
-          height: 160px             # Tall enough to cleanly hold your 150px child containers
+          height: 125px             # Tall enough to cleanly hold your 150px child containers
           bg_opa: transp            # Invisible wrapper container
           border_opa: transp
           pad_all: 0
@@ -313,7 +313,7 @@
               # LEFT SIDE
               - obj:
                     width: 350
-                    height: 150
+                    height: 120
                     bg_color: black
                     bg_opa: 50%
                     border_opa: transp
@@ -358,7 +358,7 @@
               # RIGHT SIDE
               - obj:
                     width: 350
-                    height: 150
+                    height: 120
                     bg_color: black
                     bg_opa: 50%
                     border_opa: transp
