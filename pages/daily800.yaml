@@ -21,7 +21,7 @@
       # CURRENT WEATHER
       - obj:
           width: 100%
-          height: 280
+          height: 270
           bg_color: black
           bg_opa: 50%
           border_opa: transp
@@ -41,7 +41,7 @@
             # TOP ROW
             - obj:
                 width: 100%
-                height: 110
+                height: 90
                 bg_opa: transp
                 border_opa: transp
                 border_width: 0
