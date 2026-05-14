@@ -356,13 +356,13 @@
                       bg_opa: transp
                       border_opa: transp
                       pad_all: 0
-                      pad_top: -35px
+                      pad_top: -45px
                       layout:
                         type: flex
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 0px
+                        pad_row: 5px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -418,13 +418,13 @@
                       bg_opa: transp
                       border_opa: transp
                       pad_all: 0
-                      pad_top: -35px
+                      pad_top: -45px
                       layout:
                         type: flex
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 0px
+                        pad_row: 5px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -480,13 +480,13 @@
                       bg_opa: transp
                       border_opa: transp
                       pad_all: 0
-                      pad_top: -35px
+                      pad_top: -45px
                       layout:
                         type: flex
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 0px
+                        pad_row: 5px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -542,13 +542,13 @@
                       bg_opa: transp
                       border_opa: transp
                       pad_all: 0
-                      pad_top: -35px
+                      pad_top: -45px
                       layout:
                         type: flex
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 0px
+                        pad_row: 5px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -604,7 +604,7 @@
                       bg_opa: transp
                       border_opa: transp
                       pad_all: 0
-                      pad_top: -35px
+                      pad_top: -45px
                       layout:
                         type: flex
                         flex_flow: column 
