@@ -127,7 +127,7 @@
                   flex_align_track: space_around
                   pad_row: 0
                   pad_column: 0
-                pad_top: -10px
+                pad_top: -20px
                 pad_bottom: 0
                 widgets:
                   - obj:
