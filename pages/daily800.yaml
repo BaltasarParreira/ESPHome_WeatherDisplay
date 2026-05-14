@@ -359,7 +359,7 @@
                       #pad_top: -35px
                       layout:
                         type: flex
-                        flex_flow: row 
+                        flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
                         pad_row: 0px
@@ -371,20 +371,13 @@
                             text_font: icon_font
                             text_color: cyan
                             text: "\U000F10C3"
-                            #align: center
-                            #pad_top: -10px
-                            #pad_bottom: -5px
 
                         - label:
                             id: lbl_outside_temp
                             width: 100%
                             text_font: md
                             text_color: cyan
-                            text_align: left
-                            #pad_left: -15px
-                            #pad_top: -10px
-                            #pad_bottom: -5px
-                            margin_left: -15px 
+                            text_align: center
 
               - obj:
                   width: 140
@@ -428,7 +421,7 @@
                       #pad_top: -35px
                       layout:
                         type: flex
-                        flex_flow: row 
+                        flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
                         pad_row: 0px
@@ -440,20 +433,13 @@
                             text_font: icon_font
                             text_color: white
                             text: "\U000F10C3"
-                            #align: center
-                            #pad_top: -10px
-                            #pad_bottom: -5px
 
                         - label:
                             id: lbl_w_inside_temp
                             width: 100%
                             text_font: md
                             text_color: white
-                            text_align: left
-                            #pad_left: -15px
-                            #pad_top: -10px
-                            #pad_bottom: -5px
-                            margin_left: -15px 
+                            text_align: center
 
               - obj:
                   width: 140
@@ -497,7 +483,7 @@
                       #pad_top: -35px
                       layout:
                         type: flex
-                        flex_flow: row 
+                        flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
                         pad_row: 0px
@@ -509,20 +495,14 @@
                             text_font: icon_font
                             text_color: yellow
                             text: "\U000F10C3"
-                            #align: center
-                            #pad_top: -10px
-                            #pad_bottom: -5px
 
                         - label:
                             id: lbl_l_inside_temp
                             width: 100%
                             text_font: md
                             text_color: yellow
-                            text_align: left
-                            #pad_left: -15px
-                            #pad_top: -10px
-                            #pad_bottom: -5px
-                            margin_left: -15px 
+                            text_align: center
+
               - obj:
                   width: 140
                   height: 150
@@ -562,10 +542,9 @@
                       bg_opa: transp
                       border_opa: transp
                       pad_all: 0
-                      #pad_top: -35px
                       layout:
                         type: flex
-                        flex_flow: row 
+                        flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
                         pad_row: 0px
@@ -577,20 +556,14 @@
                             text_font: icon_font
                             text_color: cyan
                             text: "\U000F058E"
-                            #align: center
-                            #pad_top: -10px
-                            #pad_bottom: -5px
 
                         - label:
                             id: lbl_outside_hum
                             width: 100%
                             text_font: md
                             text_color: cyan
-                            text_align: left
-                            #pad_left: -15px
-                            #pad_top: -10px
-                            #pad_bottom: -5px
-                            margin_left: -15px 
+                            text_align: center
+
               - obj:
                   width: 140
                   height: 150
@@ -630,13 +603,12 @@
                       bg_opa: transp
                       border_opa: transp
                       pad_all: 0
-                      #pad_top: -35px
                       layout:
                         type: flex
-                        flex_flow: row 
+                        flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 0px
+                        pad_row: 5px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -645,17 +617,10 @@
                             text_font: icon_font
                             text_color: yellow
                             text: "\U000F058E"
-                            #align: center
-                            #pad_top: -10px
-                            #pad_bottom: -5px
 
                         - label:
                             id: lbl_inside_hum
                             width: 100%
                             text_font: md
                             text_color: yellow
-                            text_align: left
-                            #pad_left: -15px
-                            #pad_top: -10px
-                            #pad_bottom: -5px
-                            margin_left: -15px 
+                            text_align: center
