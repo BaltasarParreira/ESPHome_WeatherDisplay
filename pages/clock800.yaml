@@ -1,5 +1,4 @@
 - obj:
-    #id: clock_screensaver
     x: 0
     y: 0
     width: 100%
@@ -11,27 +10,20 @@
     pad_all: 0
     scrollable: false
     scrollbar_mode: "off"
-    #hidden: true
+    layout_flex_flow: column
+    layout_flex_align:
+      main: center
+      cross: center
+      track: center
+    pad_row: 8px
     widgets:
       - label:
-          #id: clock_label
-          #text_font: xxxl
-          #text_color: 0xFFFFFF
-          #text: "00:00"
           id: clock_saver_time
           text_font: xxxl
           text_color: white
-          align: center
           text_align: center
-          #pad_top: 6px
       - label:
-          #id: clock_label
-          #text_font: xxxl
-          #text_color: 0xFFFFFF
-          #text: "00:00"
           id: clock_saver_date
           text_font: xxl
           text_color: white
-          align: center
           text_align: center
-          #pad_top: 6px
