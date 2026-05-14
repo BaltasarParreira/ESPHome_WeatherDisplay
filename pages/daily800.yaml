@@ -64,8 +64,9 @@
                   - obj:
                       #styles: clean_box
                       width: 50%
-                      bg_color: 0x0000FF           # Bright Blue background for testing
-                      bg_opa: 30%                  # Semi-transparent blue block
+                      #bg_color: 0x0000FF           # Bright Blue background for testing
+                      #bg_opa: 30%                  # Semi-transparent blue block
+                      bg_opa: transp
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
