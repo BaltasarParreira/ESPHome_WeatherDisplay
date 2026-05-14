@@ -11,10 +11,15 @@ time:
                 auto t = id(sntp_time).now();
                 return t.strftime("%H:%M\n%A, %B %e");
           - lvgl.label.update:
-              id: clock_saver
+              id: clock_saver_time
               text: !lambda |-
                 auto t = id(sntp_time).now();
-                return t.strftime("%H:%M\n%A, %B %e");
+                return t.strftime("%H:%M");
+          - lvgl.label.update:
+              id: clock_saver_date
+              text: !lambda |-
+                auto t = id(sntp_time).now();
+                return t.strftime("%A, %B %e");
     on_time_sync:
         then:
           - lvgl.label.update:
@@ -23,8 +28,13 @@ time:
                 auto t = id(sntp_time).now();
                 return t.strftime("%H:%M\n%A, %B %e");
           - lvgl.label.update:
-              id: clock_saver
+              id: clock_saver_time
               text: !lambda |-
                 auto t = id(sntp_time).now();
-                return t.strftime("%H:%M\n%A, %B %e");
+                return t.strftime("%H:%M");
+          - lvgl.label.update:
+              id: clock_saver_date
+              text: !lambda |-
+                auto t = id(sntp_time).now();
+                return t.strftime("%A, %B %e");
 
