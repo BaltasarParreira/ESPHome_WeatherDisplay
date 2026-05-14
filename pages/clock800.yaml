@@ -11,7 +11,7 @@
     pad_all: 0
     scrollable: false
     scrollbar_mode: "off"
-    hidden: true
+    #hidden: true
     widgets:
       - label:
           #id: clock_label
