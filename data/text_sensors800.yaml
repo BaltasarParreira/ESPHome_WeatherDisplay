@@ -119,7 +119,7 @@ text_sensor:
         - lvgl.label.update:
             id: lbl_inside_hum
             text:
-              format: "Inside: %.2f %"
+              format: "Inside: %.2f %%"
               args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
@@ -131,5 +131,5 @@ text_sensor:
         - lvgl.label.update:
             id: lbl_outside_hum
             text:
-              format: "Outside: %.2f %"
+              format: "Outside: %.2f %%"
               args: [ 'atof(x.c_str())' ]
