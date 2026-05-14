@@ -133,3 +133,7 @@ text_sensor:
             text:
               format: "%.2f %%"
               args: [ 'atof(x.c_str())' ]
+
+  - platform: homeassistant
+    id: ha_sun_state
+    entity_id: sun.sun
