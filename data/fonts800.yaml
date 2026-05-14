@@ -20,6 +20,11 @@ font:
     bpp: 4
 
   - file: ${font}
+    id: xsmb
+    size: 14
+    bpp: 4
+
+  - file: ${font}
     id: xsm
     size: 12
     bpp: 4
