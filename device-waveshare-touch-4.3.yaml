@@ -87,6 +87,7 @@ light:
     # This block triggers every time HA or ESPHome turns the light on
     on_turn_on:
       then:
+        - lvgl.page.show: daily_page
         - script.execute: backlight_watchdog
 
 script:
