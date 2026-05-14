@@ -517,28 +517,6 @@
                             pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
-                  width: 140
-                  height: 150
-                  bg_color: black
-                  bg_opa: 50%
-                  border_opa: transp
-                  radius: 15px
-                  layout:
-                    type: flex
-                    flex_flow: column_wrap
-                    flex_align_cross: center
-                    flex_align_track: center
-                  scrollbar_mode: "OFF"
-                  pad_top: 6px
-                  pad_bottom: 0
-                  widgets:
-                    - label:
-                        id: lbl_w_inside_temp
-                        text_font: md
-                        text_color: white
-                        pad_top: -10px
-                        pad_bottom: -5px
-
               - obj:
                   width: 140
                   height: 150
@@ -605,28 +583,6 @@
                             pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
-                  width: 140
-                  height: 150
-                  bg_color: black
-                  bg_opa: 50%
-                  border_opa: transp
-                  radius: 15px
-                  layout:
-                    type: flex
-                    flex_flow: column_wrap
-                    flex_align_cross: center
-                    flex_align_track: center
-                  scrollbar_mode: "OFF"
-                  pad_top: 6px
-                  pad_bottom: 0
-                  widgets:
-                    - label:
-                        id: lbl_outside_hum
-                        text_font: md
-                        text_color: white
-                        pad_top: -10px
-                        pad_bottom: -5px
-
               - obj:
                   width: 140
                   height: 150
