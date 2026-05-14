@@ -1,6 +1,12 @@
 font:
+
   - file: ${font}
     id: xxxl
+    size: 120
+    bpp: 4
+
+  - file: ${font}
+    id: xxl
     size: 60
     bpp: 4
 
