@@ -1,7 +1,6 @@
 - obj:
     width: 100%
     height: 100%
-    pad_all: 0
     bg_opa: 100%
     border_opa: transp
     border_width: 0
@@ -294,6 +293,7 @@
           height: 160px             # Tall enough to cleanly hold your 150px child containers
           bg_opa: transp            # Invisible wrapper container
           border_opa: transp
+          pad_all: 0
           layout:
             type: flex
             flex_flow: row          # Forces the two items inside to sit side-by-side
