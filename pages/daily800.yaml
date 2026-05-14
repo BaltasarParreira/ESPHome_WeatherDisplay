@@ -326,14 +326,14 @@
                       - label:
                           id: lbl_l_inside_temp
                           align: left_mid
-                          text_font: md
+                          text_font: xsm
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
                       - label:
                           id: lbl_w_inside_temp
                           align: left_mid
-                          text_font: md
+                          text_font: xsm
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
@@ -341,7 +341,7 @@
                       - label:
                           id: lbl_outside_temp
                           align: left_mid
-                          text_font: md
+                          text_font: xsm
                           text_color: white
                           pad_top: 0
                           pad_bottom: 10
@@ -370,7 +370,7 @@
                       - label:
                           id: lbl_inside_hum
                           align: left_mid
-                          text_font: md
+                          text_font: xsm
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
@@ -378,7 +378,7 @@
                       - label:
                           id: lbl_outside_hum
                           align: left_mid
-                          text_font: md
+                          text_font: xsm
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
