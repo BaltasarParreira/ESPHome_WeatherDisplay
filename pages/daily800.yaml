@@ -324,7 +324,7 @@
                       flex_align_cross: center
                       flex_align_track: center
                     scrollbar_mode: "OFF"
-                    pad_top: -10px
+                    pad_top: -5px
                     widgets:
                       - label:
                           align: center
@@ -370,7 +370,7 @@
                       flex_align_cross: center
                       flex_align_track: center
                     scrollbar_mode: "OFF"
-                    pad_top: -10px
+                    pad_top: -5px
                     widgets:
                       - label:
                           align: center
