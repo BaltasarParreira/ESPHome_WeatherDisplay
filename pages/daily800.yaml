@@ -55,7 +55,7 @@
                   flex_align_track: center
                   pad_row: 0
                   pad_column: 0
-                pad_top: -10px
+                pad_top: -15px
                 pad_bottom: 0
                 scrollbar_mode: "OFF"
                 widgets:
@@ -63,7 +63,7 @@
                   # LEFT SIDE
                   - obj:
                       styles: clean_box
-                      width: 47%
+                      width: 50%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -92,7 +92,7 @@
                   # RIGHT SIDE
                   - obj:
                       styles: clean_box
-                      width: 53%
+                      width: 50%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -313,7 +313,7 @@
               # LEFT SIDE
               - obj:
                     width: 350
-                    height: 120
+                    height: 150
                     bg_color: black
                     bg_opa: 50%
                     border_opa: transp
@@ -358,7 +358,7 @@
               # RIGHT SIDE
               - obj:
                     width: 350
-                    height: 120
+                    height: 150
                     bg_color: black
                     bg_opa: 50%
                     border_opa: transp
