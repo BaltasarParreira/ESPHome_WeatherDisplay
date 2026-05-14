@@ -33,3 +33,11 @@ font:
     id: xxsm
     size: 10
     bpp: 4
+
+  - file: 'https://github.com/Templarian/MaterialDesign-Webfont/raw/v7.4.47/fonts/materialdesignicons-webfont.ttf'
+    id: icon_font
+    size: 40
+    bpp: 4
+    glyphs:
+      - "\U000F10C3"  # mdi:thermometer-low
+      - "\U000F058E"  # mdi:water-percent
