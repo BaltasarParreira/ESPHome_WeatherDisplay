@@ -379,7 +379,8 @@
                             text_color: cyan
                             text_align: center
                             pad_all: 0
-                            margin_all: 0
+                            margin_left: 0px
+                            margin_right: 0px
 
               - obj:
                   width: 140
@@ -443,7 +444,8 @@
                             text_color: white
                             text_align: center
                             pad_all: 0
-                            margin_all: 0
+                            margin_left: 0px
+                            margin_right: 0px
 
               - obj:
                   width: 140
@@ -507,7 +509,8 @@
                             text_color: yellow
                             text_align: center
                             pad_all: 0
-                            margin_all: 0
+                            margin_left: 0px
+                            margin_right: 0px
 
               - obj:
                   width: 140
@@ -571,7 +574,8 @@
                             text_color: cyan
                             text_align: center
                             pad_all: 0
-                            margin_all: 0
+                            margin_left: 0px
+                            margin_right: 0px
 
               - obj:
                   width: 140
@@ -635,4 +639,5 @@
                             text_color: yellow
                             text_align: center
                             pad_all: 0
-                            margin_all: 0
+                            margin_left: 0px
+                            margin_right: 0px
