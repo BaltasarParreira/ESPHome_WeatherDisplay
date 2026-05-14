@@ -65,7 +65,7 @@
                       styles: clean_box
                       width: 50%
                       bg_opa: transp
-                      border_opa: transp
+                      border_opa: cover
                       border_width: 0
                       shadow_width: 0
                       radius: 0
@@ -95,7 +95,7 @@
                       styles: clean_box
                       width: 50%
                       bg_opa: transp
-                      border_opa: transp
+                      border_opa: cover
                       border_width: 0
                       shadow_width: 0
                       radius: 0
