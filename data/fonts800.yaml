@@ -1,0 +1,30 @@
+font:
+  - file: ${font}
+    id: xlg
+    size: 38
+    bpp: 4
+
+  - file: ${font}
+    id: lg
+    size: 32
+    bpp: 4
+
+  - file: ${font}
+    id: md
+    size: 26
+    bpp: 4
+
+  - file: ${font}
+    id: sm
+    size: 22
+    bpp: 4
+
+  - file: ${font}
+    id: xsm
+    size: 12
+    bpp: 4
+
+  - file: ${font}
+    id: xxsm
+    size: 10
+    bpp: 4
