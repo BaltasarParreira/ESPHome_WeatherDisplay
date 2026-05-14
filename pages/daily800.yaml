@@ -318,7 +318,7 @@
           widgets:
               - obj:
                   width: 140
-                  height: 150
+                  height: 20
                   bg_color: black
                   bg_opa: 50%
                   border_opa: transp
@@ -339,6 +339,22 @@
                       text: "OUTSIDE"
                       pad_top: -10px
                       pad_bottom: 0
+              - obj:
+                  width: 140
+                  height: 150
+                  bg_color: black
+                  bg_opa: 50%
+                  border_opa: transp
+                  radius: 15px
+                  layout:
+                    type: flex
+                    flex_flow: column_wrap
+                    flex_align_cross: center
+                    flex_align_track: center
+                  scrollbar_mode: "OFF"
+                  pad_top: 6px
+                  pad_bottom: 0
+                  widgets:
                   - obj:
                       #styles: clean_box
                       width: 20%
