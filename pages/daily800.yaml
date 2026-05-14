@@ -298,7 +298,7 @@
       
       - obj:
           width: 100%               # Fills the screen width to maximize the gap spacing
-          height: 160px             # Tall enough to cleanly hold your 150px child containers
+          height: 180px             # Tall enough to cleanly hold your 150px child containers
           bg_opa: transp            # Invisible wrapper container
           border_opa: transp
           pad_all: 0
@@ -327,14 +327,14 @@
                     widgets:
                       - label:
                           align: center
-                          text_font: xsm
+                          text_font: xsmb
                           text_color: white
                           text: "TEMPERATURE SENSORS"
                       # OUTSIDE
                       - label:
                           id: lbl_outside_temp
                           align: left_mid
-                          text_font: xsm
+                          text_font: xsmb
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
@@ -342,14 +342,14 @@
                       - label:
                           id: lbl_l_inside_temp
                           align: left_mid
-                          text_font: xsm
+                          text_font: xsmb
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
                       - label:
                           id: lbl_w_inside_temp
                           align: left_mid
-                          text_font: xsm
+                          text_font: xsmb
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
@@ -372,14 +372,14 @@
                     widgets:
                       - label:
                           align: center
-                          text_font: xsm
+                          text_font: xsmb
                           text_color: white
                           text: "HUMIDITY SENSORS"
                       # OUTSIDE
                       - label:
                           id: lbl_outside_hum
                           align: left_mid
-                          text_font: xsm
+                          text_font: xsmb
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
@@ -387,7 +387,7 @@
                       - label:
                           id: lbl_inside_hum
                           align: left_mid
-                          text_font: xsm
+                          text_font: xsmb
                           text_color: white
                           pad_top: 0
                           pad_bottom: 0
