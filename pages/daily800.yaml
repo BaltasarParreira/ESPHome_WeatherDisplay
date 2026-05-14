@@ -318,7 +318,7 @@
           widgets:
 
               - obj:
-                  width: 150
+                  width: 140
                   height: 150
                   bg_color: black
                   bg_opa: 50%
@@ -341,7 +341,7 @@
                         pad_bottom: -5px
 
               - obj:
-                  width: 150
+                  width: 140
                   height: 150
                   bg_color: black
                   bg_opa: 50%
@@ -364,7 +364,7 @@
                         pad_bottom: -5px
 
               - obj:
-                  width: 150
+                  width: 140
                   height: 150
                   bg_color: black
                   bg_opa: 50%
@@ -387,7 +387,7 @@
                         pad_bottom: -5px
 
               - obj:
-                  width: 150
+                  width: 140
                   height: 150
                   bg_color: black
                   bg_opa: 50%
@@ -410,7 +410,7 @@
                         pad_bottom: -5px
 
               - obj:
-                  width: 150
+                  width: 140
                   height: 150
                   bg_color: black
                   bg_opa: 50%
