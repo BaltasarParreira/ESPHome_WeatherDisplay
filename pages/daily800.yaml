@@ -65,8 +65,10 @@
                       #styles: clean_box
                       width: 50%
                       bg_opa: transp
-                      border_opa: cover
-                      border_width: 0
+                      bg_color: 0xFF0000           # Bright Red background for testing
+                      bg_opa: 30%                  # Semi-transparent red block
+                      border_color: 0xFFFFFF       # Solid white border outline
+                      border_width: 2 
                       shadow_width: 0
                       radius: 0
                       pad_all: 0
@@ -88,15 +90,17 @@
                             id: lbl_day0_cond
                             text_font: lg
                             text_color: white
-                            pad_top: -10   # was -20, reduced to avoid clipping line
+                            pad_top: -10
 
                   # RIGHT SIDE
                   - obj:
-                      #styles: clean_box
+                      styles: clean_box
                       width: 50%
                       bg_opa: transp
-                      border_opa: cover
-                      border_width: 0
+                      bg_color: 0xFF0000           # Bright Red background for testing
+                      bg_opa: 30%                  # Semi-transparent red block
+                      border_color: 0xFFFFFF       # Solid white border outline
+                      border_width: 2 
                       shadow_width: 0
                       radius: 0
                       pad_all: 0
@@ -326,7 +330,7 @@
                       flex_align_cross: center
                       flex_align_track: center
                     scrollbar_mode: "OFF"
-                    pad_top: 4px
+                    pad_top: 5px
                     widgets:
                       - label:
                           align: center
@@ -372,7 +376,7 @@
                       flex_align_cross: center
                       flex_align_track: center
                     scrollbar_mode: "OFF"
-                    pad_top: 4px
+                    pad_top: 5px
                     widgets:
                       - label:
                           align: center
