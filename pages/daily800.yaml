@@ -64,10 +64,9 @@
                   - obj:
                       #styles: clean_box
                       width: 50%
-                      bg_color: 0xFF0000           # Bright Red background for testing
-                      bg_opa: 30%                  # Semi-transparent red block
-                      border_color: 0xFFFFFF       # Solid white border outline
-                      border_width: 2 
+                      bg_opa: transp
+                      border_opa: transp
+                      border_width: 0
                       shadow_width: 0
                       radius: 0
                       pad_all: 0
@@ -85,20 +84,21 @@
                             src: missing
                             width: 80
                             height: 80
+                            align: center
                         - label:
                             id: lbl_day0_cond
                             text_font: lg
                             text_color: white
                             pad_top: -10
+                            text_align: center
 
                   # RIGHT SIDE
                   - obj:
                       styles: clean_box
                       width: 50%
-                      bg_color: 0xFF0000           # Bright Red background for testing
-                      bg_opa: 30%                  # Semi-transparent red block
-                      border_color: 0xFFFFFF       # Solid white border outline
-                      border_width: 2 
+                      bg_opa: transp
+                      border_opa: transp
+                      border_width: 0
                       shadow_width: 0
                       radius: 0
                       pad_all: 0
@@ -116,6 +116,7 @@
                             id: lbl_datetime
                             text_font: xlg
                             text_color: white
+                            text_align: center
 
             # SECOND ROW (METRICS)
             - obj:
@@ -328,7 +329,7 @@
                       flex_align_cross: center
                       flex_align_track: center
                     scrollbar_mode: "OFF"
-                    pad_top: 5px
+                    pad_top: 6px
                     widgets:
                       - label:
                           align: center
@@ -374,7 +375,7 @@
                       flex_align_cross: center
                       flex_align_track: center
                     scrollbar_mode: "OFF"
-                    pad_top: 5px
+                    pad_top: 6px
                     widgets:
                       - label:
                           align: center
