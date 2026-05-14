@@ -21,7 +21,7 @@ font:
 
   - file: ${font}
     id: xsmb
-    size: 17
+    size: 16
     bpp: 4
 
   - file: ${font}
