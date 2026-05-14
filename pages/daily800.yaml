@@ -36,6 +36,7 @@
             pad_row: 0
             pad_column: 0
           align: top_mid
+          scrollbar_mode: "OFF"
           widgets:
 
             # TOP ROW
@@ -56,6 +57,7 @@
                   pad_column: 0
                 pad_top: 0
                 pad_bottom: 0
+                scrollbar_mode: "OFF"
                 widgets:
 
                   # LEFT SIDE
@@ -129,6 +131,7 @@
                   pad_column: 0
                 pad_top: -20px
                 pad_bottom: 0
+                scrollbar_mode: "OFF"
                 widgets:
                   - obj:
                       width: 25%
