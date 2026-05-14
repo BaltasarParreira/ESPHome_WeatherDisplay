@@ -1,5 +1,5 @@
 - obj:
-    id: clock_screensaver
+    #id: clock_screensaver
     x: 0
     y: 0
     width: 800
