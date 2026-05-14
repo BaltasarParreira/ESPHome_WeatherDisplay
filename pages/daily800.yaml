@@ -316,88 +316,118 @@
             flex_align_cross: center
           scrollbar_mode: "OFF"
           widgets:
-              # LEFT SIDE
-              - obj:
-                    width: 350
-                    height: 150
-                    bg_color: black
-                    bg_opa: 50%
-                    border_opa: transp
-                    radius: 15px
-                    layout:
-                      type: flex
-                      flex_flow: column_wrap
-                      flex_align_cross: center
-                      flex_align_track: center
-                    scrollbar_mode: "OFF"
-                    pad_top: 6px
-                    pad_bottom: 0
-                    widgets:
-                      - label:
-                          align: center
-                          text_font: xsmb
-                          text_color: white
-                          text: "TEMPERATURE  SENSORS"
-                      # OUTSIDE
-                      - label:
-                          id: lbl_outside_temp
-                          align: left_mid
-                          text_font: xsmb
-                          text_color: yellow
-                          pad_top: 0
-                          pad_bottom: 0
-                      # INSIDE
-                      - label:
-                          id: lbl_l_inside_temp
-                          align: left_mid
-                          text_font: xsmb
-                          text_color: cyan
-                          pad_top: 0
-                          pad_bottom: 0
-                      - label:
-                          id: lbl_w_inside_temp
-                          align: left_mid
-                          text_font: xsmb
-                          text_color: cyan
-                          pad_top: 0
-                          pad_bottom: 0
 
-
-              # RIGHT SIDE
               - obj:
-                    width: 350
-                    height: 150
-                    bg_color: black
-                    bg_opa: 50%
-                    border_opa: transp
-                    radius: 15px
-                    layout:
-                      type: flex
-                      flex_flow: column_wrap
-                      flex_align_cross: center
-                      flex_align_track: center
-                    scrollbar_mode: "OFF"
-                    pad_top: 6px
-                    pad_bottom: 0
-                    widgets:
-                      - label:
-                          align: center
-                          text_font: xsmb
-                          text_color: white
-                          text: "HUMIDITY  SENSORS"
-                      # OUTSIDE
-                      - label:
-                          id: lbl_outside_hum
-                          align: left_mid
-                          text_font: xsmb
-                          text_color: yellow
-                          pad_top: 0
-                          pad_bottom: 0
-                      # INSIDE
-                      - label:
-                          id: lbl_inside_hum
-                          align: left_mid
-                          text_font: xsmb
-                          text_color: cyan
-                          pad_top: 0
-                          pad_bottom: 0
+                  width: 155
+                  height: 150
+                  bg_color: black
+                  bg_opa: 50%
+                  border_opa: transp
+                  radius: 15px
+                  layout:
+                    type: flex
+                    flex_flow: column_wrap
+                    flex_align_cross: center
+                    flex_align_track: center
+                  scrollbar_mode: "OFF"
+                  pad_top: 6px
+                  pad_bottom: 0
+                  widgets:
+                    - label:
+                        id: lbl_outside_temp
+                        text_font: xlg
+                        text_color: white
+                        pad_top: -10px
+                        pad_bottom: -5px
+
+              - obj:
+                  width: 155
+                  height: 150
+                  bg_color: black
+                  bg_opa: 50%
+                  border_opa: transp
+                  radius: 15px
+                  layout:
+                    type: flex
+                    flex_flow: column_wrap
+                    flex_align_cross: center
+                    flex_align_track: center
+                  scrollbar_mode: "OFF"
+                  pad_top: 6px
+                  pad_bottom: 0
+                  widgets:
+                    - label:
+                        id: lbl_l_inside_temp
+                        text_font: xlg
+                        text_color: white
+                        pad_top: -10px
+                        pad_bottom: -5px
+
+              - obj:
+                  width: 155
+                  height: 150
+                  bg_color: black
+                  bg_opa: 50%
+                  border_opa: transp
+                  radius: 15px
+                  layout:
+                    type: flex
+                    flex_flow: column_wrap
+                    flex_align_cross: center
+                    flex_align_track: center
+                  scrollbar_mode: "OFF"
+                  pad_top: 6px
+                  pad_bottom: 0
+                  widgets:
+                    - label:
+                        id: lbl_w_inside_temp
+                        text_font: xlg
+                        text_color: white
+                        pad_top: -10px
+                        pad_bottom: -5px
+
+              - obj:
+                  width: 155
+                  height: 150
+                  bg_color: black
+                  bg_opa: 50%
+                  border_opa: transp
+                  radius: 15px
+                  layout:
+                    type: flex
+                    flex_flow: column_wrap
+                    flex_align_cross: center
+                    flex_align_track: center
+                  scrollbar_mode: "OFF"
+                  pad_top: 6px
+                  pad_bottom: 0
+                  widgets:
+                    - label:
+                        id: lbl_outside_hum
+                        text_font: xlg
+                        text_color: white
+                        pad_top: -10px
+                        pad_bottom: -5px
+
+              - obj:
+                  width: 155
+                  height: 150
+                  bg_color: black
+                  bg_opa: 50%
+                  border_opa: transp
+                  radius: 15px
+                  layout:
+                    type: flex
+                    flex_flow: column_wrap
+                    flex_align_cross: center
+                    flex_align_track: center
+                  scrollbar_mode: "OFF"
+                  pad_top: 6px
+                  pad_bottom: 0
+                  widgets:
+                    - label:
+                        id: lbl_inside_hum
+                        text_font: xlg
+                        text_color: white
+                        pad_top: -10px
+                        pad_bottom: -5px
