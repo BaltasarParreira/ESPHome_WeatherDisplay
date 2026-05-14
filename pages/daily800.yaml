@@ -362,7 +362,7 @@
                         flex_flow: row 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 15px
+                        pad_row: 5px
                       scrollbar_mode: "OFF"
                       widgets:
                           - obj:
