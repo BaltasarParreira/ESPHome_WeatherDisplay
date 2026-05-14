@@ -392,6 +392,7 @@
                                     #align: center
                                     #pad_top: -10px
                                     #pad_bottom: -5px
+                                    width: SIZE_CONTENT
                           - obj:
                               #styles: clean_box
                               width: SIZE_CONTENT
@@ -413,6 +414,7 @@
                               widgets:
                                 - label:
                                     id: lbl_outside_temp
+                                    width: SIZE_CONTENT
                                     text_font: md
                                     text_color: white
                                     text_align: center
