@@ -377,12 +377,14 @@
 
                         - label:
                             id: lbl_outside_temp
-                            width: SIZE_CONTENT
+                            width: 100%
                             text_font: md
                             text_color: white
-                            pad_left: -15px
+                            text_align: left
+                            #pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
+                            margin_left: -15px 
 
               - obj:
                   width: 140
@@ -444,12 +446,14 @@
 
                         - label:
                             id: lbl_w_inside_temp
-                            width: SIZE_CONTENT
+                            width: 100%
                             text_font: md
                             text_color: white
-                            pad_left: -15px
+                            text_align: left
+                            #pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
+                            margin_left: -15px 
 
               - obj:
                   width: 140
@@ -511,12 +515,14 @@
 
                         - label:
                             id: lbl_l_inside_temp
-                            width: SIZE_CONTENT
+                            width: 100%
                             text_font: md
                             text_color: white
-                            pad_left: -15px
+                            text_align: left
+                            #pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
+                            margin_left: -15px 
               - obj:
                   width: 140
                   height: 150
@@ -577,12 +583,14 @@
 
                         - label:
                             id: lbl_outside_hum
-                            width: SIZE_CONTENT
+                            width: 100%
                             text_font: md
                             text_color: white
-                            pad_left: -15px
+                            text_align: left
+                            #pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
+                            margin_left: -15px 
               - obj:
                   width: 140
                   height: 150
@@ -643,10 +651,11 @@
 
                         - label:
                             id: lbl_inside_hum
-                            width: SIZE_CONTENT
+                            width: 100%
                             text_font: md
                             text_color: white
-                            pad_left: -15px
+                            text_align: left
+                            #pad_left: -15px
                             #pad_top: -10px
                             #pad_bottom: -5px
-
+                            margin_left: -15px 
