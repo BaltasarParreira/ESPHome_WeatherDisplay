@@ -11,7 +11,7 @@ font:
 
   - file: ${font}
     id: md
-    size: 26
+    size: 24
     bpp: 4
 
   - file: ${font}
