@@ -362,7 +362,7 @@
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 5px
+                        pad_row: 8px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -427,7 +427,7 @@
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 5px
+                        pad_row: 8px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -492,7 +492,7 @@
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 5px
+                        pad_row: 8px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -557,7 +557,7 @@
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 5px
+                        pad_row: 8px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
@@ -622,7 +622,7 @@
                         flex_flow: column 
                         flex_align_main: center
                         flex_align_cross: center
-                        pad_row: 5px
+                        pad_row: 8px
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
