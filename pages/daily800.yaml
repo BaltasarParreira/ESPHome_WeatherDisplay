@@ -335,7 +335,7 @@
                   widgets:
                     - label:
                         id: lbl_outside_temp
-                        text_font: xlg
+                        text_font: lg
                         text_color: white
                         pad_top: -10px
                         pad_bottom: -5px
@@ -358,7 +358,7 @@
                   widgets:
                     - label:
                         id: lbl_l_inside_temp
-                        text_font: xlg
+                        text_font: lg
                         text_color: white
                         pad_top: -10px
                         pad_bottom: -5px
@@ -381,7 +381,7 @@
                   widgets:
                     - label:
                         id: lbl_w_inside_temp
-                        text_font: xlg
+                        text_font: lg
                         text_color: white
                         pad_top: -10px
                         pad_bottom: -5px
@@ -404,7 +404,7 @@
                   widgets:
                     - label:
                         id: lbl_outside_hum
-                        text_font: xlg
+                        text_font: lg
                         text_color: white
                         pad_top: -10px
                         pad_bottom: -5px
@@ -427,7 +427,7 @@
                   widgets:
                     - label:
                         id: lbl_inside_hum
-                        text_font: xlg
+                        text_font: lg
                         text_color: white
                         pad_top: -10px
                         pad_bottom: -5px
