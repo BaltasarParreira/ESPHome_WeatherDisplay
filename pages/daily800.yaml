@@ -159,7 +159,7 @@
                             text_font: xsm
                             text_color: white
                             text: "HUMIDITY"
-                            pad_top: -10px
+                            pad_top: -6px
                         - label:
                             id: lbl_day0_curhum
                             align: center
@@ -196,7 +196,7 @@
                             text_font: xsm
                             text_color: white
                             text: "PRECIPITATIONS"
-                            pad_top: -10px
+                            pad_top: -6px
                         - label:
                             id: lbl_day0_pre
                             align: center
@@ -233,7 +233,7 @@
                             text_font: xsm
                             text_color: white
                             text: "PRESSURE"
-                            pad_top: -10px
+                            pad_top: -6px
                         - label:
                             id: lbl_day0_pres
                             align: center
@@ -270,7 +270,7 @@
                             text_font: xsm
                             text_color: white
                             text: "SUNSET"
-                            pad_top: -10px
+                            pad_top: -6px
                         - label:
                             id: lbl_day0_suns
                             align: center
