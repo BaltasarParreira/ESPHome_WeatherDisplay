@@ -113,8 +113,7 @@ script:
                         return (hour >= start_hour && hour < end_hour);
                     }
                 then:
-                  - lvgl.page.show:
-                      id: clock_page  # Target page ID to show
+                  - lvgl.page.show: clock_page  # Target page ID to show
                 else:
                   - light.turn_off: lcd_backlight
 
