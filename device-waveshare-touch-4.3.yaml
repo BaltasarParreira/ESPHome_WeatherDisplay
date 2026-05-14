@@ -223,7 +223,7 @@ switch:
     internal: true
 
 packages:
-  - !include data/fonts.yaml
+  - !include data/fonts800.yaml
   - !include data/images800.yaml
   - !include data/mappings.yaml
   - !include data/text_sensors800.yaml
