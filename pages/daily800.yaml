@@ -290,7 +290,7 @@
       # LEFT SIDE
       - obj:
             width: 350
-            height: 180
+            height: 150
             bg_color: black
             bg_opa: 50%
             border_opa: transp
@@ -311,14 +311,14 @@
               - label:
                   id: lbl_l_inside_temp
                   align: left_mid
-                  text_font: xsm
+                  text_font: md
                   text_color: white
                   pad_top: 0
                   pad_bottom: 0
               - label:
                   id: lbl_w_inside_temp
                   align: left_mid
-                  text_font: xsm
+                  text_font: md
                   text_color: white
                   pad_top: 0
                   pad_bottom: 0
@@ -326,7 +326,7 @@
               - label:
                   id: lbl_outside_temp
                   align: left_mid
-                  text_font: xsm
+                  text_font: md
                   text_color: white
                   pad_top: 0
                   pad_bottom: 10
@@ -334,7 +334,7 @@
       # RIGHT SIDE
       - obj:
             width: 350
-            height: 180
+            height: 150
             bg_color: black
             bg_opa: 50%
             border_opa: transp
@@ -355,7 +355,7 @@
               - label:
                   id: lbl_inside_hum
                   align: left_mid
-                  text_font: xsm
+                  text_font: md
                   text_color: white
                   pad_top: 0
                   pad_bottom: 0
@@ -363,7 +363,7 @@
               - label:
                   id: lbl_outside_hum
                   align: left_mid
-                  text_font: xsm
+                  text_font: md
                   text_color: white
                   pad_top: 0
                   pad_bottom: 0
