@@ -11,7 +11,7 @@ font:
 
   - file: ${font}
     id: mdb
-    size: 26
+    size: 25
     bpp: 4
 
   - file: ${font}
