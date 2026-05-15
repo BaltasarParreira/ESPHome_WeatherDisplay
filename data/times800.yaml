@@ -20,6 +20,24 @@ time:
               text: !lambda |-
                 auto t = id(sntp_time).now();
                 return t.strftime("%A, %B %e");
+          - if:
+                    condition:
+                      lambda: |-
+                        auto time_now = id(sntp_time).now();
+                        int hour = time_now.hour;
+                        
+                        // Define your hour constraints here (e.g., between 22:00 and 06:00)
+                        // This logic handles ranges that cross over midnight safely
+                        int start_hour = 7; 
+                        int end_hour = 3;
+                        
+                        if (start_hour > end_hour) {
+                            return (hour >= start_hour || hour < end_hour);
+                        } else {
+                            return (hour >= start_hour && hour < end_hour);
+                        }
+                    then:
+                      - light.turn_off: lcd_backlight
     on_time_sync:
         then:
           - lvgl.label.update:
@@ -37,4 +55,22 @@ time:
               text: !lambda |-
                 auto t = id(sntp_time).now();
                 return t.strftime("%A, %B %e");
+          - if:
+                    condition:
+                      lambda: |-
+                        auto time_now = id(sntp_time).now();
+                        int hour = time_now.hour;
+                        
+                        // Define your hour constraints here (e.g., between 22:00 and 06:00)
+                        // This logic handles ranges that cross over midnight safely
+                        int start_hour = 7; 
+                        int end_hour = 3;
+                        
+                        if (start_hour > end_hour) {
+                            return (hour >= start_hour || hour < end_hour);
+                        } else {
+                            return (hour >= start_hour && hour < end_hour);
+                        }
+                    then:
+                      - light.turn_off: lcd_backlight
 
