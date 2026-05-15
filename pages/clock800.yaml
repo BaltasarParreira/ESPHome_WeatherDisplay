@@ -10,11 +10,11 @@
     pad_all: 0
     scrollable: false
     scrollbar_mode: "off"
-    layout_flex_flow: column
-    layout_flex_align:
-      main: center
-      cross: center
-      track: center
+    flex_flow: COLUMN
+    flex_align:
+      main: CENTER
+      cross: CENTER
+      track: CENTER
     pad_row: 8px
     widgets:
       - label:
@@ -22,6 +22,7 @@
           text_font: xxxl
           text_color: white
           text_align: center
+
       - label:
           id: clock_saver_date
           text_font: xxl
