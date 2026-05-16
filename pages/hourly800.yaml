@@ -8,10 +8,12 @@
     radius: 0px
     layout:
       type: flex
-      flex_flow: row_wrap
+      flex_flow: row
       flex_align_main: center
       flex_align_cross: center
       flex_align_track: center
+      pad_column: 0px
+      pad_all: 0px
     widgets:
       # HOURLY FORECAST
       - obj:
