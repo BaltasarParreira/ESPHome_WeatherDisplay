@@ -97,7 +97,7 @@ script:
       - light.turn_on: 
           id: lcd_backlight
           brightness: 1.00
-      - delay: 1min
+      - delay: 2min
       - lvgl.page.show: clock_page  # Target page ID to show
       - script.execute: backlight_saver
 
@@ -140,7 +140,13 @@ script:
                         - light.turn_on: lcd_backlight
 
                 else:  
-                  - light.turn_off: lcd_backlight
+                  - if:
+                      condition:
+                        # Returns true if 'clock_page' is the active screen
+                        lambda: |-
+                          return id(clock_page).is_showing();
+                      then:
+                        - light.turn_off: lcd_backlight
 
 ch422g:
   - id: ch422g_hub
