@@ -266,7 +266,7 @@ lvgl:
     - id: daily_page2
       widgets: !include pages/2daily800.yaml
     - id: hourly_page
-      widgets: !include pages/hourly.yaml
+      widgets: !include pages/hourly800.yaml
     - id: clock_page
       skip: true
       widgets: !include pages/clock800.yaml
