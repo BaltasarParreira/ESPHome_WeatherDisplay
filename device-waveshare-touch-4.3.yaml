@@ -123,9 +123,9 @@ script:
                 then:
                   - if:
                       condition:
-                        # Returns true if 'night_clock_page' is the active screen
+                        # Returns true if 'clock_page' is the active screen
                         lambda: |-
-                          return id(clock_page).is_active();
+                          return id(clock_page).is_showing();
                       then:
                         - light.turn_on:
                             id: lcd_backlight
