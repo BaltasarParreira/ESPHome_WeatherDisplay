@@ -97,36 +97,9 @@ script:
       - light.turn_on: 
           id: lcd_backlight
           brightness: 1.00
-      - delay: 2min
-      - if:
-                condition:
-                  lambda: |-
-                    auto time_now = id(sntp_time).now();
-                    int hour = time_now.hour;
-                    
-                    // Define your hour constraints here (e.g., between 22:00 and 06:00)
-                    // This logic handles ranges that cross over midnight safely
-                    int start_hour = 7; 
-                    int end_hour = 3;
-                    
-                    if (start_hour > end_hour) {
-                        return (hour >= start_hour || hour < end_hour);
-                    } else {
-                        return (hour >= start_hour && hour < end_hour);
-                    }
-                then:
-                  - light.turn_on:
-                      id: lcd_backlight
-                      brightness: !lambda |-
-                        // If the Home Assistant entity shows below horizon, apply night dimming
-                        if (id(ha_sun_state).state == "below_horizon") {
-                          return 0.40; // 40% brightness for night
-                        } else {
-                          return 0.60; // 60% brightness for day
-                        }
-                  - lvgl.page.show: clock_page  # Target page ID to show
-                else:
-                  - light.turn_off: lcd_backlight
+      - delay: 2min.
+      - lvgl.page.show: clock_page  # Target page ID to show
+      - script.execute: backlight_saver
 
   - id: backlight_saver
     mode: restart
@@ -148,8 +121,24 @@ script:
                         return (hour >= start_hour && hour < end_hour);
                     }
                 then:
-                  - light.turn_on: lcd_backlight
-                  
+                  - if:
+                      condition:
+                        # Returns true if 'night_clock_page' is the active screen
+                        lambda: |-
+                          return id(clock_page).is_active();
+                      then:
+                        - light.turn_on:
+                            id: lcd_backlight
+                            brightness: !lambda |-
+                              // If the Home Assistant entity shows below horizon, apply night dimming
+                              if (id(ha_sun_state).state == "below_horizon") {
+                                return 0.40; // 40% brightness for night
+                              } else {
+                                return 0.60; // 60% brightness for day
+                              }
+                      else:
+                        - light.turn_on: lcd_backlight
+
                 else:  
                   - light.turn_off: lcd_backlight
 
