@@ -6,12 +6,14 @@
     bg_image_src: bg_img
     bg_image_opa: 100%
     radius: 0px
+    pad_all: 0px
     layout:
       type: flex
-      flex_flow: row_wrap
-      flex_align_main: center
+      flex_flow: row
+      flex_align_main: SPACE_EVENLY
       flex_align_cross: center
       flex_align_track: center
+      pad_column: 0px
     widgets:
       # HOURLY FORECAST
 
