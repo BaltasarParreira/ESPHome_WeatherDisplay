@@ -10,7 +10,7 @@
     layout:
       type: flex
       flex_flow: row
-      flex_align_main: center
+      flex_align_main: SPACE_EVENLY
       flex_align_cross: center
       flex_align_track: center
       pad_column: 0px
