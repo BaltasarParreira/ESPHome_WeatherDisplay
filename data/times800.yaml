@@ -1,6 +1,9 @@
+#time:
+#  - platform: homeassistant
+#    id: homeassistant_time
 time:
-  - platform: homeassistant
-    id: homeassistant_time
+  - platform: sntp
+    id: sntp_time
     on_time:
       - seconds: 0
         minutes: /1
