@@ -63,9 +63,9 @@ ota:
 
 json:
 
-time:
-  - platform: sntp
-    id: sntp_time
+#time:
+#  - platform: sntp
+#    id: sntp_time
     #timezone: "Europe/Lisbon"
     #timezone: "WET0WEST-1,M3.5.0/1,M10.5.0/2"
 
