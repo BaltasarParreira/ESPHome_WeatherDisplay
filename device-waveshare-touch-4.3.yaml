@@ -174,7 +174,7 @@ touchscreen:
     on_touch:
       then:
         - script.execute: backlight_watchdog
-        - if:
+#        - if:
 #            condition:
 #              light.is_on: lcd_backlight
 #            then:
