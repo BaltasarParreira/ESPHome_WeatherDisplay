@@ -119,55 +119,24 @@
                   text_font: font_roboto_72
 
               # -----------------------------------------
-              # CH OFF BUTTON
+              # CH ENABLE / DISABLE BUTTON
               # -----------------------------------------
               - button:
-                  id: ch_off_button
-                  align: CENTER
-                  x: -50
-                  y: 190
-                  width: 70
-                  checkable: true
-                  bg_color: 0x292929
-                  shadow_width: 0
-                  pressed:
-                    bg_color: 0xFF6F22
-                  checked:
-                    bg_color: 0x606060
+                  id: btn_ch_enable
+                  width: 160
+                  height: 60
+                  bg_color: black
+                  bg_opa: 60%
+                  radius: 12
                   widgets:
                     - label:
-                        align: CENTER
-                        text: 'OFF'
+                        id: ch_enable_label
+                        text_font: mdb
+                        text_color: white
+                        text: "CH OFF"
                   on_click:
                     then:
                       - homeassistant.service:
-                            service: switch.toggle
-                            data:
-                              entity_id: switch.opentherm_gateway_heating_enable
-
-              # -----------------------------------------
-              # CH ON BUTTON
-              # -----------------------------------------
-              - button:
-                  id: ch_on_button
-                  align: CENTER
-                  x: 50
-                  y: 190
-                  width: 70
-                  checkable: true
-                  bg_color: 0x292929
-                  shadow_width: 0
-                  pressed:
-                    bg_color: 0xFF6F22
-                  checked:
-                    bg_color: 0xFF6F22
-                  widgets:
-                    - label:
-                        align: CENTER
-                        text: 'HEAT'
-                  on_click:
-                    then:
-                      - homeassistant.service:
-                            service: switch.toggle
-                            data:
-                              entity_id: switch.opentherm_gateway_heating_enable
+                          service: switch.toggle
+                          data:
+                            entity_id: switch.opentherm_gateway_heating_enable
