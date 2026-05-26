@@ -641,3 +641,28 @@
                             pad_all: 0
                             margin_left: 0px
                             margin_right: 0px
+
+# -------------------------------------------------
+# 🔥 THERMOSTAT BUTTON (top-right)
+# -------------------------------------------------
+- button:
+    id: btn_to_ch
+    align: top_right
+    x: -10
+    y: 10
+    width: 48
+    height: 48
+    bg_color: black
+    bg_opa: 60%
+    radius: 12
+    shadow_width: 0
+    widgets:
+      - label:
+          text: "\U000F0F54"   # mdi-fire
+          text_font: icon_font
+          text_color: white
+    on_click:
+      - lvgl.page.show:
+          id: ch_page
+          animation: MOVE_LEFT
+          time: 300ms
