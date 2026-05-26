@@ -194,7 +194,8 @@ touchscreen:
               # CASE 2 — Backlight ON → check if we are on clock_page
               - if:
                   condition:
-                    lambda: 'return lvgl.current_page()->id == "clock_page";'
+                    lambda: |-
+                      return lv_scr_act() == id(clock_page);
                   then:
                     - lvgl.page.show: daily_page
     
