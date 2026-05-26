@@ -73,22 +73,22 @@
               # -----------------------------------------
               # LARGE ARC (300px)
               # -----------------------------------------
-                - arc:
-                    id: ch_arc
-                    width: 300
-                    height: 300
-                    start_angle: 135
-                    end_angle: 45
-                    min_value: 30
-                    max_value: 80
-                    value: 50
-                    on_value:
-                      then:
-                        - homeassistant.service:
-                            service: number.set_value
-                            data:
-                              entity_id: number.ch_setpoint
-                              value: !lambda "return x;"
+              - arc:
+                   id: ch_arc
+                   width: 300
+                   height: 300
+                   start_angle: 135
+                   end_angle: 45
+                   min_value: 30
+                   max_value: 80
+                   value: 50
+                   on_value:
+                     then:
+                       - homeassistant.service:
+                           service: number.set_value
+                           data:
+                             entity_id: number.ch_setpoint
+                             value: !lambda "return x;"
 
               # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
