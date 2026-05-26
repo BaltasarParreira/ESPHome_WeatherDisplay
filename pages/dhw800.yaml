@@ -50,7 +50,7 @@
                   text_color: white
             on_click:
               - lvgl.page.show:
-                  id: weather_page
+                  id: daily_page
                   animation: MOVE_RIGHT
                   time: 300ms
 
