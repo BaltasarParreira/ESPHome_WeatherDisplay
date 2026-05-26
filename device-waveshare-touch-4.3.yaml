@@ -183,15 +183,16 @@ touchscreen:
 #              - lvgl.page.show: daily_page
 #              - light.turn_on: lcd_backlight
         # If backlight is OFF → turn it ON and stop
+    # If backlight is OFF → turn it ON and STOP
         - if:
             condition:
               light.is_off: lcd_backlight
             then:
               - light.turn_on: lcd_backlight
-              - return:
+            else:
+              # Backlight is ON → allow LVGL to receive the touch
+              - lambda: '/* no-op */'
 
-        # If backlight is ON → do nothing
-        # Let LVGL handle gestures and button clicks
 # -----------------------------
 # DISPLAY (OFFICIAL ESPHOME MODEL)
 # -----------------------------
