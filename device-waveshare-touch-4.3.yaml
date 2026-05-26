@@ -182,18 +182,25 @@ touchscreen:
 #            else:
 #              - lvgl.page.show: daily_page
 #              - light.turn_on: lcd_backlight
-        # If backlight is OFF → turn it ON and stop
-    # If backlight is OFF → turn it ON and STOP
+
         - if:
             condition:
-              light.is_on: lcd_backlight
+              light.is_off: lcd_backlight
             then:
-              # Backlight is ON → allow LVGL to receive the touch
-              #- lambda: '/* no-op */'
-              - lvgl.page.show: daily_page
-            else:
-              - lvgl.page.show: daily_page
               - light.turn_on: lcd_backlight
+              - lvgl.page.show: daily_page
+    
+            else:
+              # CASE 2 — Backlight ON → check if we are on clock_page
+              - if:
+                  condition:
+                    lambda: 'return lvgl.current_page()->id == "clock_page";'
+                  then:
+                    - lvgl.page.show: daily_page
+    
+                  # CASE 3 — Backlight ON and NOT on clock_page → allow LVGL gestures
+                  else:
+                    - lambda: '/* allow LVGL to process swipe + buttons */'
 
 # -----------------------------
 # DISPLAY (OFFICIAL ESPHOME MODEL)
