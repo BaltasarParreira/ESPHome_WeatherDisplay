@@ -175,14 +175,23 @@ touchscreen:
       then:
         - script.execute: backlight_watchdog
         - if:
+#            condition:
+#              light.is_on: lcd_backlight
+#            then:
+#              - lvgl.page.next:
+#            else:
+#              - lvgl.page.show: daily_page
+#              - light.turn_on: lcd_backlight
+        # If backlight is OFF → turn it ON and stop
+        - if:
             condition:
-              light.is_on: lcd_backlight
+              light.is_off: lcd_backlight
             then:
-              - lvgl.page.next:
-            else:
-              - lvgl.page.show: daily_page
               - light.turn_on: lcd_backlight
+              - return:
 
+        # If backlight is ON → do nothing
+        # Let LVGL handle gestures and button clicks
 # -----------------------------
 # DISPLAY (OFFICIAL ESPHOME MODEL)
 # -----------------------------
