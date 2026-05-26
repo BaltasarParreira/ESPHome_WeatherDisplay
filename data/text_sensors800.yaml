@@ -137,3 +137,35 @@ text_sensor:
   - platform: homeassistant
     id: ha_sun_state
     entity_id: sun.sun
+#### NEW SENSORS ####
+  - platform: homeassistant
+    id: ha_ch_temp
+    entity_id: sensor.heating_temperature
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ch_current_temp
+            text:
+              format: "%.1f °C"
+              args: [ 'atof(x.c_str())' ]
+
+  - platform: homeassistant
+    id: ha_ch_setpoint
+    entity_id: number.ch_setpoint
+    on_value:
+      then:
+        - lvgl.arc.update:
+            id: ch_arc
+            value: !lambda "return atof(x.c_str());"
+
+  - platform: homeassistant
+    id: ha_ch_enable_state
+    entity_id: switch.heating_enable
+    on_value:
+      then:
+        - lambda: |-
+            if (x == "on") {
+              lv_label_set_text(id(ch_enable_label), "CH ON");
+            } else {
+              lv_label_set_text(id(ch_enable_label), "CH OFF");
+            }
