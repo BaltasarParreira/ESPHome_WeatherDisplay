@@ -169,3 +169,35 @@ text_sensor:
             } else {
               lv_label_set_text(id(ch_enable_label), "CH OFF");
             }
+
+  - platform: homeassistant
+    id: ha_dhw_temp
+    entity_id: sensor.hot_water_temperature
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: dhw_current_temp
+            text:
+              format: "%.1f °C"
+              args: [ 'atof(x.c_str())' ]
+
+  - platform: homeassistant
+    id: ha_dhw_setpoint
+    entity_id: number.hot_water_setpoint
+    on_value:
+      then:
+        - lvgl.arc.update:
+            id: dhw_arc
+            value: !lambda "return atof(x.c_str());"
+
+  - platform: homeassistant
+    id: ha_dhw_enable_state
+    entity_id: switch.hot_water_enable
+    on_value:
+      then:
+        - lambda: |-
+            if (x == "on") {
+              lv_label_set_text(id(dhw_enable_label), "DHW ON");
+            } else {
+              lv_label_set_text(id(dhw_enable_label), "DHW OFF");
+            }
