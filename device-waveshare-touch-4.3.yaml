@@ -285,7 +285,7 @@ lvgl:
                   id: hourly_page3
                   animation: MOVE_RIGHT
                   time: 300ms
-        widgets: !include pages/daily800.yaml
+      widgets: !include pages/daily800.yaml
     - id: daily_page2
       widgets: !include pages/2daily800.yaml
     - id: hourly_page
