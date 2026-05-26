@@ -279,11 +279,13 @@ lvgl:
               id: daily_page2
               animation: MOVE_LEFT
               time: 300ms
+
         right:
           - lvgl.page.show:
               id: hourly_page3
               animation: MOVE_RIGHT
               time: 300ms
+
     - id: daily_page2
       widgets: !include pages/2daily800.yaml
     - id: hourly_page
