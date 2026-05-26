@@ -189,7 +189,8 @@ touchscreen:
               light.is_on: lcd_backlight
             then:
               # Backlight is ON → allow LVGL to receive the touch
-              - lambda: '/* no-op */'
+              #- lambda: '/* no-op */'
+              - lvgl.page.show: daily_page
             else:
               - lvgl.page.show: daily_page
               - light.turn_on: lcd_backlight
