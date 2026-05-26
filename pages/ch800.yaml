@@ -61,7 +61,7 @@
             width: 100%
             height: 100%
             bg_color: black
-            bg_opa: 50%
+            bg_opa: TRANSP
             radius: 15
             layout:
               type: flex
@@ -74,14 +74,22 @@
               # LARGE ARC (300px)
               # -----------------------------------------
               - arc:
-                   id: ch_arc
-                   width: 300
-                   height: 300
-                   start_angle: 135
-                   end_angle: 45
-                   min_value: 30
-                   max_value: 80
-                   value: 50
+                  id: ch_setpoint_arc
+                  align: CENTER
+                  y: 20
+                  adjustable: true
+                  value: 50
+                  min_value: 50
+                  max_value: 300
+                  width: 420
+                  height: 420
+                  arc_width: 24
+                  arc_color: 0x292929
+                  indicator:
+                    arc_color: 0xFF6F22
+                    arc_width: 24
+                  knob:
+                    bg_color: 0xFFFFFF
                    on_value:
                      then:
                        - homeassistant.service:
@@ -104,31 +112,53 @@
               # SETPOINT LABEL
               # -----------------------------------------
               - label:
-                  id: ch_setpoint_label
-                  text_font: lg
-                  text_color: white
-                  text_align: center
-                  text: "Setpoint"
+                    id: ch_setpoint_label
+                    align: CENTER
+                    text: "--.-°"
+                    y: 0
+                    text_font: font_roboto_72
 
               # -----------------------------------------
               # CH ENABLE / DISABLE BUTTON
               # -----------------------------------------
-              - button:
-                  id: btn_ch_enable
-                  width: 160
-                  height: 60
-                  bg_color: black
-                  bg_opa: 60%
-                  radius: 12
-                  widgets:
-                    - label:
-                        id: ch_enable_label
-                        text_font: mdb
-                        text_color: white
-                        text: "CH OFF"
-                  on_click:
-                    then:
-                      - homeassistant.service:
-                          service: switch.toggle
-                          data:
-                            entity_id: switch.heating_enable
+                - button:
+                    id: ch_off_button
+                    align: CENTER
+                    x: -50
+                    y: 190
+                    width: 70
+                    checkable: true
+                    bg_color: 0x292929
+                    shadow_width: 0
+                    pressed:
+                      bg_color: 0xFF6F22
+                    checked:
+                      bg_color: 0x606060
+                    widgets:
+                      - label:
+                          align: CENTER
+                          text: 'OFF'
+                    on_click:
+                      then:
+                        - switch.turn_off: ch_enable
+                - button:
+                    id: ch_on_button
+                    align: CENTER
+                    x: 50
+                    y: 190
+                    width: 70
+                    checkable: true
+                    bg_color: 0x292929
+                    shadow_width: 0
+                    pressed:
+                      bg_color: 0xFF6F22
+                    checked:
+                      bg_color: 0xFF6F22
+                    widgets:
+                      - label:
+                          align: CENTER
+                          text: 'HEAT'
+                    on_click:
+                      then:
+                        - switch.turn_on: ch_enable
+
