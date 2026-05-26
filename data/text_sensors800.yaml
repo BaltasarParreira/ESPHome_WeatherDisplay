@@ -201,4 +201,3 @@ text_sensor:
             } else {
               lv_label_set_text(id(dhw_enable_label), "DHW OFF");
             }
-            }
