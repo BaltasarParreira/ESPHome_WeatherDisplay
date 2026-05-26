@@ -73,27 +73,22 @@
               # -----------------------------------------
               # LARGE ARC (300px)
               # -----------------------------------------
-              - arc:
-                  id: dhw_arc
-                  width: 300
-                  height: 300
-                  rotation: 135
-                  bg_angles:
-                    start: 0
-                    end: 360
-                  value_angles:
-                    start: 0
-                    end: 270
-                  min_value: 30
-                  max_value: 80
-                  value: 60
-                  on_value:
-                    then:
-                      - homeassistant.service:
-                          service: number.set_value
-                          data:
-                            entity_id: number.hot_water_setpoint
-                            value: !lambda "return x;"
+                - arc:
+                    id: dhw_arc
+                    width: 300
+                    height: 300
+                    start_angle: 135
+                    end_angle: 45
+                    min_value: 30
+                    max_value: 80
+                    value: 60
+                    on_value:
+                      then:
+                        - homeassistant.service:
+                            service: number.set_value
+                            data:
+                              entity_id: number.hot_water_setpoint
+                              value: !lambda "return x;"
 
               # -----------------------------------------
               # CURRENT DHW TEMPERATURE
