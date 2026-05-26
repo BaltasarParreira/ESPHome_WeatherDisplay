@@ -195,7 +195,7 @@ touchscreen:
               - if:
                   condition:
                     lambda: |-
-                      return lv_scr_act() == id(clock_page);
+                      return lv_scr_act() == id(clock_page).obj;
                   then:
                     - lvgl.page.show: daily_page
     
