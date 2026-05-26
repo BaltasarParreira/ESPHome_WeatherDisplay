@@ -273,14 +273,13 @@ lvgl:
 #      widgets: !include pages/home.yaml
     - id: daily_page
       widgets: !include pages/daily800.yaml
-      on_gesture:
-        left:
+      on_swipe_left:
           - lvgl.page.show:
               id: daily_page2
               animation: MOVE_LEFT
               time: 300ms
 
-        right:
+      on_swipe_right:
           - lvgl.page.show:
               id: hourly_page3
               animation: MOVE_RIGHT
