@@ -140,7 +140,10 @@
                         text: 'OFF'
                   on_click:
                     then:
-                      - switch.turn_off: ch_enable
+                      - homeassistant.service:
+                            service: switch.toggle
+                            data:
+                              entity_id: switch.opentherm_gateway_heating_enable
 
               # -----------------------------------------
               # CH ON BUTTON
@@ -164,4 +167,7 @@
                         text: 'HEAT'
                   on_click:
                     then:
-                      - switch.turn_on: ch_enable
+                      - homeassistant.service:
+                            service: switch.toggle
+                            data:
+                              entity_id: switch.opentherm_gateway_heating_enable
