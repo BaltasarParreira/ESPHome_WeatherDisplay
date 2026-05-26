@@ -272,6 +272,7 @@ lvgl:
 #    - id: home_page
 #      widgets: !include pages/home.yaml
     - id: daily_page
+      widgets: !include pages/daily800.yaml
       on_gesture:
         left:
           - lvgl.page.show:
@@ -283,7 +284,6 @@ lvgl:
               id: hourly_page3
               animation: MOVE_RIGHT
               time: 300ms
-      widgets: !include pages/daily800.yaml
     - id: daily_page2
       widgets: !include pages/2daily800.yaml
     - id: hourly_page
