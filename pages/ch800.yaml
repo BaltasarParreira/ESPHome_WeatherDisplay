@@ -2,7 +2,7 @@
     # PAGE 2 — CH THERMOSTAT PAGE
     # -----------------------------------------------------
  #   - id: ch_page
-      widgets:
+ #     widgets:
 
         # -----------------------------------------------
         # BACK TO WEATHER BUTTON (top-left)
