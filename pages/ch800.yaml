@@ -46,6 +46,7 @@
             shadow_width: 0
             widgets:
               - label:
+                  align: CENTER
                   text: "\U000F054C"   # mdi-arrow-right
                   text_font: icon_font
                   text_color: white
