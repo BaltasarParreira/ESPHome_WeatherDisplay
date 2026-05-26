@@ -2,7 +2,7 @@
     # PAGE 3 — DHW THERMOSTAT PAGE
     # -----------------------------------------------------
 #    - id: dhw_page
-      widgets:
+#      widgets:
 
         # -----------------------------------------------
         # BACK TO CH PAGE (top-left)
