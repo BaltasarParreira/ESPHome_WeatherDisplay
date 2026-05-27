@@ -647,7 +647,7 @@
 # -------------------------------------------------
 - button:
     id: btn_to_ch
-    align: top_right
+    align: top_left
     x: -10
     y: 10
     width: 68
