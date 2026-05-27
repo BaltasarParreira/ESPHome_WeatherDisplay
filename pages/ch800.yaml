@@ -8,7 +8,7 @@
         # BACK TO WEATHER BUTTON (top-left)
         # -----------------------------------------------
         - button:
-            id: btn_to_ch
+            id: btn_ch_to_weather
             align: top_left
             x: 10
             y: 10
