@@ -31,32 +31,6 @@
                   time: 300ms
 
         # -----------------------------------------------
-        # GO TO DHW PAGE BUTTON (top-right)
-        # -----------------------------------------------
-        - button:
-            id: btn_ch_to_dhw
-            align: top_right
-            x: -10
-            y: 10
-            width: 48
-            height: 48
-            bg_color: white
-            bg_opa: 60%
-            radius: 12
-            shadow_width: 0
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "\U000F054C"   # mdi-arrow-right
-                  text_font: icon_font
-                  text_color: black
-            on_click:
-              - lvgl.page.show:
-                  id: dhw_page
-                  animation: MOVE_LEFT
-                  time: 300ms
-
-        # -----------------------------------------------
         # MAIN CH CONTAINER
         # -----------------------------------------------
         - obj:
@@ -102,20 +76,13 @@
                             entity_id: number.ch_setpoint
                             value: !lambda "return x;"
 
-              # -----------------------------------------
-              # CURRENT ROOM TEMPERATURE
-              # -----------------------------------------
               - label:
-                  id: ch_current_temp
+                  id: ch_action_label
                   align: CENTER
-                  x: 0
-                  y: 110              # below arc
-                  text_font: xlg
-                  text_color: white
-                  text_align: center
-                  text: "-- °C"
-                  border_width: 0
-                  radius: 0
+                  y: -80
+                  text_font: montserrat_20
+                  text: "--"
+                  text_color: 0xFF6F22
 
               # -----------------------------------------
               # SETPOINT LABEL
@@ -123,43 +90,94 @@
               - label:
                   id: ch_setpoint_label
                   align: CENTER
-                  x: 0
-                  y: 160
                   text: "--.-°"
+                  y: 0
                   text_font: font_roboto_72
-                  border_width: 0
-                  radius: 0
+
+              # -----------------------------------------
+              # CURRENT ROOM TEMPERATURE
+              # -----------------------------------------
+              - label:
+                  id: ch_current_temp
+                  align: CENTER
+                  text: "--.-°"
+                  text_font: montserrat_32
+                  text_color: 0xFF6F22
+                  y: 100
 
               # -----------------------------------------
               # CH ENABLE / DISABLE BUTTON (NOW VISIBLE)
               # -----------------------------------------
               - button:
-                  id: btn_ch_enable
+                  id: btn_ch_disable
                   align: CENTER
-                  x: 0
-                  y: 200              # <-- THIS FIXES IT
-                  width: 160
-                  height: 60
-                  bg_color: black
-                  bg_opa: 60%
-                  radius: 12
+                  x: -50
+                  y: 190
+                  width: 70
+                  checkable: true
+                  bg_color: 0x292929
                   shadow_width: 0
-
-                  # WHITE BORDER
-                  border_width: 2
-                  border_color: white
-
+                  pressed:
+                    bg_color: 0xFF6F22
+                  checked:
+                    bg_color: 0x606060
                   widgets:
                     - label:
-                        id: ch_enable_label
                         align: CENTER
-                        text_font: mdb
-                        text_color: white
-                        text: "CH OFF"
-
+                        text: 'OFF'
                   on_click:
                     then:
                       - homeassistant.service:
                           service: switch.toggle
                           data:
                             entity_id: switch.opentherm_gateway_heating_enable
+
+                - button:
+                    id: btn_ch_enable
+                    align: CENTER
+                    x: 50
+                    y: 190
+                    width: 70
+                    checkable: true
+                    bg_color: 0x292929
+                    shadow_width: 0
+                    pressed:
+                      bg_color: 0xFF6F22
+                    checked:
+                      bg_color: 0xFF6F22
+                    widgets:
+                      - label:
+                          align: CENTER
+                          text: 'HEAT'
+                    on_click:
+                    then:
+                      - homeassistant.service:
+                          service: switch.toggle
+                          data:
+                            entity_id: switch.opentherm_gateway_heating_enable
+
+                # -----------------------------------------------
+                # GO TO DHW PAGE BUTTON (top-right)
+                # -----------------------------------------------
+                - button:
+                    id: go_dhw_button
+                    align: CENTER
+                    x: 196
+                    y: -180
+                    width: 54
+                    height: 54
+                    bg_color: 0x000000
+                    shadow_width: 0
+                    text_font: montserrat_32
+                    pressed:
+                      bg_color: 0xFF6F22
+                    widgets:
+                      - label:
+                          align: CENTER
+                          text: "\uF054"
+                    on_click:
+                      then:
+                        - lvgl.page.show:
+                            id: dhw_page
+                            animation: MOVE_LEFT
+                            time: 300ms
