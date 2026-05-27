@@ -28,7 +28,7 @@ esphome:
           condition:
             lambda: 'return id(ha_ch_setpoint).has_state();'
           then:
-            - lvgl.arc.set_value:
+            - lvgl.arc.update:
                 id: ch_arc
                 value: !lambda "return id(ha_ch_setpoint).state;"
   
