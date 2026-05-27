@@ -105,7 +105,6 @@
                   align: CENTER
                   text: "--.-°"
                   y: 0
-                  theme: NONE
                   text_color: 0xFFFFFF
                   text_opa: 100%
                   text_font: font_roboto_72
