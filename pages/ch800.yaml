@@ -172,7 +172,7 @@
                     - lvgl.page.show:
                         id: dhw_page
                         animation: FADE_IN
-                            time: 300ms
+                        time: 300ms
 
                 # -----------------------------------------------
                 # BACK TO WEATHER BUTTON (top-left)
@@ -197,5 +197,5 @@
                     on_click:
                       - lvgl.page.show:
                           id: daily_page
-                          animation: MOVE_RIGHT
+                          animation: FADE_IN
                           time: 300ms
