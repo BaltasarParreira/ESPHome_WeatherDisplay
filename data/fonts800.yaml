@@ -69,6 +69,6 @@ font:
   - file:
       type: gfonts
       family: Roboto
-    id: font_roboto_72
-    size: 72
+    id: font_roboto_82
+    size: 82
     bpp: 8
