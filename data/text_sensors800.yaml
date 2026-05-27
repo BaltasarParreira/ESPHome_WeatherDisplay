@@ -204,11 +204,12 @@ sensor:
     id: ha_ch_setpoint
     entity_id: climate.opentherm_gateway_heating_climate
     attribute: temperature
+    internal: false
     on_value:
       then:
         - lvgl.arc.update:
             id: ch_arc
-            value: !lambda "return (int) x;"   # x = new value
+            value: !lambda "return (int)x;"
 
         - lvgl.label.update:
             id: ch_setpoint_label
