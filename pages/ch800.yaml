@@ -90,7 +90,7 @@
               - label:
                   id: ch_action_label
                   align: CENTER
-                  y: -40
+                  y: -80
                   text_font: montserrat_20
                   text: "--"
                   text_color: 0xFF6F22
@@ -116,7 +116,7 @@
                   text: "--.-°"
                   text_font: montserrat_32
                   text_color: 0xFF6F22
-                  y: 50
+                  y: 80
 
               # -----------------------------------------
               # CH ENABLE / DISABLE BUTTON (NOW VISIBLE)
