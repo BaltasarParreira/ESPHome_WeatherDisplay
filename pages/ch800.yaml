@@ -68,26 +68,6 @@
                     arc_width: 22
                   knob:
                     bg_color: 0xFFFFFF
-                  on_value:
-                    then:
-                      # Update label from arc movement
-                      - lvgl.label.update:
-                          id: ch_setpoint_label
-                          text: !lambda |-
-                            char buf[16];
-                            snprintf(buf, sizeof(buf), "%.1f°", x);
-                            return std::string(buf);
-
-                      # Only call HA if API is connected (prevents crashes)
-                      - if:
-                          condition:
-                            api.connected:
-                          then:
-                            - homeassistant.service:
-                                service: climate.set_temperature
-                                data:
-                                  entity_id: climate.opentherm_gateway_heating_climate
-                                  temperature: !lambda "return x;"
 
               - label:
                   id: ch_action_label
