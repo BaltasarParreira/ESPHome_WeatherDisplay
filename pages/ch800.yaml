@@ -42,11 +42,6 @@
             radius: 0
             pad_all: 0
             scrollable: false
-            layout:
-              type: flex
-              flex_flow: column
-              flex_align_main: center     # vertical center
-              flex_align_cross: center    # horizontal center
             widgets:
 
               # -----------------------------------------
