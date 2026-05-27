@@ -27,6 +27,8 @@ esphome:
 esp32:
   variant: esp32s3
   flash_size: 16MB
+  flash_mode: qio
+  flash_speed: 80MHz
   cpu_frequency: 240MHz
   framework:
     type: esp-idf
@@ -39,7 +41,7 @@ esp32:
       CONFIG_RINGBUF_PLACE_FUNCTIONS_INTO_FLASH: "y"
 
 psram:
-  mode: octal
+  mode: qspi
   speed: 80MHz
 
 wifi:
@@ -260,6 +262,7 @@ display:
 # LVGL
 # -----------------------------
 lvgl:
+  buffer_size: 8%
   rotation: 0
   style_definitions:
     - id: clean_box
