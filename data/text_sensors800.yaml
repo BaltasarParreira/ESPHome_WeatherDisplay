@@ -186,11 +186,29 @@ text_sensor:
               condition:
               - lambda: 'return x == off;'
               then:
+                - switch.turn_off: ch_enable
+                - lvgl.arc.update:
+                    id: ch_setpoint_arc
+                    indicator:
+                      arc_color: 0x292929
+                - lvgl.button.update:
+                    id: btn_ch_disable
+                    state:
+                      checked: true
                 - lvgl.button.update:
                     id: btn_ch_enable
                     state:
                       checked: false 
               else:
+                - switch.turn_on: ch_enable
+                - lvgl.arc.update:
+                    id: ch_setpoint_arc
+                    indicator:
+                      arc_color: 0xFF6F22
+                - lvgl.button.update:
+                    id: btn_ch_disable
+                    state:
+                      checked: false
                 - lvgl.button.update:
                     id: btn_ch_enable
                     state:
