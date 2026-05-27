@@ -30,7 +30,7 @@ esphome:
           then:
             - lvgl.arc.update:
                 id: ch_arc
-                value: !lambda "return (int) id(ha_ch_setpoint).state;"
+                value: !lambda "return id(ha_ch_setpoint).state;"
   
             - lvgl.label.update:
                 id: ch_setpoint_label
