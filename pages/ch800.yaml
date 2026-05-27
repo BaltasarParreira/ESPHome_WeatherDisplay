@@ -71,7 +71,7 @@
                   on_value:
                     then:
                       # Update label
-                      - lvgl.label.set_text:
+                      - lvgl.label.update:
                           id: ch_setpoint_label
                           text: !lambda |-
                             char buf[16];
@@ -104,7 +104,7 @@
                   text_font: font_roboto_72
                   on_update:
                     then:
-                      - lvgl.label.set_text:
+                      - lvgl.label.update:
                           id: ch_setpoint_label
                           text: !lambda |-
                             if (id(ha_ch_setpoint).has_state()) {
