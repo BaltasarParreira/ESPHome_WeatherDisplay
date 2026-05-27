@@ -216,7 +216,3 @@ sensor:
               char buf[16];
               snprintf(buf, sizeof(buf), "%.1f°", x);
               return std::string(buf);
-            text: !lambda |-
-              char buf[16];
-              snprintf(buf, sizeof(buf), "%.1f°", x);
-              return std::string(buf);
