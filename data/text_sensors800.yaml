@@ -158,7 +158,7 @@ text_sensor:
               return std::string(buf);
 
   - platform: homeassistant
-    id: ha_ch_temp
+    id: ha_ch_action
     entity_id: climate.opentherm_gateway_heating_climate
     attribute: hvac_action
     on_value:
