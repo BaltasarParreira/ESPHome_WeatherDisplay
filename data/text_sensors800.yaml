@@ -142,13 +142,13 @@ text_sensor:
     id: ha_ch_temp
     entity_id: climate.opentherm_gateway_heating_climate
     attribute: current_temperature
-#    on_value:
-#      then:
-#        - lvgl.label.update:
-#            id: ch_current_temp
-#            text:
-#              format: "%.1f °C"
-#              args: [ 'atof(x.c_str())' ]
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ch_current_temp
+            text:
+              format: "%.1f °C"
+              args: [ 'atof(x.c_str())' ]
 
 #  - platform: homeassistant
 #    id: ha_ch_setpoint
@@ -158,61 +158,61 @@ text_sensor:
   - platform: homeassistant
     id: ha_ch_enable_state
     entity_id: switch.opentherm_gateway_heating_enable
- #   on_value:
- #     then:
- #       - lambda: |-
- #           if (x == "on") {
- #             lv_label_set_text(id(btn_ch_enable), "HEAT");
- #           } else {
- #             lv_label_set_text(id(btn_ch_disable), "OFF");
- #           }
+    on_value:
+      then:
+        - lambda: |-
+            if (x == "on") {
+              lv_label_set_text(id(btn_ch_enable), "HEAT");
+            } else {
+              lv_label_set_text(id(btn_ch_disable), "OFF");
+            }
 
   - platform: homeassistant
     id: ha_dhw_temp
     entity_id: sensor.opentherm_gateway_hot_water_temperature
-#    on_value:
-#      then:
-#        - lvgl.label.update:
-#            id: dhw_current_temp
-#            text:
-#              format: "%.1f °C"
-#              args: [ 'atof(x.c_str())' ]
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: dhw_current_temp
+            text:
+              format: "%.1f °C"
+              args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
     id: ha_dhw_setpoint
     entity_id: number.opentherm_gateway_hot_water_setpoint
-#    on_value:
-#      then:
-#        - lvgl.arc.update:
-#            id: dhw_arc
-#            value: !lambda "return atof(x.c_str());"
+    on_value:
+      then:
+        - lvgl.arc.update:
+            id: dhw_arc
+            value: !lambda "return atof(x.c_str());"
 
   - platform: homeassistant
     id: ha_dhw_enable_state
     entity_id: switch.opentherm_gateway_hot_water_enable
-#    on_value:
-#      then:
-#        - lambda: |-
-#            if (x == "on") {
-#              lv_label_set_text(id(dhw_enable_label), "DHW ON");
-#            } else {
-#              lv_label_set_text(id(dhw_enable_label), "DHW OFF");
-#            }
+    on_value:
+      then:
+        - lambda: |-
+            if (x == "on") {
+              lv_label_set_text(id(dhw_enable_label), "DHW ON");
+            } else {
+              lv_label_set_text(id(dhw_enable_label), "DHW OFF");
+            }
 
 sensor:
   - platform: homeassistant
     id: ha_ch_setpoint
     entity_id: climate.opentherm_gateway_heating_climate
     attribute: temperature
-#    on_value:
-#      then:
-#        - lvgl.arc.update:
-#            id: ch_arc
-#            value: !lambda "return (int)x;"
+    on_value:
+      then:
+        - lvgl.arc.update:
+            id: ch_arc
+            value: !lambda "return (int)x;"
 
-#        - lvgl.label.update:
-#            id: ch_setpoint_label
-#            text: !lambda |-
-#              char buf[16];
-#             snprintf(buf, sizeof(buf), "%.1f°", x);
-#              return std::string(buf);
+        - lvgl.label.update:
+            id: ch_setpoint_label
+            text: !lambda |-
+              char buf[16];
+             snprintf(buf, sizeof(buf), "%.1f°", x);
+              return std::string(buf);
