@@ -183,11 +183,11 @@ text_sensor:
     on_value:
         then:
           - lvgl.label.update:
-              id: btn_ch_enable
+              id: lbl_ch_enable_text
               text: !lambda "return x == \"on\" ? std::string(\"HEAT\") : std::string(\"\");"
     
           - lvgl.label.update:
-              id: btn_ch_disable
+              id: lbl_ch_disable_text
               text: !lambda "return x == \"off\" ? std::string(\"OFF\") : std::string(\"\");"
 
   - platform: homeassistant
