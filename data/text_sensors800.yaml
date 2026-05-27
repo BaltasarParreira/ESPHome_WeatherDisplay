@@ -181,13 +181,14 @@ text_sensor:
     id: ha_ch_enable_state
     entity_id: switch.opentherm_gateway_heating_enable
     on_value:
-      then:
-        - lambda: |-
-            if (x == "on") {
-              lv_label_set_text(id(btn_ch_enable), "HEAT");
-            } else {
-              lv_label_set_text(id(btn_ch_disable), "OFF");
-            }
+        then:
+          - lvgl.label.update:
+              id: btn_ch_enable
+              text: !lambda "return x == \"on\" ? std::string(\"HEAT\") : std::string(\"\");"
+    
+          - lvgl.label.update:
+              id: btn_ch_disable
+              text: !lambda "return x == \"off\" ? std::string(\"OFF\") : std::string(\"\");"
 
   - platform: homeassistant
     id: ha_dhw_temp
