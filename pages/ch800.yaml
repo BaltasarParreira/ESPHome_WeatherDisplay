@@ -65,44 +65,58 @@
             bg_color: black
             bg_opa: 100%
 
-            # Center everything inside
             layout:
               type: flex
               flex_flow: column
-              flex_align_main: center
+              flex_align_main: start
               flex_align_cross: center
 
             widgets:
-              - arc:
-                  id: ch_arc
-                  align: CENTER
 
-                  # Perfect size for 800×480
-                  width: 300
-                  height: 300
+              # -----------------------------------------
+              # TOP SPACER (pushes arc down)
+              # -----------------------------------------
+              - obj:
+                  width: 100%
+                  height: 40    # adjust if needed
+                  bg_opa: TRANSP
 
-                  adjustable: true
-                  value: 50
-                  min_value: 50
-                  max_value: 300
-
-                  arc_width: 22
-                  arc_color: 0x292929
-
-                  indicator:
-                    arc_color: 0xFF6F22
-                    arc_width: 22
-
-                  knob:
-                    bg_color: 0xFFFFFF
-
-                  on_value:
-                    then:
-                      - homeassistant.service:
-                          service: number.set_value
-                          data:
-                            entity_id: number.ch_setpoint
-                            value: !lambda "return x;"
+              # -----------------------------------------
+              # ARC ZONE (fixed height)
+              # -----------------------------------------
+              - obj:
+                  width: 100%
+                  height: 320   # guaranteed to fit on 480px screen
+                  bg_opa: TRANSP
+                  layout:
+                    type: flex
+                    flex_flow: column
+                    flex_align_main: center
+                    flex_align_cross: center
+                  widgets:
+                    - arc:
+                        id: ch_arc
+                        align: CENTER
+                        width: 280
+                        height: 280
+                        adjustable: true
+                        value: 50
+                        min_value: 50
+                        max_value: 300
+                        arc_width: 22
+                        arc_color: 0x292929
+                        indicator:
+                          arc_color: 0xFF6F22
+                          arc_width: 22
+                        knob:
+                          bg_color: 0xFFFFFF
+                        on_value:
+                          then:
+                            - homeassistant.service:
+                                service: number.set_value
+                                data:
+                                  entity_id: number.ch_setpoint
+                                  value: !lambda "return x;"
 
               # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
