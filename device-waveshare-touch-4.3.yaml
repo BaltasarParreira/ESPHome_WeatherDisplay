@@ -18,11 +18,32 @@ esphome:
   on_boot:
     priority: 800.0  # Runs early during framework hardware initialization
     then:
+      # 1. Force Lisbon timezone
       - lambda: |-
           setenv("TZ", "WET0WEST-1,M3.5.0/1,M10.5.0/2", 1);
           tzset();
           ESP_LOGI("main", "Forced POSIX Lisbon timezone onto ESP-IDF backend");
-
+  
+      # 2. Sync ARC with climate setpoint
+      - if:
+          condition:
+            lambda: 'return id(ha_ch_setpoint).has_state();'
+          then:
+            - lvgl.arc.set_value:
+                id: ch_arc
+                value: !lambda "return id(ha_ch_setpoint).state;"
+  
+      # 3. Sync LABEL with climate setpoint
+      - if:
+          condition:
+            lambda: 'return id(ha_ch_setpoint).has_state();'
+          then:
+            - lvgl.label.set_text:
+                id: ch_setpoint_label
+                text: !lambda |-
+                  char buf[16];
+                  sprintf(buf, "%.1f°", id(ha_ch_setpoint).state);
+                  return std::string(buf);
 
 esp32:
   variant: esp32s3
