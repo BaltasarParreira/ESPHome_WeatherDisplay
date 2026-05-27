@@ -158,25 +158,25 @@ text_sensor:
   - platform: homeassistant
     id: ha_ch_enable_state
     entity_id: switch.opentherm_gateway_heating_enable
-    on_value:
-      then:
-        - lambda: |-
-            if (x == "on") {
-              lv_label_set_text(id(btn_ch_enable), "HEAT");
-            } else {
-              lv_label_set_text(id(btn_ch_disable), "OFF");
-            }
+#    on_value:
+#      then:
+#        - lambda: |-
+#            if (x == "on") {
+#              lv_label_set_text(id(btn_ch_enable), "HEAT");
+#            } else {
+#              lv_label_set_text(id(btn_ch_disable), "OFF");
+#            }
 
   - platform: homeassistant
     id: ha_dhw_temp
     entity_id: sensor.opentherm_gateway_hot_water_temperature
-    on_value:
-      then:
-        - lvgl.label.update:
-            id: dhw_current_temp
-            text:
-              format: "%.1f °C"
-              args: [ 'atof(x.c_str())' ]
+ #   on_value:
+ #     then:
+ #       - lvgl.label.update:
+ #           id: dhw_current_temp
+ #           text:
+ #             format: "%.1f °C"
+ #             args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
     id: ha_dhw_setpoint
