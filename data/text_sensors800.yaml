@@ -228,6 +228,9 @@ sensor:
     attribute: temperature
     on_value:
       then:
+        - delay: 200ms
+        - lambda: |-
+            ESP_LOGI("CH", "Setpoint update: x=%f", x);
         - lvgl.arc.update:
             id: ch_arc
             value: !lambda |-
