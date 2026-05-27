@@ -52,7 +52,7 @@
                   id: ch_arc
                   align: CENTER
                   x: 0
-                  y: -30              # move slightly up
+                  y: -20              # move slightly up
                   width: 420
                   height: 420
                   adjustable: true
