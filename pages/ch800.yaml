@@ -70,11 +70,20 @@
                     bg_color: 0xFFFFFF
                   on_value:
                     then:
+                      # Update label
+                      - lvgl.label.set_text:
+                          id: ch_setpoint_label
+                          text: !lambda |-
+                            char buf[16];
+                            sprintf(buf, "%.1f°", x);
+                            return std::string(buf);
+                
+                      # Write to climate
                       - homeassistant.service:
-                          service: number.set_value
+                          service: climate.set_temperature
                           data:
-                            entity_id: number.ch_setpoint
-                            value: !lambda "return x;"
+                            entity_id: climate.opentherm_gateway_heating_climate
+                            temperature: !lambda "return x;"
 
               - label:
                   id: ch_action_label
