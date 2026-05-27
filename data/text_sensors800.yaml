@@ -150,10 +150,10 @@ text_sensor:
               format: "%.1f °C"
               args: [ 'atof(x.c_str())' ]
 
-  - platform: homeassistant
-    id: ha_ch_setpoint
-    entity_id: climate.opentherm_gateway_heating_climate
-    attribute: temperature
+#  - platform: homeassistant
+#    id: ha_ch_setpoint
+#    entity_id: climate.opentherm_gateway_heating_climate
+#    attribute: temperature
 
   - platform: homeassistant
     id: ha_ch_enable_state
@@ -198,3 +198,8 @@ text_sensor:
             } else {
               lv_label_set_text(id(dhw_enable_label), "DHW OFF");
             }
+
+- platform: homeassistant
+  id: ha_ch_setpoint
+  entity_id: climate.opentherm_gateway_heating_climate
+  attribute: temperature
