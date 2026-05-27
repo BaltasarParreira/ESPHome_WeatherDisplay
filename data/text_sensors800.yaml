@@ -206,15 +206,16 @@ sensor:
     attribute: temperature
     on_value:
       then:
-        - lambda: |-
-            ESP_LOGI("ch", "New CH setpoint from HA: %.2f", x);
-
         - lvgl.arc.update:
             id: ch_arc
             value: !lambda "return (int)x;"
 
         - lvgl.label.update:
             id: ch_setpoint_label
+            text: !lambda |-
+              char buf[16];
+              snprintf(buf, sizeof(buf), "%.1f°", x);
+              return std::string(buf);
             text: !lambda |-
               char buf[16];
               snprintf(buf, sizeof(buf), "%.1f°", x);
