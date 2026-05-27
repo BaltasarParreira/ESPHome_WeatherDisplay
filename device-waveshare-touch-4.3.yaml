@@ -24,7 +24,6 @@ esphome:
           tzset();
           ESP_LOGI("main", "Forced POSIX Lisbon timezone onto ESP-IDF backend");
   
-      # 2. Sync ARC with climate setpoint
       - if:
           condition:
             lambda: 'return id(ha_ch_setpoint).has_state();'
@@ -33,12 +32,7 @@ esphome:
                 id: ch_arc
                 value: !lambda "return id(ha_ch_setpoint).state;"
   
-      # 3. Sync LABEL with climate setpoint
-      - if:
-          condition:
-            lambda: 'return id(ha_ch_setpoint).has_state();'
-          then:
-            - lvgl.label.set_text:
+            - lvgl.label.update:
                 id: ch_setpoint_label
                 text: !lambda |-
                   char buf[16];
