@@ -61,6 +61,15 @@ font:
       - "\U000F04D2"  # arrow-left
       - "\U000F054C"  # arrow-right
       - "\U000F02DC"  # home icon
+  - file: 'https://github.com/Templarian/MaterialDesign-Webfont/raw/v7.4.47/fonts/materialdesignicons-webfont.ttf'
+    id: icon_font_big
+    size: 48
+    bpp: 4
+    glyphs:
+      - "\U000F0F54"  # fire (thermostat button)
+      - "\U000F04D2"  # arrow-left
+      - "\U000F054C"  # arrow-right
+      - "\U000F02DC"  # home icon
   - file:
       type: gfonts
       family: Roboto
