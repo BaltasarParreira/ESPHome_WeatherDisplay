@@ -86,17 +86,6 @@
                   text: "--.-°"
                   y: 0
                   text_font: font_roboto_72
-                  on_update:
-                    then:
-                      - lvgl.label.update:
-                          id: ch_setpoint_label
-                          text: !lambda |-
-                            if (id(ha_ch_setpoint).has_state()) {
-                              char buf[16];
-                              sprintf(buf, "%.1f°", id(ha_ch_setpoint).state);
-                              return std::string(buf);
-                            }
-                            return std::string("--.-°");
 
               # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
