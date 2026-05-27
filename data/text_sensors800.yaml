@@ -147,10 +147,15 @@ text_sensor:
       then:
         - lvgl.label.update:
             id: ch_current_temp
-            text:
-              format: "%.1f °C"
-              args:
-                - "x.has_value() ? x.value() : 0.0"
+            text: !lambda |-
+              // x is a std::string
+              float v = atof(x.c_str());
+              if (v == 0 && x != "0" && x != "0.0") {
+                return std::string("--.-°");
+              }
+              char buf[16];
+              snprintf(buf, sizeof(buf), "%.1f °C", v);
+              return std::string(buf);
 
 #  - platform: homeassistant
 #    id: ha_ch_setpoint
