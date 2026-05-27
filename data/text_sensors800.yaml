@@ -158,7 +158,7 @@ text_sensor:
   - platform: homeassistant
     id: ha_ch_enable_state
     entity_id: switch.opentherm_gateway_heating_enable
-    on_value:
+ #   on_value:
  #     then:
  #       - lambda: |-
  #           if (x == "on") {
