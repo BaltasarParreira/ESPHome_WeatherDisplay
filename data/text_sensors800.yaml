@@ -187,12 +187,12 @@ text_sensor:
               - lambda: 'return x == off;'
               then:
                 - lvgl.button.update:
-                    id: ch_on_button
+                    id: btn_ch_enable
                     state:
                       checked: false 
               else:
                 - lvgl.button.update:
-                    id: ch_on_button
+                    id: btn_ch_enable
                     state:
                       checked: true
     
