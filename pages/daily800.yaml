@@ -97,7 +97,7 @@
                       styles: clean_box
                       width: 50%
                       bg_opa: transp
-                      border_opa: transp
+                      border_opa: 80%
                       border_width: 1
                       shadow_width: 0
                       radius: 0
