@@ -199,7 +199,8 @@ text_sensor:
               lv_label_set_text(id(dhw_enable_label), "DHW OFF");
             }
 
-- platform: homeassistant
-  id: ha_ch_setpoint
-  entity_id: climate.opentherm_gateway_heating_climate
-  attribute: temperature
+sensor:
+  - platform: homeassistant
+    id: ha_ch_setpoint
+    entity_id: climate.opentherm_gateway_heating_climate
+    attribute: temperature
