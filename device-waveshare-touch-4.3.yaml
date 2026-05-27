@@ -32,12 +32,7 @@ esphome:
                 id: ch_arc
                 value: !lambda "return (int) id(ha_ch_setpoint).state;"
   
-            - lvgl.label.update:
-                id: ch_setpoint_label
-                text: !lambda |-
-                  char buf[16];
-                  sprintf(buf, "%.1f°", id(ha_ch_setpoint).state);
-                  return std::string(buf);
+
 
 esp32:
   variant: esp32s3
