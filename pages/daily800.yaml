@@ -650,8 +650,8 @@
     align: top_right
     x: -10
     y: 10
-    width: 48
-    height: 48
+    width: 58
+    height: 58
     bg_color: black
     bg_opa: 60%
     radius: 12
@@ -660,7 +660,7 @@
       - label:
           align: CENTER
           text: "\U000F0F54"   # mdi-fire
-          text_font: icon_font
+          text_font: icon_font_big
           text_color: white
     on_click:
       - lvgl.page.show:
