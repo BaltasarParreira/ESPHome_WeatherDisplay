@@ -159,13 +159,13 @@ text_sensor:
     id: ha_ch_enable_state
     entity_id: switch.opentherm_gateway_heating_enable
     on_value:
-      then:
-        - lambda: |-
-            if (x == "on") {
-              lv_label_set_text(id(btn_ch_enable), "HEAT");
-            } else {
-              lv_label_set_text(id(btn_ch_disable), "OFF");
-            }
+ #     then:
+ #       - lambda: |-
+ #           if (x == "on") {
+ #             lv_label_set_text(id(btn_ch_enable), "HEAT");
+ #           } else {
+ #             lv_label_set_text(id(btn_ch_disable), "OFF");
+ #           }
 
   - platform: homeassistant
     id: ha_dhw_temp
@@ -181,23 +181,23 @@ text_sensor:
   - platform: homeassistant
     id: ha_dhw_setpoint
     entity_id: number.opentherm_gateway_hot_water_setpoint
-    on_value:
-      then:
-        - lvgl.arc.update:
-            id: dhw_arc
-            value: !lambda "return atof(x.c_str());"
+#    on_value:
+#      then:
+#        - lvgl.arc.update:
+#            id: dhw_arc
+#            value: !lambda "return atof(x.c_str());"
 
   - platform: homeassistant
     id: ha_dhw_enable_state
     entity_id: switch.opentherm_gateway_hot_water_enable
-    on_value:
-      then:
-        - lambda: |-
-            if (x == "on") {
-              lv_label_set_text(id(dhw_enable_label), "DHW ON");
-            } else {
-              lv_label_set_text(id(dhw_enable_label), "DHW OFF");
-            }
+#    on_value:
+#      then:
+#        - lambda: |-
+#            if (x == "on") {
+#              lv_label_set_text(id(dhw_enable_label), "DHW ON");
+#            } else {
+#              lv_label_set_text(id(dhw_enable_label), "DHW OFF");
+#            }
 
 sensor:
   - platform: homeassistant
