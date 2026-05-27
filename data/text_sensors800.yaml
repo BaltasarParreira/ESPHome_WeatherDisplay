@@ -137,18 +137,19 @@ text_sensor:
   - platform: homeassistant
     id: ha_sun_state
     entity_id: sun.sun
-#### NEW SENSORS ####
+    
+  #### NEW SENSORS ####
   - platform: homeassistant
     id: ha_ch_temp
     entity_id: climate.opentherm_gateway_heating_climate
     attribute: current_temperature
-#    on_value:
-#      then:
-#        - lvgl.label.update:
-#            id: ch_current_temp
-#            text:
-#              format: "%.1f °C"
-#              args: [ 'atof(x.c_str())' ]
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ch_current_temp
+            text:
+              format: "%.1f °C"
+              args: [ 'atof(x.c_str())' ]
 
 #  - platform: homeassistant
 #    id: ha_ch_setpoint
