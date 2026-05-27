@@ -285,6 +285,7 @@ lvgl:
 #    - id: home_page
 #      widgets: !include pages/home.yaml
     - id: daily_page
+      layout: NONE
       widgets: !include pages/daily800.yaml
       on_swipe_left:
           - lvgl.page.show:
