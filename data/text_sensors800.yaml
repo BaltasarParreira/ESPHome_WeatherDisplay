@@ -207,13 +207,15 @@ sensor:
     internal: false
     on_value:
       then:
+        # 1) Initialize arc from HA setpoint
         - lvgl.arc.update:
             id: ch_arc
             value: !lambda "return (int)x;"
 
+        # 2) Initialize label from HA setpoint
         - lvgl.label.update:
             id: ch_setpoint_label
             text: !lambda |-
               char buf[16];
-              sprintf(buf, "%.1f°", x);
+              snprintf(buf, sizeof(buf), "%.1f°", x);
               return std::string(buf);
