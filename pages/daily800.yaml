@@ -63,7 +63,7 @@
                   # LEFT SIDE
                   - obj:
                       #styles: clean_box
-                      width: 50%
+                      width: 45%
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
@@ -95,10 +95,10 @@
                   # RIGHT SIDE
                   - obj:
                       styles: clean_box
-                      width: 50%
+                      width: 55%
                       bg_opa: transp
-                      border_opa: 80%
-                      border_width: 1
+                      border_opa: transp
+                      border_width: 0
                       shadow_width: 0
                       radius: 0
                       pad_all: 0
@@ -109,8 +109,7 @@
                         flex_align_main: center
                         pad_row: 0
                         pad_column: 0
-                      align: right_mid
-                      x: -40
+                      #align: right_mid
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
