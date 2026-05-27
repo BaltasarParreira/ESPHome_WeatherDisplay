@@ -165,9 +165,9 @@ text_sensor:
       then:
         - lambda: |-
             if (x == "on") {
-              lv_label_set_text(id(ch_enable_label), "CH ON");
+              lv_label_set_text(id(btn_ch_enable), "HEAT");
             } else {
-              lv_label_set_text(id(ch_enable_label), "CH OFF");
+              lv_label_set_text(id(btn_ch_disable), "OFF");
             }
 
   - platform: homeassistant
