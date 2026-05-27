@@ -56,9 +56,6 @@
                   animation: MOVE_LEFT
                   time: 300ms
 
-        # -----------------------------------------------
-        # MAIN CH CONTAINER (full screen)
-        # -----------------------------------------------
         - obj:
             width: 100%
             height: 100%
@@ -67,123 +64,124 @@
             border_width: 0
             radius: 0
             pad_all: 0
+            scrollable: false
 
             layout:
-              type: flex
-              flex_flow: column
-              flex_align_main: start
-              flex_align_cross: center
+              type: grid
+              grid_rows: 60fr 300fr 120fr     # total = 480px
+              grid_columns: 1fr
 
             widgets:
 
               # -----------------------------------------
-              # TOP SPACER (adds margin from top)
+              # TOP SPACER (60px)
               # -----------------------------------------
               - obj:
+                  grid_cell_row: 0
+                  grid_cell_column: 0
                   width: 100%
-                  height: 50
+                  height: 100%
                   bg_opa: TRANSP
                   border_width: 0
                   radius: 0
 
               # -----------------------------------------
-              # ARC (centered horizontally)
-              # -----------------------------------------
-              - arc:
-                  id: ch_arc
-                  align: CENTER
-                  width: 260
-                  height: 260
-                  adjustable: true
-                  value: 50
-                  min_value: 50
-                  max_value: 300
-
-                  arc_width: 22
-                  arc_color: 0x292929
-                  border_width: 0
-                  radius: 0
-
-                  indicator:
-                    arc_color: 0xFF6F22
-                    arc_width: 22
-
-                  knob:
-                    bg_color: 0xFFFFFF
-
-                  on_value:
-                    then:
-                      - homeassistant.service:
-                          service: number.set_value
-                          data:
-                            entity_id: number.ch_setpoint
-                            value: !lambda "return x;"
-
-              # -----------------------------------------
-              # MIDDLE SPACER (space between arc & labels)
+              # ARC ZONE (300px)
               # -----------------------------------------
               - obj:
+                  grid_cell_row: 1
+                  grid_cell_column: 0
                   width: 100%
-                  height: 20
+                  height: 100%
                   bg_opa: TRANSP
                   border_width: 0
                   radius: 0
-
-              # -----------------------------------------
-              # CURRENT ROOM TEMPERATURE
-              # -----------------------------------------
-              - label:
-                  id: ch_current_temp
-                  text_font: xlg
-                  text_color: white
-                  text_align: center
-                  text: "-- °C"
-                  border_width: 0
-                  radius: 0
-
-              # -----------------------------------------
-              # SETPOINT LABEL
-              # -----------------------------------------
-              - label:
-                  id: ch_setpoint_label
-                  align: CENTER
-                  text: "--.-°"
-                  text_font: font_roboto_72
-                  border_width: 0
-                  radius: 0
-
-              # -----------------------------------------
-              # BOTTOM SPACER (pushes button down)
-              # -----------------------------------------
-              - obj:
-                  width: 100%
-                  height: 20
-                  bg_opa: TRANSP
-                  border_width: 0
-                  radius: 0
-
-              # -----------------------------------------
-              # CH ENABLE / DISABLE BUTTON
-              # -----------------------------------------
-              - button:
-                  id: btn_ch_enable
-                  width: 160
-                  height: 60
-                  bg_color: black
-                  bg_opa: 60%
-                  radius: 12
-                  shadow_width: 0
-                  border_width: 0
+                  layout:
+                    type: flex
+                    flex_flow: column
+                    flex_align_main: center
+                    flex_align_cross: center
                   widgets:
-                    - label:
-                        id: ch_enable_label
-                        text_font: mdb
-                        text_color: white
-                        text: "CH OFF"
+                    - arc:
+                        id: ch_arc
                         align: CENTER
-                  on_click:
-                    then:
-                      - homeassistant.service:
-                          service: switch.toggle
-                          data:
-                            entity_id: switch.opentherm_gateway_heating_enable
+                        width: 260
+                        height: 260
+                        adjustable: true
+                        value: 50
+                        min_value: 50
+                        max_value: 300
+                        arc_width: 22
+                        arc_color: 0x292929
+                        border_width: 0
+                        radius: 0
+                        indicator:
+                          arc_color: 0xFF6F22
+                          arc_width: 22
+                        knob:
+                          bg_color: 0xFFFFFF
+                        on_value:
+                          then:
+                            - homeassistant.service:
+                                service: number.set_value
+                                data:
+                                  entity_id: number.ch_setpoint
+                                  value: !lambda "return x;"
+
+              # -----------------------------------------
+              # BOTTOM ZONE (120px)
+              # -----------------------------------------
+              - obj:
+                  grid_cell_row: 2
+                  grid_cell_column: 0
+                  width: 100%
+                  height: 100%
+                  bg_opa: TRANSP
+                  border_width: 0
+                  radius: 0
+                  layout:
+                    type: flex
+                    flex_flow: column
+                    flex_align_main: start
+                    flex_align_cross: center
+                  widgets:
+
+                    - label:
+                        id: ch_current_temp
+                        text_font: xlg
+                        text_color: white
+                        text_align: center
+                        text: "-- °C"
+                        border_width: 0
+                        radius: 0
+
+                    - label:
+                        id: ch_setpoint_label
+                        align: CENTER
+                        text: "--.-°"
+                        text_font: font_roboto_72
+                        border_width: 0
+                        radius: 0
+
+                    - button:
+                        id: btn_ch_enable
+                        width: 160
+                        height: 60
+                        bg_color: black
+                        bg_opa: 60%
+                        radius: 12
+                        shadow_width: 0
+                        border_width: 0
+                        widgets:
+                          - label:
+                              id: ch_enable_label
+                              text_font: mdb
+                              text_color: white
+                              text: "CH OFF"
+                              align: CENTER
+                        on_click:
+                          then:
+                            - homeassistant.service:
+                                service: switch.toggle
+                                data:
+                                  entity_id: switch.opentherm_gateway_heating_enable
