@@ -145,57 +145,57 @@
                           data:
                             entity_id: switch.opentherm_gateway_heating_enable
 
-        # -----------------------------------------------
-        # GO TO DHW PAGE BUTTON (top-right)
-        # -----------------------------------------------
-         - button:
-              id: go_dhw_button
-              align: top_right
-              x: 10
-              y: 10
-              width: 68
-              height: 68
-              bg_color: cyan
-              bg_opa: 60%
-              radius: 12
-              shadow_width: 0
-              text_font: montserrat_32
-      #            pressed:
-      #              bg_color: 0xFF6F22
-              widgets:
-                - label:
-                    align: CENTER
-                    text: "\uF054"
-                    text_font: icon_font
-                    text_color: black
-              on_click:
-                - lvgl.page.show:
-                    id: dhw_page
-                    animation: FADE_IN
-                        time: 300ms
+              # -----------------------------------------------
+              # GO TO DHW PAGE BUTTON (top-right)
+              # -----------------------------------------------
+              - button:
+                  id: go_dhw_button
+                  align: top_right
+                  x: 10
+                  y: 10
+                  width: 68
+                  height: 68
+                  bg_color: cyan
+                  bg_opa: 60%
+                  radius: 12
+                  shadow_width: 0
+          #        text_font: montserrat_32
+          #            pressed:
+          #              bg_color: 0xFF6F22
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "\U000F0975"
+                        text_font: icon_font
+                        text_color: black
+                  on_click:
+                    - lvgl.page.show:
+                        id: dhw_page
+                        animation: FADE_IN
+                            time: 300ms
 
-        # -----------------------------------------------
-        # BACK TO WEATHER BUTTON (top-left)
-        # -----------------------------------------------
-        - button:
-            id: btn_ch_to_weather
-            align: top_left
-            x: 10
-            y: 10
-            width: 68
-            height: 68
-            bg_color: white
-            bg_opa: 60%
-            radius: 12
-            shadow_width: 0
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "\U000F04D2"   # mdi-arrow-left
-                  text_font: icon_font
-                  text_color: black
-            on_click:
-              - lvgl.page.show:
-                  id: daily_page
-                  animation: MOVE_RIGHT
-                  time: 300ms
+                # -----------------------------------------------
+                # BACK TO WEATHER BUTTON (top-left)
+                # -----------------------------------------------
+                - button:
+                    id: btn_ch_to_weather
+                    align: top_left
+                    x: 10
+                    y: 10
+                    width: 68
+                    height: 68
+                    bg_color: white
+                    bg_opa: 60%
+                    radius: 12
+                    shadow_width: 0
+                    widgets:
+                      - label:
+                          align: CENTER
+                          text: "\U000F02DC"
+                          text_font: icon_font
+                          text_color: black
+                    on_click:
+                      - lvgl.page.show:
+                          id: daily_page
+                          animation: MOVE_RIGHT
+                          time: 300ms
