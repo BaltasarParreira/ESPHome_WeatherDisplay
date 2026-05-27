@@ -361,20 +361,6 @@ lvgl:
       widgets: !include pages/dhw800.yaml
       skip: true
 
-  on_page_change:
-    then:
-      - lambda: |-
-          if (id(lvgl_current_page) == id(ch_page)) {
-            if (id(ha_ch_setpoint).has_state()) {
-              int v = (int) id(ha_ch_setpoint).state;
-              lvgl::arc_update(id(ch_arc), v);
-
-              char buf[16];
-              snprintf(buf, sizeof(buf), "%.1f°", id(ha_ch_setpoint).state);
-              lvgl::label_update_text(id(ch_setpoint_label), std::string(buf));
-            }
-          }
-
 # -----------------------------
 # REQUIRED DUMMY SWITCH
 # -----------------------------
