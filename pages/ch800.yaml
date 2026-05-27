@@ -55,8 +55,8 @@
                   height: 420
                   adjustable: true
                   value: 50
-                  min_value: 50
-                  max_value: 300
+                  min_value: 15
+                  max_value: 30
                   arc_width: 24
                   arc_color: 0x292929
                   border_width: 0
