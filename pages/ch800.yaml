@@ -69,30 +69,16 @@
             pad_all: 0
             scrollable: false
 
-            layout:
-              type: flex
-              flex_flow: column
-              flex_align_main: start
-              flex_align_cross: center
-
             widgets:
 
               # -----------------------------------------
-              # TOP SPACER (pushes arc down)
-              # -----------------------------------------
-              - obj:
-                  width: 100%
-                  height: 40
-                  bg_opa: TRANSP
-                  border_width: 0
-                  radius: 0
-
-              # -----------------------------------------
-              # ARC (centered horizontally)
+              # ARC (centered manually)
               # -----------------------------------------
               - arc:
                   id: ch_arc
                   align: CENTER
+                  x: 0
+                  y: -40              # move slightly up for balance
                   width: 260
                   height: 260
                   adjustable: true
@@ -117,20 +103,13 @@
                             value: !lambda "return x;"
 
               # -----------------------------------------
-              # SPACER BETWEEN ARC AND LABELS
-              # -----------------------------------------
-              - obj:
-                  width: 100%
-                  height: 20
-                  bg_opa: TRANSP
-                  border_width: 0
-                  radius: 0
-
-              # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
               # -----------------------------------------
               - label:
                   id: ch_current_temp
+                  align: CENTER
+                  x: 0
+                  y: 140              # below arc
                   text_font: xlg
                   text_color: white
                   text_align: center
@@ -144,18 +123,10 @@
               - label:
                   id: ch_setpoint_label
                   align: CENTER
+                  x: 0
+                  y: 200
                   text: "--.-°"
                   text_font: font_roboto_72
-                  border_width: 0
-                  radius: 0
-
-              # -----------------------------------------
-              # SPACER BEFORE BUTTON
-              # -----------------------------------------
-              - obj:
-                  width: 100%
-                  height: 20
-                  bg_opa: TRANSP
                   border_width: 0
                   radius: 0
 
@@ -164,20 +135,24 @@
               # -----------------------------------------
               - button:
                   id: btn_ch_enable
+                  align: CENTER
+                  x: 0
+                  y: 260
                   width: 160
                   height: 60
                   bg_color: black
                   bg_opa: 60%
-                  radius: 12
+                  radius: 0
                   shadow_width: 0
-                  border_width: 0
+                  border_width: 2
+                  border_color: white
                   widgets:
                     - label:
                         id: ch_enable_label
+                        align: CENTER
                         text_font: mdb
                         text_color: white
                         text: "CH OFF"
-                        align: CENTER
                   on_click:
                     then:
                       - homeassistant.service:
