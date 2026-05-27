@@ -177,25 +177,25 @@
                 # -----------------------------------------------
                 # BACK TO WEATHER BUTTON (top-left)
                 # -----------------------------------------------
-                - button:
-                    id: btn_ch_to_weather
-                    align: top_left
-                    x: 10
-                    y: 10
-                    width: 68
-                    height: 68
-                    bg_color: white
-                    bg_opa: 60%
-                    radius: 12
-                    shadow_width: 0
-                    widgets:
-                      - label:
-                          align: CENTER
-                          text: "\U000F02DC"
-                          text_font: icon_font
-                          text_color: black
-                    on_click:
-                      - lvgl.page.show:
-                          id: daily_page
-                          animation: FADE_IN
-                          time: 300ms
+              - button:
+                  id: btn_ch_to_weather
+                  align: top_left
+                  x: 10
+                  y: 10
+                  width: 68
+                  height: 68
+                  bg_color: white
+                  bg_opa: 60%
+                  radius: 12
+                  shadow_width: 0
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "\U000F02DC"
+                        text_font: icon_font
+                        text_color: black
+                  on_click:
+                    - lvgl.page.show:
+                        id: daily_page
+                        animation: FADE_IN
+                        time: 300ms
