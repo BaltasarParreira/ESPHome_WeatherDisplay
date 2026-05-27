@@ -231,9 +231,7 @@ sensor:
         - lvgl.arc.update:
             id: ch_arc
             value: !lambda |-
-              // x is a std::string
-              float v = atof(x.c_str());
-              return (int)v;
+              return (int)x;
   
         - lvgl.label.update:
             id: ch_setpoint_label
