@@ -116,7 +116,7 @@
                   text: "--.-°"
                   text_font: montserrat_42
                   text_color: 0xFF6F22
-                  y: 100
+                  y: 120
 
               # -----------------------------------------
               # CH ENABLE / DISABLE BUTTON (NOW VISIBLE)
