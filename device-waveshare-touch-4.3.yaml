@@ -22,15 +22,7 @@ esphome:
           setenv("TZ", "WET0WEST-1,M3.5.0/1,M10.5.0/2", 1);
           tzset();
           ESP_LOGI("main", "Forced POSIX Lisbon timezone onto ESP-IDF backend");
-    priority: -10
-    then:
-      - if:
-          condition:
-            lambda: 'return id(ha_ch_setpoint).has_state();'
-          then:
-            - lvgl.arc.set_value:
-                id: ch_arc
-                value: !lambda "return id(ha_ch_setpoint).state;"
+
 
 esp32:
   variant: esp32s3
