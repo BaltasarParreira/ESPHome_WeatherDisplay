@@ -149,7 +149,8 @@ text_sensor:
             id: ch_current_temp
             text:
               format: "%.1f °C"
-              args: [ x.has_value() ? x.value() : 0.0 ]
+              args:
+                - "x.has_value() ? x.value() : 0.0"
 
 #  - platform: homeassistant
 #    id: ha_ch_setpoint
