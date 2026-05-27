@@ -63,8 +63,7 @@ font:
     bpp: 4
     glyphs:
       - "\U000F0F54"  # fire (thermostat button)
-      - "\U000F04D2"  # arrow-left
-      - "\U000F054C"  # arrow-right
+      - "\U000F0975"  # home plus
       - "\U000F02DC"  # home icon
   - file:
       type: gfonts
