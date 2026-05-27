@@ -667,12 +667,12 @@
           id: ch_page
           animation: MOVE_LEFT
           time: 300ms
-      - lambda: |-
-          if (id(ha_ch_setpoint).has_state()) {
-            int v = (int) id(ha_ch_setpoint).state;
-            lvgl::arc_update(id(ch_arc), v);
-
+      - lvgl.arc.update:
+          id: ch_arc
+          value: !lambda "return (int)id(ha_ch_setpoint).state;"
+      - lvgl.label.update:
+          id: ch_setpoint_label
+          text: !lambda |-
             char buf[16];
             snprintf(buf, sizeof(buf), "%.1f°", id(ha_ch_setpoint).state);
-            lvgl::label_update_text(id(ch_setpoint_label), std::string(buf));
-          }
+            return std::string(buf);
