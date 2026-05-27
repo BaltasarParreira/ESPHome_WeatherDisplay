@@ -204,15 +204,15 @@ sensor:
     id: ha_ch_setpoint
     entity_id: climate.opentherm_gateway_heating_climate
     attribute: temperature
-    internal: false
     on_value:
       then:
-        # 1) Initialize arc from HA setpoint
+        - lambda: |-
+            ESP_LOGI("ch", "New CH setpoint from HA: %.2f", x);
+
         - lvgl.arc.update:
             id: ch_arc
             value: !lambda "return (int)x;"
 
-        # 2) Initialize label from HA setpoint
         - lvgl.label.update:
             id: ch_setpoint_label
             text: !lambda |-
