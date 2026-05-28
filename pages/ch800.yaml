@@ -40,26 +40,26 @@
                     arc_width: 24
                   knob:
                     bg_color: 0xFFFFFF
-#                  on_value:
-#                    then:
-#                      # 1. Update the label immediately
-#                      - lvgl.label.update:
-#                          id: ch_setpoint_label
-#                          text: !lambda |-
-#                            char buf[16];
-#                            snprintf(buf, sizeof(buf), "%.1f°", x);
-#                            return std::string(buf);
+                  on_value:
+                    then:
+                      # 1. Update the label immediately
+                      - lvgl.label.update:
+                          id: ch_setpoint_label
+                          text: !lambda |-
+                            char buf[16];
+                            snprintf(buf, sizeof(buf), "%.1f°", x);
+                            return std::string(buf);
 
-#                      # 2. Only write to HA if API is connected (prevents crashes)
-#                      - if:
-#                          condition:
-#                            api.connected:
-#                          then:
-#                            - homeassistant.service:
-#                                service: climate.set_temperature
-#                                data:
-#                                  entity_id: climate.opentherm_gateway_heating_climate
-#                                  temperature: !lambda "return x;"
+                      # 2. Only write to HA if API is connected (prevents crashes)
+                      - if:
+                          condition:
+                            api.connected:
+                          then:
+                            - homeassistant.service:
+                                service: climate.set_temperature
+                                data:
+                                  entity_id: climate.opentherm_gateway_heating_climate
+                                  temperature: !lambda "return x;"
 
               - label:
                   id: ch_action_label
