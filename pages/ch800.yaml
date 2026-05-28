@@ -156,7 +156,7 @@
                   width: 68
                   height: 68
                   bg_color: cyan
-                  bg_opa: 60%
+                  bg_opa: 100%
                   radius: 12
                   shadow_width: 0
           #        text_font: montserrat_32
@@ -185,7 +185,7 @@
                   width: 68
                   height: 68
                   bg_color: white
-                  bg_opa: 60%
+                  bg_opa: 100%
                   radius: 12
                   shadow_width: 0
                   widgets:
