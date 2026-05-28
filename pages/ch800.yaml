@@ -150,9 +150,9 @@
               # -----------------------------------------------
               - button:
                   id: go_dhw_button
-                  align: bottom_right
+                  align: top_right
                   x: -20
-                  y: -20
+                  y: 20
                   width: 68
                   height: 68
                   bg_color: cyan
@@ -179,9 +179,9 @@
                 # -----------------------------------------------
               - button:
                   id: btn_ch_to_weather
-                  align: bottom_left
+                  align: top_left
                   x: 20
-                  y: -20
+                  y: 20
                   width: 68
                   height: 68
                   bg_color: white
