@@ -172,11 +172,6 @@ text_sensor:
                 if (x == "off")     return std::string("OFF");
                 return std::string("--");
 
-#  - platform: homeassistant
-#    id: ha_ch_setpoint
-#    entity_id: climate.opentherm_gateway_heating_climate
-#    attribute: temperature
-
   - platform: homeassistant
     id: ha_ch_enable_state
     entity_id: switch.opentherm_gateway_heating_enable
@@ -230,22 +225,6 @@ text_sensor:
  #             args: [ 'atof(x.c_str())' ]
 
   - platform: homeassistant
-    id: ha_dhw_setpoint
-    entity_id: number.opentherm_gateway_hot_water_setpoint
-    on_value:
-      then:
-        - lvgl.arc.update:
-            id: dhw_arc
-            value: !lambda "return (int)x;"
-  
-        - lvgl.label.update:
-            id: dhw_setpoint_label
-            text: !lambda |-
-              char buf[16];
-              snprintf(buf, sizeof(buf), "%.1f°", x);
-              return std::string(buf);
-
-  - platform: homeassistant
     id: ha_dhw_enable_state
     entity_id: switch.opentherm_gateway_hot_water_enable
  #   on_value:
@@ -274,6 +253,23 @@ sensor:
   
         - lvgl.label.update:
             id: ch_setpoint_label
+            text: !lambda |-
+              char buf[16];
+              snprintf(buf, sizeof(buf), "%.1f°", x);
+              return std::string(buf);
+
+  - platform: homeassistant
+    id: ha_dhw_setpoint
+    entity_id: number.opentherm_gateway_hot_water_setpoint
+    on_value:
+      then:
+        - lvgl.arc.update:
+            id: dhw_arc
+            value: !lambda |-
+              return (int)x;
+  
+        - lvgl.label.update:
+            id: dhw_setpoint_label
             text: !lambda |-
               char buf[16];
               snprintf(buf, sizeof(buf), "%.1f°", x);
