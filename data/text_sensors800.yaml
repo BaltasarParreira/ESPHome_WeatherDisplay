@@ -232,11 +232,18 @@ text_sensor:
   - platform: homeassistant
     id: ha_dhw_setpoint
     entity_id: number.opentherm_gateway_hot_water_setpoint
-#    on_value:
-#      then:
-#        - lvgl.arc.update:
-#            id: dhw_arc
-#            value: !lambda "return atof(x.c_str());"
+    on_value:
+      then:
+        - lvgl.arc.update:
+            id: dhw_arc
+            value: !lambda "return (int)x;"
+  
+        - lvgl.label.update:
+            id: dhw_setpoint_label
+            text: !lambda |-
+              char buf[16];
+              snprintf(buf, sizeof(buf), "%.1f°", x);
+              return std::string(buf);
 
   - platform: homeassistant
     id: ha_dhw_enable_state
