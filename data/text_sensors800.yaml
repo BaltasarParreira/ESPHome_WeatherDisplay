@@ -255,10 +255,10 @@ text_sensor:
                 lambda: 'return x == "off";'
               then:
                 # DHW is OFF
-              - lvgl.arc.update:
-                  id: dhw_arc
-                  indicator:
-                    arc_color: 0x292929
+                - lvgl.arc.update:
+                    id: dhw_arc
+                    indicator:
+                      arc_color: 0x292929
 
                 - lvgl.button.update:
                     id: btn_dhw_disable
@@ -276,10 +276,10 @@ text_sensor:
                     hidden: false
               else:
                 # DHW is ON
-              - lvgl.arc.update:
-                  id: dhw_arc
-                  indicator:
-                    arc_color: 0x2095F6
+                - lvgl.arc.update:
+                    id: dhw_arc
+                    indicator:
+                      arc_color: 0x2095F6
 
                 - lvgl.button.update:
                     id: btn_dhw_enable
