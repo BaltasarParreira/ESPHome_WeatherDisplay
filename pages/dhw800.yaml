@@ -124,7 +124,7 @@
         # BACK TO WEATHER PAGE
         # -----------------------------------------------
               - button:
-                  id: btn_ch_to_weather
+                  id: btn_dhw_to_weather
                   align: top_left
                   x: 20
                   y: 20
