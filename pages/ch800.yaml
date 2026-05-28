@@ -151,7 +151,7 @@
               - button:
                   id: go_dhw_button
                   align: top_right
-                  x: 10
+                  x: -10
                   y: 10
                   width: 68
                   height: 68
