@@ -137,7 +137,7 @@
                   widgets:
                     - label:
                         align: CENTER
-                        text: "\U000F02DC"
+                        text: "\U000F0F54"
                         text_font: icon_font_big
                         text_color: black
                   on_click:
