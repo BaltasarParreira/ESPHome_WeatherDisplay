@@ -22,7 +22,7 @@
               # ARC (centered)
               # -----------------------------------------
               - arc:
-                  id: ch_arc
+                  id: dhw_arc
                   align: CENTER
                   x: 0
                   width: 420
