@@ -49,47 +49,80 @@
 #                            value: !lambda "return x;"
 
               # -----------------------------------------
-              # CURRENT DHW TEMPERATURE
-              # -----------------------------------------
-              - label:
-                  id: dhw_current_temp
-                  text_font: xlg
-                  text_color: white
-                  text_align: center
-                  text: "-- °C"
-
-              # -----------------------------------------
               # SETPOINT LABEL
               # -----------------------------------------
               - label:
                   id: dhw_setpoint_label
-                  text_font: lg
-                  text_color: white
-                  text_align: center
-                  text: "DHW Setpoint"
+                  align: CENTER
+                  text: "--.-°"
+                  y: 0
+                  text_color: 0xFFFFFF
+                  text_opa: 100%
+                  text_font: font_roboto_82
+
+              # -----------------------------------------
+              # CURRENT DHW TEMPERATURE
+              # -----------------------------------------
+              - label:
+                  id: dhw_current_temp
+                  align: CENTER
+                  text: "--.-°"
+                  text_font: montserrat_42
+                  text_color: 0x2095F6
+                  y: 120
 
               # -----------------------------------------
               # DHW ENABLE / DISABLE BUTTON
               # -----------------------------------------
               - button:
-                  id: btn_dhw_enable
-                  width: 160
-                  height: 60
-                  bg_color: black
-                  bg_opa: 60%
-                  radius: 12
+                  id: btn_dhw_disable
+                  align: CENTER
+                  x: -50
+                  y: 190
+                  width: 70
+                  checkable: true
+                  bg_color: 0x292929
+                  shadow_width: 0
+                  pressed:
+                    bg_color: 0x2095F6
+                  checked:
+                    bg_color: 0x606060
                   widgets:
                     - label:
-                        id: dhw_enable_label
-                        text_font: mdb
-                        text_color: white
-                        text: "DHW OFF"
+                        id: lbl_dhw_disable_text
+                        align: CENTER
+                        text: 'OFF'
                   on_click:
                     then:
                       - homeassistant.service:
                           service: switch.toggle
                           data:
-                            entity_id: switch.hot_water_enable
+                            entity_id: switch.opentherm_gateway_hot_water_enable
+
+              - button:
+                  id: btn_dhw_enable
+                  align: CENTER
+                  x: 50
+                  y: 190
+                  width: 70
+                  checkable: true
+                  bg_color: 0x292929
+                  shadow_width: 0
+                  pressed:
+                    bg_color: 0x2095F6
+                  checked:
+                    bg_color: 0x2095F6
+                  widgets:
+                    - label:
+                        id: lbl_dhw_enable_text
+                        align: CENTER
+                        text: 'ON'
+                  on_click:
+                    then:
+                      - homeassistant.service:
+                          service: switch.toggle
+                          data:
+                            entity_id: switch.opentherm_gateway_hot_water_enable
 
               # -----------------------------------------------
               # BACK TO CH PAGE
@@ -102,7 +135,7 @@
                   width: 68
                   height: 68
                   bg_color: orange
-                  bg_opa: 60%
+                  bg_opa: 100%
                   radius: 12
                   shadow_width: 0
           #        text_font: montserrat_32
@@ -131,13 +164,13 @@
                   width: 68
                   height: 68
                   bg_color: white
-                  bg_opa: 60%
+                  bg_opa: 100%
                   radius: 12
                   shadow_width: 0
                   widgets:
                     - label:
                         align: CENTER
-                        text: "\U000F0F54"
+                        text: "\U000F02DC"
                         text_font: icon_font_big
                         text_color: black
                   on_click:
