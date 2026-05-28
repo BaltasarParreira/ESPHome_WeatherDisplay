@@ -166,7 +166,7 @@
                     - label:
                         align: CENTER
                         text: "\U000F0975"
-                        text_font: icon_font
+                        text_font: icon_font_big
                         text_color: black
                   on_click:
                     - lvgl.page.show:
@@ -192,7 +192,7 @@
                     - label:
                         align: CENTER
                         text: "\U000F02DC"
-                        text_font: icon_font
+                        text_font: icon_font_big
                         text_color: black
                   on_click:
                     - lvgl.page.show:
