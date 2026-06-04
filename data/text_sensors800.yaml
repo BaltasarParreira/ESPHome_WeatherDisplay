@@ -166,11 +166,19 @@ text_sensor:
           - lvgl.label.update:
               id: ch_action_label
               text: !lambda |-
-                // x is a std::string
-                if (x == "heating") return std::string("HEATING");
-                if (x == "idle")    return std::string("IDLE");
-                if (x == "off")     return std::string("OFF");
-                return std::string("--");
+                // Make a copy of x to mutate safely
+                std::string str = x;
+                
+                // 1. Force the string completely into lowercase characters to prevent case failures
+                std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+                
+                // 2. Scan using substrings (.find) to handle accidental quotes or extra text
+                if (str.find("heating") != std::string::npos) return std::string("HEATING");
+                if (str.find("idle")    != std::string::npos) return std::string("IDLE");
+                if (str.find("off")     != std::string::npos) return std::string("OFF");
+                
+                // If Home Assistant sends something unexpected, print it on screen to debug it
+                return "ERR: " + x;
 
   - platform: homeassistant
     id: ha_ch_enable_state
