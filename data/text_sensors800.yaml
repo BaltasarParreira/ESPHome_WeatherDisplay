@@ -244,12 +244,22 @@ text_sensor:
          - lvgl.label.update:
              id: ch_current_temp
              text: !lambda |-
-               // x is now a native float, not a std::string
-               if (isnan(x)) {
-                 return std::string("--.-°C");
+               // Handle unavailable or empty states safely
+               if (x == "unknown" || x == "unavailable" || x.empty()) {
+                 return std::string("--.- °C");
                }
+
+               // Convert text to number
+               char* endptr;
+               float v = strtof(x.c_str(), &endptr);
+
+               // Validate conversion succeeded and didn't hit trailing garbage
+               if (endptr == x.c_str()) {
+                 return std::string("--.- °C");
+               }
+
                char buf[16];
-               snprintf(buf, sizeof(buf), "%.1f °C", x);
+               snprintf(buf, sizeof(buf), "%.1f °C", v);
                return std::string(buf);
 
   - platform: homeassistant
