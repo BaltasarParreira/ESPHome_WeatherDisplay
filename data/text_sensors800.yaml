@@ -240,18 +240,17 @@ text_sensor:
     id: ha_dhw_temp
     entity_id: sensor.opentherm_gateway_ch_temperature # sensor.opentherm_gateway_hot_water_temperature  # N/A ????
     on_value:
-      then:
-        - lvgl.label.update:
-            id: ch_current_temp
-            text: !lambda |-
-              // x is a std::string
-              float v = atof(x.c_str());
-              if (v == 0 && x != "0" && x != "0.0") {
-                return std::string("--.-°");
-              }
-              char buf[16];
-              snprintf(buf, sizeof(buf), "%.1f °C", v);
-              return std::string(buf);
+       then:
+         - lvgl.label.update:
+             id: ch_current_temp
+             text: !lambda |-
+               // x is now a native float, not a std::string
+               if (isnan(x)) {
+                 return std::string("--.-°C");
+               }
+               char buf[16];
+               snprintf(buf, sizeof(buf), "%.1f °C", x);
+               return std::string(buf);
 
   - platform: homeassistant
     id: ha_dhw_enable_state
