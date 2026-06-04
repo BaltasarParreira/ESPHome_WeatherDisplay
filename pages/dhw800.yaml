@@ -110,7 +110,7 @@
                       - homeassistant.service:
                           service: switch.toggle
                           data:
-                            entity_id: switch.opentherm_gateway_hot_water_enable
+                            entity_id: switch.opentherm_gateway_dhw_enable
 
               - button:
                   id: btn_dhw_enable
@@ -135,7 +135,7 @@
                       - homeassistant.service:
                           service: switch.toggle
                           data:
-                            entity_id: switch.opentherm_gateway_hot_water_enable
+                            entity_id: switch.opentherm_gateway_dhw_enable
 
               # -----------------------------------------------
               # BACK TO CH PAGE
