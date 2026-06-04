@@ -58,7 +58,7 @@
                             - homeassistant.service:
                                 service: climate.set_temperature
                                 data:
-                                  entity_id: climate.opentherm_gateway_heating_climate
+                                  entity_id: climate.opentherm_gateway_central_heating
                                   temperature: !lambda "return x;"
 
               - label:
@@ -118,7 +118,7 @@
                       - homeassistant.service:
                           service: switch.toggle
                           data:
-                            entity_id: switch.opentherm_gateway_heating_enable
+                            entity_id: switch.opentherm_gateway_ch_enable
 
               - button:
                   id: btn_ch_enable
@@ -143,7 +143,7 @@
                       - homeassistant.service:
                           service: switch.toggle
                           data:
-                            entity_id: switch.opentherm_gateway_heating_enable
+                            entity_id: switch.opentherm_gateway_ch_enable
 
               # -----------------------------------------------
               # GO TO DHW PAGE BUTTON (top-right)
