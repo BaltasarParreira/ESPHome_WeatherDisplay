@@ -159,7 +159,7 @@ text_sensor:
 
   - platform: homeassistant
     id: ha_ch_action
-    entity_id: climate.opentherm_gateway_heating_climate
+    entity_id: climate.opentherm_gateway_central_heating
     attribute: hvac_action
     on_value:
         then:
