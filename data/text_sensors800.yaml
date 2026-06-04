@@ -299,7 +299,7 @@ text_sensor:
 sensor:
   - platform: homeassistant
     id: ha_ch_setpoint
-    entity_id: climate.opentherm_gateway_heating_climate
+    entity_id: climate.opentherm_gateway_central_heating
     attribute: temperature
     on_value:
       then:
@@ -320,7 +320,7 @@ sensor:
 
   - platform: homeassistant
     id: ha_dhw_setpoint
-    entity_id: number.opentherm_gateway_ch_setpoint #number.opentherm_gateway_hot_water_setpoint
+    entity_id: number.opentherm_gateway_dhw_setpoint #number.opentherm_gateway_hot_water_setpoint
     on_value:
       then:
         - lvgl.arc.update:
