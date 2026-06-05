@@ -150,6 +150,7 @@
               # -----------------------------------------
               - button:
                   id: btn_minus
+                  align: CENTER 
                   x: -70                  # Spaced out from the center line
                   y: 70
                   width: 44               # Slightly larger target area for fingers
@@ -176,6 +177,7 @@
               # -----------------------------------------
               - button:
                   id: btn_plus
+                  align: CENTER 
                   x: 70                   # Spaced out from the center line
                   y: 70
                   width: 44               # Slightly larger target area for fingers
