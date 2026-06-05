@@ -363,6 +363,8 @@ script:
     mode: restart
     then:
       # Scales the float (e.g. 21.5) to an integer (215) for the arc range
-      - lvgl.arc.set_value:
+      - lvgl.arc.update:
           id: ch_arc
-          value: !lambda "return (int)(id(target_heating_temp) * 10.0f);"
+          value: !lambda |-
+            return (int)(id(target_heating_temp) * 10.0f);
+
