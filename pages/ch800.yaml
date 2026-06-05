@@ -82,7 +82,7 @@
                   text: "--.-°"
                   text_font: montserrat_42
                   text_color: 0xFF6F22
-                  y: 30
+                  y: 20
 
               - label:
                   id: ch_action_label
@@ -99,7 +99,7 @@
                   id: btn_ch_disable
                   align: CENTER
                   #x: -50
-                  y: 130
+                  y: 120
                   width: 70
                   checkable: true
                   bg_color: 0x292929
@@ -124,7 +124,7 @@
                   id: btn_ch_enable
                   align: CENTER
                   #x: 50
-                  y: 130
+                  y: 120
                   width: 70
                   checkable: true
                   bg_color: 0x292929
