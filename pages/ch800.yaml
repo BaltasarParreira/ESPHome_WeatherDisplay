@@ -68,7 +68,7 @@
                   id: ch_current_temp
                   align: CENTER
                   text: "--.-°"
-                  y: -60
+                  y: -80
                   text_color: 0xFFFFFF
                   text_opa: 100%
                   text_font: font_roboto_82
@@ -82,12 +82,12 @@
                   text: "--.-°"
                   text_font: montserrat_42
                   text_color: 0xFF6F22
-                  y: 20
+                  y: 50
 
               - label:
                   id: ch_action_label
                   align: CENTER
-                  y: 80
+                  y: 90
                   text_font: montserrat_30
                   text: "--"
                   text_color: 0xFF6F22
