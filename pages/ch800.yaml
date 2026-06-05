@@ -87,7 +87,7 @@
               - label:
                   id: ch_action_label
                   align: CENTER
-                  y: -100
+                  y: 20
                   text_font: montserrat_30
                   text: "--"
                   text_color: 0xFF6F22
