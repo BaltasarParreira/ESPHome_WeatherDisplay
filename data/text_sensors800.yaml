@@ -154,7 +154,7 @@ text_sensor:
                 return std::string("--.-°");
               }
               char buf[16];
-              snprintf(buf, sizeof(buf), "%.1f °C", v);
+              snprintf(buf, sizeof(buf), "%.1f°", v);
               return std::string(buf);
 
   - platform: homeassistant
@@ -246,7 +246,7 @@ text_sensor:
              text: !lambda |-
                // Handle unavailable or empty states safely
                if (x == "unknown" || x == "unavailable" || x.empty()) {
-                 return std::string("--.- °C");
+                 return std::string("--.-°");
                }
 
                // Convert text to number
@@ -255,11 +255,11 @@ text_sensor:
 
                // Validate conversion succeeded and didn't hit trailing garbage
                if (endptr == x.c_str()) {
-                 return std::string("--.- °C");
+                 return std::string("--.-°");
                }
 
                char buf[16];
-               snprintf(buf, sizeof(buf), "%.1f °C", v);
+               snprintf(buf, sizeof(buf), "%.1f°", v);
                return std::string(buf);
 
   - platform: homeassistant
