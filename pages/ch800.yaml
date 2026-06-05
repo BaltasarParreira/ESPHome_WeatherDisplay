@@ -145,6 +145,58 @@
                           data:
                             entity_id: switch.opentherm_gateway_ch_enable
 
+              # -----------------------------------------
+              # MINUS BUTTON (Positioned cleanly under arc)
+              # -----------------------------------------
+              - button:
+                  id: btn_minus
+                  x: -70                  # Spaced out from the center line
+                  y: 70
+                  width: 44               # Slightly larger target area for fingers
+                  height: 44
+                  radius: 22
+                  bg_color: 0x292929
+                  border_width: 1
+                  border_color: 0x606060
+                  on_click:
+                    then:
+                      - lambda: |-
+                          if (id(target_heating_temp) > 15.0f) {
+                            id(target_heating_temp) -= 0.5f;
+                            id(update_target_ui).execute();
+                          }
+                  widgets:
+                    - label:
+                        text: "-"
+                        align: CENTER
+                        text_color: 0xFFFFFF
+    
+              # -----------------------------------------
+              # PLUS BUTTON (Positioned cleanly under arc)
+              # -----------------------------------------
+              - button:
+                  id: btn_plus
+                  x: 70                   # Spaced out from the center line
+                  y: 70
+                  width: 44               # Slightly larger target area for fingers
+                  height: 44
+                  radius: 22
+                  bg_color: 0x292929
+                  border_width: 1
+                  border_color: 0x606060
+                  on_click:
+                    then:
+                      - lambda: |-
+                          if (id(target_heating_temp) < 30.0f) {
+                            id(target_heating_temp) += 0.5f;
+                            id(update_target_ui).execute();
+                          }
+                  widgets:
+                    - label:
+                        text: "+"
+                        align: CENTER
+                        text_color: 0xFFFFFF
+
               # -----------------------------------------------
               # GO TO DHW PAGE BUTTON (top-right)
               # -----------------------------------------------
