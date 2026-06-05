@@ -67,6 +67,8 @@ font:
       - "\U000F02DC"  # home icon
       - "\U000F1A45"  # heat waves icon
       - "\U000F1B29"  # faucet icon
+      - "\U000F0238"  # fire icon
+      - "\U000F0425"  # power icon
   - file:
       type: gfonts
       family: Roboto
