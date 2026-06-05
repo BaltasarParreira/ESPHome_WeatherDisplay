@@ -93,28 +93,30 @@
                   text_color: 0xFF6F22
 
               # -----------------------------------------------------
-              # CH ENABLE BUTTON (HEAT / FIRE ICON)
+              # CH ENABLE BUTTON (HEAT / FIRE ICON - LEFT SIDE)
               # -----------------------------------------------------
               - button:
                   id: btn_ch_enable
                   align: CENTER
-                  x: -60
+                  x: -60                  # Positioned on the Left
                   y: 120                  
                   width: 70
                   height: 44              
                   checkable: true
                   bg_color: 0x292929
                   shadow_width: 0
-                  pressed:
-                    bg_color: 0xFF6F22
-                  checked:
-                    bg_color: 0xFF6F22    # Stays orange when active
+                  styles:
+                    pressed:
+                      bg_color: 0xFF6F22
+                    checked:
+                      bg_color: 0xFF6F22
                   widgets:
                     - label:
                         id: lbl_ch_enable_text
                         align: CENTER 
                         text: "\U000F0238"
                         text_font: icon_font_big
+                        bg_opa: 0%        
                   on_click:
                     then:
                       - homeassistant.service:
@@ -123,31 +125,32 @@
                             entity_id: switch.opentherm_gateway_ch_enable
 
               # -----------------------------------------------------
-              # CH DISABLE BUTTON (OFF ICON)
+              # CH DISABLE BUTTON (OFF ICON - RIGHT SIDE)
               # -----------------------------------------------------
               - button:
                   id: btn_ch_disable
                   align: CENTER
-                  x: 60
+                  x: 60                   # Positioned on the Right
                   y: 120
                   width: 70
-                  height: 44
+                  height: 44              
                   checkable: true
                   bg_color: 0x292929
                   shadow_width: 0
-                  pressed:
-                    bg_color: 0xFF6F22
-                  checked:
-                    bg_color: 0x606060
+                  styles:
+                    pressed:
+                      bg_color: 0xFF6F22
+                    checked:
+                      bg_color: 0x606060
                   widgets:
                     - label:
                         id: lbl_ch_disable_text
                         align: CENTER
-                        text: "\U000F0425"
+                        text: "\U000F0425"    # Clean Power Symbol glyph
                         text_font: icon_font_big
+                        bg_opa: 0%        
                   on_click:
                     then:
-                      # Directly force state instead of toggling to avoid lag loops
                       - homeassistant.service:
                           service: switch.turn_off
                           data:
