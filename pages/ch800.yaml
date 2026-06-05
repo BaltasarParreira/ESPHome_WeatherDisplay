@@ -235,6 +235,6 @@
                         widgets:
                           - label:
                               align: CENTER
-                              text: "\U000F0493"
+                              text: "\U000F02DC"
                               text_color: 0x566275
                               text_font: icon_font_big
