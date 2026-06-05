@@ -238,7 +238,7 @@ text_sensor:
 
   - platform: homeassistant
     id: ha_dhw_temp
-    entity_id: sensor.opentherm_gateway_dhw_temperature # sensor.opentherm_gateway_hot_water_temperature  # N/A ????
+    entity_id: sensor.opentherm_gateway_ch_temperature # sensor.opentherm_gateway_hot_water_temperature  # N/A ????
     on_value:
        then:
          - lvgl.label.update:
