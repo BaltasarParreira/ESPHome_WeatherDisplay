@@ -65,6 +65,8 @@ font:
       - "\U000F0F54"  # fire (thermostat button)
       - "\U000F0975"  # home plus
       - "\U000F02DC"  # home icon
+      - "\U000F1A45"  # home icon
+      - "\U000F1B29"  # home icon
   - file:
       type: gfonts
       family: Roboto
