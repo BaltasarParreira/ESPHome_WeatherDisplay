@@ -163,51 +163,51 @@
                   widgets:
                         
                     # 1. Central Heating Page Icon (Left Third)
-                      - button:
-                          id: nav_ch_btn
-                          align: LEFT_MID
-                          x: 16%         # Halfway inside the first 33% section
-                          y: 0
-                          width: 60
-                          height: 44
-                          bg_opa: 0%
-                          shadow_width: 0
-                          widgets:
-                            - label:
-                                align: CENTER
-                                text: "\U000F1A45"
-                                text_color: 0xFF6F22 # Highlighted Orange
-                                text_font: icon_font_big
+                    - button:
+                         id: nav_ch_btn
+                         align: LEFT_MID
+                         x: 16%         # Halfway inside the first 33% section
+                         y: 0
+                         width: 60
+                         height: 44
+                         bg_opa: 0%
+                         shadow_width: 0
+                         widgets:
+                           - label:
+                               align: CENTER
+                               text: "\U000F1A45"
+                               text_color: 0xFF6F22 # Highlighted Orange
+                               text_font: icon_font_big
 
-                        # 2. First Divider Line (Exactly at the 33.3% mark)
-                        - label:
-                            align: LEFT_MID
-                            x: 33%
-                            y: -2          # Slight vertical correction for text height
-                            text: "|"
-                            text_color: 0x222C3E # Muted slate divider color
-                            text_font: montserrat_30
+                    # 2. First Divider Line (Exactly at the 33.3% mark)
+                    - label:
+                        align: LEFT_MID
+                        x: 33%
+                        y: -2          # Slight vertical correction for text height
+                        text: "|"
+                        text_color: 0x222C3E # Muted slate divider color
+                        text_font: montserrat_30
 
-                        # 3. Domestic Hot Water Page Icon (Middle Third)
-                        - button:
-                            id: nav_dhw_btn
-                            align: CENTER_MID # Absolute center of the screen
-                            x: 0
-                            y: 0
-                            width: 60
-                            height: 44
-                            bg_opa: 0%
-                            shadow_width: 0
-                            on_click:
-                              - lvgl.page.show:
-                                  id: dhw_page
-                                  animation: FADE_IN
-                            widgets:
-                              - label:
-                                  align: CENTER
-                                  text: "\U000F1B29" 
-                                  text_color: 0x566275 # Muted inactive color
-                                  text_font: icon_font_big
+                    # 3. Domestic Hot Water Page Icon (Middle Third)
+                    - button:
+                        id: nav_dhw_btn
+                        align: CENTER_MID # Absolute center of the screen
+                        x: 0
+                        y: 0
+                        width: 60
+                        height: 44
+                        bg_opa: 0%
+                        shadow_width: 0
+                        on_click:
+                          - lvgl.page.show:
+                              id: dhw_page
+                              animation: FADE_IN
+                        widgets:
+                          - label:
+                              align: CENTER
+                              text: "\U000F1B29" 
+                              text_color: 0x566275 # Muted inactive color
+                              text_font: icon_font_big
     
                         # 4. Second Divider Line (Exactly at the 66.6% mark)
                         - label:
