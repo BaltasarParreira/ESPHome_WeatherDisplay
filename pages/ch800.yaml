@@ -93,43 +93,12 @@
                   text_color: 0xFF6F22
 
               # -----------------------------------------------------
-              # CH DISABLE BUTTON (OFF ICON)
-              # -----------------------------------------------------
-              - button:
-                  id: btn_ch_disable
-                  align: CENTER
-                  x: -60
-                  y: 120
-                  width: 70
-                  height: 44
-                  checkable: true
-                  bg_color: 0x292929
-                  shadow_width: 0
-                  pressed:
-                    bg_color: 0xFF6F22
-                  checked:
-                    bg_color: 0x606060
-                  widgets:
-                    - label:
-                        id: lbl_ch_disable_text
-                        align: CENTER
-                        text: "\U000F0425"
-                        text_font: icon_font_big
-                  on_click:
-                    then:
-                      # Directly force state instead of toggling to avoid lag loops
-                      - homeassistant.service:
-                          service: switch.turn_off
-                          data:
-                            entity_id: switch.opentherm_gateway_ch_enable
-
-              # -----------------------------------------------------
               # CH ENABLE BUTTON (HEAT / FIRE ICON)
               # -----------------------------------------------------
               - button:
                   id: btn_ch_enable
                   align: CENTER
-                  x: 60
+                  x: -60
                   y: 120                  
                   width: 70
                   height: 44              
@@ -153,6 +122,36 @@
                           data:
                             entity_id: switch.opentherm_gateway_ch_enable
 
+              # -----------------------------------------------------
+              # CH DISABLE BUTTON (OFF ICON)
+              # -----------------------------------------------------
+              - button:
+                  id: btn_ch_disable
+                  align: CENTER
+                  x: 60
+                  y: 120
+                  width: 70
+                  height: 44
+                  checkable: true
+                  bg_color: 0x292929
+                  shadow_width: 0
+                  pressed:
+                    bg_color: 0xFF6F22
+                  checked:
+                    bg_color: 0x606060
+                  widgets:
+                    - label:
+                        id: lbl_ch_disable_text
+                        align: CENTER
+                        text: "\U000F0425"
+                        text_font: icon_font_big
+                  on_click:
+                    then:
+                      # Directly force state instead of toggling to avoid lag loops
+                      - homeassistant.service:
+                          service: switch.turn_off
+                          data:
+                            entity_id: switch.opentherm_gateway_ch_enable
 
               # -----------------------------------------------------
               # BOTTOM NAVIGATION BAR
