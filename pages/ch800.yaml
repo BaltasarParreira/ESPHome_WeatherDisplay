@@ -113,7 +113,7 @@
                     - label:
                         id: lbl_ch_disable_text
                         align: CENTER
-                        text: '\U000F0425'
+                        text: "\U000F0425"
                         text_font: icon_font_big
                   on_click:
                     then:
@@ -144,7 +144,7 @@
                     - label:
                         id: lbl_ch_enable_text
                         align: CENTER 
-                        text: '\U000F0238'
+                        text: "\U000F0238"
                         text_font: icon_font_big
                   on_click:
                     then:
