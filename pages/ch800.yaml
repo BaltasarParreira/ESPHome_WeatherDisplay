@@ -230,7 +230,7 @@
                         shadow_width: 0
                         on_click:
                           - lvgl.page.show:
-                              id: daily800
+                              id: daily_page
                               animation: FADE_IN
                         widgets:
                           - label:
