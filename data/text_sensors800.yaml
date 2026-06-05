@@ -351,3 +351,18 @@ sensor:
               char buf[16];
               snprintf(buf, sizeof(buf), "%.1f°", x);
               return std::string(buf);
+
+globals:
+  - id: target_heating_temp
+    type: float
+    restore_value: no
+    initial_value: '21.0'
+
+script:
+  - id: update_target_ui
+    mode: restart
+    then:
+      # Scales the float (e.g. 21.5) to an integer (215) for the arc range
+      - lvgl.arc.set_value:
+          id: ch_arc
+          value: !lambda "return (int)(id(target_heating_temp) * 10.0f);"
