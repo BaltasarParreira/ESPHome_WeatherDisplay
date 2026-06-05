@@ -61,19 +61,11 @@
                                   entity_id: climate.opentherm_gateway_central_heating
                                   temperature: !lambda "return x;"
 
-              - label:
-                  id: ch_action_label
-                  align: CENTER
-                  y: -100
-                  text_font: montserrat_30
-                  text: "--"
-                  text_color: 0xFF6F22
-
               # -----------------------------------------
               # SETPOINT LABEL
               # -----------------------------------------
               - label:
-                  id: ch_setpoint_label
+                  id: ch_current_temp
                   align: CENTER
                   text: "--.-°"
                   y: 0
@@ -85,12 +77,20 @@
               # CURRENT ROOM TEMPERATURE
               # -----------------------------------------
               - label:
-                  id: ch_current_temp
+                  id: ch_setpoint_label
                   align: CENTER
                   text: "--.-°"
                   text_font: montserrat_42
                   text_color: 0xFF6F22
                   y: 120
+
+              - label:
+                  id: ch_action_label
+                  align: CENTER
+                  y: -100
+                  text_font: montserrat_30
+                  text: "--"
+                  text_color: 0xFF6F22
 
               # -----------------------------------------
               # CH ENABLE / DISABLE BUTTON (NOW VISIBLE)
@@ -99,7 +99,7 @@
                   id: btn_ch_disable
                   align: CENTER
                   #x: -50
-                  y: 130
+                  y: 135
                   width: 70
                   checkable: true
                   bg_color: 0x292929
@@ -124,7 +124,7 @@
                   id: btn_ch_enable
                   align: CENTER
                   #x: 50
-                  y: 130
+                  y: 135
                   width: 70
                   checkable: true
                   bg_color: 0x292929
@@ -145,62 +145,6 @@
                           data:
                             entity_id: switch.opentherm_gateway_ch_enable
 
-              # -----------------------------------------
-              # MINUS BUTTON (Positioned cleanly under arc)
-              # -----------------------------------------
-              - button:
-                  id: btn_minus
-                  align: CENTER 
-                  x: -70                  # Spaced out from the center line
-                  y: 190
-                  width: 44               # Slightly larger target area for fingers
-                  height: 44
-                  radius: 22
-                  bg_color: 0x292929
-                  border_width: 1
-                  border_color: 0x606060
-                  on_click:
-                    then:
-                      - lambda: |-
-                          if (id(target_heating_temp) > 15.0f) {
-                            id(target_heating_temp) -= 0.5f;
-                            id(update_target_ui).execute();
-                          }
-                  widgets:
-                    - label:
-                        text: "-"
-                        align: CENTER
-                        text_color: 0xFFFFFF
-                        text_font: montserrat_30
-    
-              # -----------------------------------------
-              # PLUS BUTTON (Positioned cleanly under arc)
-              # -----------------------------------------
-              - button:
-                  id: btn_plus
-                  align: CENTER 
-                  x: 70                   # Spaced out from the center line
-                  y: 190
-                  width: 44               # Slightly larger target area for fingers
-                  height: 44
-                  radius: 22
-                  bg_color: 0x292929
-                  border_width: 1
-                  border_color: 0x606060
-                  on_click:
-                    then:
-                      - lambda: |-
-                          if (id(target_heating_temp) < 30.0f) {
-                            id(target_heating_temp) += 0.5f;
-                            id(update_target_ui).execute();
-                          }
-                  widgets:
-                    - label:
-                        text: "+"
-                        align: CENTER
-                        text_color: 0xFFFFFF
-                        text_font: montserrat_30
-
               # -----------------------------------------------
               # GO TO DHW PAGE BUTTON (top-right)
               # -----------------------------------------------
@@ -208,10 +152,10 @@
                   id: go_dhw_button
                   align: top_right
                   x: -20
-                  y: 20
+                  y: 190
                   width: 68
                   height: 68
-                  bg_color: cyan
+                  bg_color: transparent
                   bg_opa: 100%
                   radius: 12
                   shadow_width: 0
@@ -237,10 +181,10 @@
                   id: btn_ch_to_weather
                   align: top_left
                   x: 20
-                  y: 20
+                  y: 190
                   width: 68
                   height: 68
-                  bg_color: white
+                  bg_color: transparent
                   bg_opa: 100%
                   radius: 12
                   shadow_width: 0
