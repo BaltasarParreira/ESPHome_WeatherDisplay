@@ -165,7 +165,7 @@
                     # 1. Central Heating Page Icon (Left Section)
                     - button:
                         id: nav_ch_btn
-                        align: LEFT_MID
+                        align: CENTER
                         x: 16%
                         y: 0
                         width: 60
@@ -181,7 +181,7 @@
 
                     # 2. First Divider Line (33% Mark)
                     - label:
-                        align: LEFT_MID
+                        align: CENTER
                         x: 33%
                         y: -2
                         text: "|"
@@ -191,7 +191,7 @@
                     # 3. Domestic Hot Water Page Icon (Center Section)
                     - button:
                         id: nav_dhw_btn
-                        align: CENTER_MID
+                        align: CENTER
                         x: 0
                         y: 0
                         width: 60
@@ -211,7 +211,7 @@
     
                     # 4. Second Divider Line (66% Mark)
                     - label:
-                        align: LEFT_MID
+                        align: CENTER
                         x: 66%
                         y: -2
                         text: "|"
@@ -221,7 +221,7 @@
                     # 5. Settings Page Icon (Right Section)
                     - button:
                         id: nav_settings_btn
-                        align: RIGHT_MID
+                        align: CENTER
                         x: -16%
                         y: 0
                         width: 60
