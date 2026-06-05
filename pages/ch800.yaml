@@ -105,10 +105,10 @@
                   checkable: true
                   bg_color: 2697513
                   shadow_width: 0
-                  pressed_style:
-                    bg_color: 16740130 
-                  checked_style:
-                    bg_color: 16740130 
+                  pressed:
+                    bg_color: 16740130
+                  checked:
+                    bg_color: 16740130
                   widgets:
                     - label:
                         id: lbl_ch_enable_text
@@ -136,9 +136,9 @@
                   checkable: true
                   bg_color: 2697513
                   shadow_width: 0
-                  pressed_style:
+                  pressed:
                     bg_color: 16740130
-                  checked_style:
+                  checked:
                     bg_color: 6316128
                   widgets:
                     - label:
@@ -153,7 +153,6 @@
                           service: switch.turn_off
                           data:
                             entity_id: switch.opentherm_gateway_ch_enable
-
 
               # -----------------------------------------------------
               # BOTTOM NAVIGATION BAR
