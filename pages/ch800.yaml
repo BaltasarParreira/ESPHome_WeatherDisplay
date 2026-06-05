@@ -154,7 +154,7 @@
                   y: 190
                   width: 100%
                   height: 60
-                  bg_color: transp
+                  bg_color: black
                   bg_opa: transp
                   border_width: 0
                   radius: 0
