@@ -99,22 +99,19 @@
                   id: btn_ch_enable
                   align: CENTER
                   x: -60
-                  y: 120
+                  y: 125
                   width: 70
                   height: 44
                   checkable: true
-                  bg_color: 2697513
+                  bg_opa: 0%              # Completely clear background
                   shadow_width: 0
-                  pressed:
-                    bg_color: 16740130
-                  checked:
-                    bg_color: 16740130
                   widgets:
                     - label:
                         id: lbl_ch_enable_text
                         align: CENTER 
-                        text: "\U000F0238"
+                        text: "\uF06D"     # Clean, cross-compatible flame glyph
                         text_font: icon_font_big
+                        text_color: 2697513 # Default muted color
                         bg_opa: 0%        
                   on_click:
                     then:
@@ -130,22 +127,19 @@
                   id: btn_ch_disable
                   align: CENTER
                   x: 60
-                  y: 120
+                  y: 125
                   width: 70
                   height: 44
                   checkable: true
-                  text_color: 2697513
+                  bg_opa: 0%              # Completely clear background
                   shadow_width: 0
-                  pressed:
-                    text_color: 16740130
-                  checked:
-                    text_color: 6316128
                   widgets:
                     - label:
                         id: lbl_ch_disable_text
                         align: CENTER
-                        text: "\U000F0425"
+                        text: "\uF011"     # Clean, cross-compatible power glyph
                         text_font: icon_font_big
+                        text_color: 2697513 # Default muted color
                         bg_opa: 0%        
                   on_click:
                     then:
@@ -153,6 +147,7 @@
                           service: switch.turn_off
                           data:
                             entity_id: switch.opentherm_gateway_ch_enable
+
 
               # -----------------------------------------------------
               # BOTTOM NAVIGATION BAR
