@@ -648,8 +648,8 @@
 - button:
     id: btn_to_ch
     align: LEFT_MID
-    x: 20
-    y: 0
+    x: 10
+    y: -40
     width: 68
     height: 68
     bg_color: black
@@ -680,8 +680,8 @@
 - button:
     id: btn_to_dhw
     align: RIghT_MID
-    x: -20
-    y: 0
+    x: -10
+    y: -40
     width: 68
     height: 68
     bg_color: black
