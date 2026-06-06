@@ -273,20 +273,12 @@ text_sensor:
                     indicator:
                       arc_color: 0x292929
 
-                - lvgl.button.update:
-                    id: btn_dhw_disable
-                    state:
-                      checked: true
-                - lvgl.button.update:
-                    id: btn_dhw_enable
-                    state:
-                      checked: false
-                - lvgl.obj.update:
-                    id: btn_dhw_enable
-                    hidden: true
-                - lvgl.obj.update:
-                    id: btn_dhw_disable
-                    hidden: false
+                - lvgl.label.update:
+                    id: lbl_dhw_enable_text
+                    text_color: 0x292929
+                - lvgl.label.update:
+                    id: lbl_dhw_disable_text
+                    text_color: 0x2095F6
               else:
                 # DHW is ON
                 - lvgl.arc.update:
@@ -294,20 +286,12 @@ text_sensor:
                     indicator:
                       arc_color: 0x2095F6
 
-                - lvgl.button.update:
-                    id: btn_dhw_enable
-                    state:
-                      checked: true
-                - lvgl.button.update:
-                    id: btn_dhw_disable
-                    state:
-                      checked: false
-                - lvgl.obj.update:
-                    id: btn_dhw_enable
-                    hidden: false
-                - lvgl.obj.update:
-                    id: btn_dhw_disable
-                    hidden: true
+                - lvgl.label.update:
+                    id: lbl_dhw_enable_text
+                    text_color: 0x2095F6
+                - lvgl.label.update:
+                    id: lbl_dhw_disable_text
+                    text_color: 0x292929
 
 sensor:
   - platform: homeassistant
