@@ -62,132 +62,172 @@
 #                                  temperature: !lambda "return x;"
 
               # -----------------------------------------
-              # SETPOINT LABEL
-              # -----------------------------------------
-              - label:
-                  id: dhw_setpoint_label
-                  align: CENTER
-                  text: "--.-°"
-                  y: 0
-                  text_color: 0xFFFFFF
-                  text_opa: 100%
-                  text_font: font_roboto_82
-
-              # -----------------------------------------
               # CURRENT DHW TEMPERATURE
               # -----------------------------------------
               - label:
                   id: dhw_current_temp
                   align: CENTER
                   text: "--.-°"
-                  text_font: montserrat_42
-                  text_color: 0x2095F6
-                  y: 120
+                  y: -90
+                  text_color: 0xFFFFFF
+                  text_opa: 100%
+                  text_font: font_roboto_82
 
               # -----------------------------------------
-              # DHW ENABLE / DISABLE BUTTON
+              # SETPOINT LABEL
+              # -----------------------------------------
+              - label:
+                  id: dhw_setpoint_label
+                  align: CENTER
+                  text: "--.-°"
+                  text_font: montserrat_42
+                  text_color: 0xFF6F22
+                  y: 20
+
+              # -----------------------------------------
+              # DHW ENABLE BUTTON (WATER DROP ICON - LEFT SIDE)
               # -----------------------------------------
               - button:
                   id: btn_dhw_disable
                   align: CENTER
-                  #x: -50
-                  y: 190
+                  x: -60
+                  y: 125
                   width: 70
-                  checkable: true
-                  bg_color: 0x292929
+                  height: 44
+                  bg_opa: 0% 
                   shadow_width: 0
-                  pressed:
-                    bg_color: 0x2095F6
-                  checked:
-                    bg_color: 0x606060
                   widgets:
                     - label:
                         id: lbl_dhw_disable_text
-                        align: CENTER
-                        text: 'OFF'
+                        align: CENTER 
+                        text: "\U000F0E0A" 
+                        text_font: icon_font_big
+                        text_color: 2697513 # Default muted color
+                        bg_opa: 0% 
                   on_click:
                     then:
                       - homeassistant.service:
-                          service: switch.toggle
+                          service: switch.turn_on
                           data:
                             entity_id: switch.opentherm_gateway_dhw_enable
 
+              # -----------------------------------------------------
+              # DHW DISABLE BUTTON (OFF ICON - RIGHT SIDE)
+              # -----------------------------------------------------
               - button:
                   id: btn_dhw_enable
                   align: CENTER
-                  #x: 50
-                  y: 190
+                  x: -60
+                  y: 125
                   width: 70
-                  checkable: true
-                  bg_color: 0x292929
+                  height: 44
+                  bg_opa: 0%
                   shadow_width: 0
-                  pressed:
-                    bg_color: 0x2095F6
-                  checked:
-                    bg_color: 0x2095F6
                   widgets:
                     - label:
                         id: lbl_dhw_enable_text
                         align: CENTER
-                        text: 'ON'
+                        text: "\U000F0425" 
+                        text_font: icon_font_big
+                        text_color: 2697513 # Default muted color
+                        bg_opa: 0%
                   on_click:
                     then:
                       - homeassistant.service:
-                          service: switch.toggle
+                          service: switch.turn_off
                           data:
                             entity_id: switch.opentherm_gateway_dhw_enable
 
-              # -----------------------------------------------
-              # BACK TO CH PAGE
-              # -----------------------------------------------
-              - button:
-                  id: btn_dhw_to_ch
-                  align: top_right
-                  x: -20
-                  y: 20
-                  width: 68
-                  height: 68
-                  bg_color: orange
-                  bg_opa: 100%
-                  radius: 12
-                  shadow_width: 0
-          #        text_font: montserrat_32
-          #            pressed:
-          #              bg_color: 0xFF6F22
+              # -----------------------------------------------------
+              # BOTTOM NAVIGATION BAR
+              # -----------------------------------------------------
+              - obj:
+                  align: CENTER
+                  x: 0
+                  y: 190
+                  width: 100%
+                  height: 60
+                  bg_color: black
+                  bg_opa: transp
+                  border_width: 0
+                  radius: 0
+                  pad_all: 0
+                  scrollable: false
                   widgets:
-                    - label:
-                        align: CENTER
-                        text: "\U000F0975"
-                        text_font: icon_font_big
-                        text_color: black
-                  on_click:
-                    - lvgl.page.show:
-                        id: ch_page
-                        animation: FADE_IN
-                        time: 300ms
+                        
+                    # 1. Central Heating Page Icon (Left Section)
+                    - button:
+                        id: nav_ch_btn
+                        align: LEFT_MID
+                        x: 10%
+                        y: 0
+                        width: 60
+                        height: 44
+                        bg_opa: 0%
+                        shadow_width: 0
+                        on_click:
+                          - lvgl.page.show:
+                              id: ch_page
+                              animation: FADE_IN
+                        widgets:
+                          - label:
+                              align: CENTER
+                              text: "\U000F1A45"
+                              text_color: 0x566275
+                              text_font: icon_font_big
 
-        # -----------------------------------------------
-        # BACK TO WEATHER PAGE
-        # -----------------------------------------------
-              - button:
-                  id: btn_dhw_to_weather
-                  align: top_left
-                  x: 20
-                  y: 20
-                  width: 68
-                  height: 68
-                  bg_color: white
-                  bg_opa: 100%
-                  radius: 12
-                  shadow_width: 0
-                  widgets:
+                    # 2. First Divider Line (33% Mark)
                     - label:
+                        align: LEFT_MID
+                        x: 33%
+                        y: -2
+                        text: "|"
+                        text_color: 0x222C3E
+                        text_font: montserrat_30
+
+                    # 3. Home Page Icon (Right Section)
+                    - button:
+                        id: nav_settings_btn
+                        align: RIGHT_MID
+                        x: -10%
+                        y: 0
+                        width: 60
+                        height: 44
+                        bg_opa: 0%
+                        shadow_width: 0
+                        on_click:
+                          - lvgl.page.show:
+                              id: daily_page
+                              animation: FADE_IN
+                        widgets:
+                          - label:
+                              align: CENTER
+                              text: "\U000F02DC"
+                              text_color: 0x566275
+                              text_font: icon_font_big
+    
+                    # 4. Second Divider Line (66% Mark)
+                    - label:
+                        align: LEFT_MID
+                        x: 66%
+                        y: -2
+                        text: "|"
+                        text_color: 0x222C3E
+                        text_font: montserrat_30
+
+                    # 5. Domestic Hot Water Page Icon (Center Section)
+                    - button:
+                        id: nav_dhw_btn
                         align: CENTER
-                        text: "\U000F02DC"
-                        text_font: icon_font_big
-                        text_color: black
-                  on_click:
-                    - lvgl.page.show:
-                        id: daily_page
-                        animation: FADE_IN
-                        time: 300ms
+                        x: 0
+                        y: 0
+                        width: 60
+                        height: 44
+                        bg_opa: 0%
+                        shadow_width: 0
+                        widgets:
+                          - label:
+                              align: CENTER
+                              text: "\U000F1B29" 
+                              text_color: 0x2095F6
+                              text_font: icon_font_big
