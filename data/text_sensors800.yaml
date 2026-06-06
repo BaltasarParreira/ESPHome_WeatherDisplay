@@ -197,10 +197,10 @@ text_sensor:
   
               - lvgl.label.update:
                   id: lbl_ch_enable_text
-                  text_color: 0xFF6F22
+                  text_color: 0x292929
               - lvgl.label.update:
                   id: lbl_ch_disable_text
-                  text_color: 0x292929
+                  text_color: 0xFF6F22
   
               # Hide enable button, show disable button
 #              - lvgl.obj.update:
@@ -219,10 +219,10 @@ text_sensor:
   
               - lvgl.label.update:
                   id: lbl_ch_enable_text
-                  text_color: 0x292929
+                  text_color: 0xFF6F22
               - lvgl.label.update:
                   id: lbl_ch_disable_text
-                  text_color: 0xFF6F22
+                  text_color: 0x292929
   
               # Hide disable button, show enable button
 #              - lvgl.obj.update:
