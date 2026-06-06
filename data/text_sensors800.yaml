@@ -197,12 +197,10 @@ text_sensor:
   
               - lvgl.button.update:
                   id: btn_ch_disable
-                  state:
-                    checked: true
+                  text_color: 16740130
               - lvgl.button.update:
                   id: btn_ch_enable
-                  state:
-                    checked: false
+                  text_color: 2697513
   
               # Hide enable button, show disable button
 #              - lvgl.obj.update:
@@ -221,12 +219,10 @@ text_sensor:
   
               - lvgl.button.update:
                   id: btn_ch_disable
-                  state:
-                    checked: false
+                  text_color: 2697513
               - lvgl.button.update:
                   id: btn_ch_enable
-                  state:
-                    checked: true
+                  text_color: 16740130
   
               # Hide disable button, show enable button
 #              - lvgl.obj.update:
