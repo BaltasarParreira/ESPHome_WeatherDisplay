@@ -190,37 +190,7 @@
                         text_color: 0x222C3E
                         text_font: montserrat_30
 
-                    # 3. Domestic Hot Water Page Icon (Center Section)
-                    - button:
-                        id: nav_dhw_btn
-                        align: CENTER
-                        x: 0
-                        y: 0
-                        width: 60
-                        height: 44
-                        bg_opa: 0%
-                        shadow_width: 0
-                        on_click:
-                          - lvgl.page.show:
-                              id: dhw_page
-                              animation: FADE_IN
-                        widgets:
-                          - label:
-                              align: CENTER
-                              text: "\U000F1B29" 
-                              text_color: 0x566275
-                              text_font: icon_font_big
-    
-                    # 4. Second Divider Line (66% Mark)
-                    - label:
-                        align: LEFT_MID
-                        x: 66%
-                        y: -2
-                        text: "|"
-                        text_color: 0x222C3E
-                        text_font: montserrat_30
-
-                    # 5. Settings Page Icon (Right Section)
+                    # 3. Home Page Icon (Right Section)
                     - button:
                         id: nav_settings_btn
                         align: RIGHT_MID
@@ -240,3 +210,34 @@
                               text: "\U000F02DC"
                               text_color: 0x566275
                               text_font: icon_font_big
+    
+                    # 4. Second Divider Line (66% Mark)
+                    - label:
+                        align: LEFT_MID
+                        x: 66%
+                        y: -2
+                        text: "|"
+                        text_color: 0x222C3E
+                        text_font: montserrat_30
+
+                    # 5. Domestic Hot Water Page Icon (Center Section)
+                    - button:
+                        id: nav_dhw_btn
+                        align: CENTER
+                        x: 0
+                        y: 0
+                        width: 60
+                        height: 44
+                        bg_opa: 0%
+                        shadow_width: 0
+                        on_click:
+                          - lvgl.page.show:
+                              id: dhw_page
+                              animation: FADE_IN
+                        widgets:
+                          - label:
+                              align: CENTER
+                              text: "\U000F1B29" 
+                              text_color: 0x566275
+                              text_font: icon_font_big
+
