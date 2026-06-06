@@ -109,7 +109,7 @@
                     - label:
                         id: lbl_ch_enable_text
                         align: CENTER 
-                        text: "\uF06D"     # Clean, cross-compatible flame glyph
+                        text: "\U000F0238"     # Clean, cross-compatible flame glyph
                         text_font: icon_font_big
                         text_color: 2697513 # Default muted color
                         bg_opa: 0%        
@@ -137,7 +137,7 @@
                     - label:
                         id: lbl_ch_disable_text
                         align: CENTER
-                        text: "\uF011"     # Clean, cross-compatible power glyph
+                        text: "\U000F0425"     # Clean, cross-compatible power glyph
                         text_font: icon_font_big
                         text_color: 2697513 # Default muted color
                         bg_opa: 0%        
