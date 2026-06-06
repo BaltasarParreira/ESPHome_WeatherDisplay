@@ -188,7 +188,7 @@
                     # 3. Home Page Icon (Right Section)
                     - button:
                         id: dhw_nav_home_btn
-                        align: RIGHT_MID
+                        align: CENTER
                         x: 0
                         y: 0
                         width: 60
@@ -218,7 +218,7 @@
                     # 5. Domestic Hot Water Page Icon (Center Section)
                     - button:
                         id: dhw_nav_dhw_btn
-                        align: CENTER
+                        align: RIGHT_MID
                         x: -10%
                         y: 0
                         width: 60
