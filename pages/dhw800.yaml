@@ -88,17 +88,17 @@
               # DHW ENABLE BUTTON (WATER DROP ICON - LEFT SIDE)
               # -----------------------------------------
               - button:
-                  id: btn_dhw_disable
+                  id: btn_dhw_enable
                   align: CENTER
                   x: -60
                   y: 125
                   width: 70
                   height: 44
-                  bg_opa: 0% 
+                  bg_opa: 0%
                   shadow_width: 0
                   widgets:
                     - label:
-                        id: lbl_dhw_disable_text
+                        id: lbl_dhw_enable_text
                         align: CENTER 
                         text: "\U000F0E0A" 
                         text_font: icon_font_big
@@ -115,9 +115,9 @@
               # DHW DISABLE BUTTON (OFF ICON - RIGHT SIDE)
               # -----------------------------------------------------
               - button:
-                  id: btn_dhw_enable
+                  id: btn_dhw_disable
                   align: CENTER
-                  x: -60
+                  x: 60
                   y: 125
                   width: 70
                   height: 44
@@ -125,7 +125,7 @@
                   shadow_width: 0
                   widgets:
                     - label:
-                        id: lbl_dhw_enable_text
+                        id: lbl_dhw_disable_text
                         align: CENTER
                         text: "\U000F0425" 
                         text_font: icon_font_big
