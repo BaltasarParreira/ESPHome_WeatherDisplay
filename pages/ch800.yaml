@@ -166,7 +166,7 @@
                         
                     # 1. Central Heating Page Icon (Left Section)
                     - button:
-                        id: nav_ch_btn
+                        id: ch_nav_ch_btn
                         align: LEFT_MID
                         x: 10%
                         y: 0
@@ -192,7 +192,7 @@
 
                     # 3. Home Page Icon (Right Section)
                     - button:
-                        id: nav_settings_btn
+                        id: ch_nav_home_btn
                         align: RIGHT_MID
                         x: -10%
                         y: 0
@@ -222,7 +222,7 @@
 
                     # 5. Domestic Hot Water Page Icon (Center Section)
                     - button:
-                        id: nav_dhw_btn
+                        id: ch_nav_dhw_btn
                         align: CENTER
                         x: 0
                         y: 0
