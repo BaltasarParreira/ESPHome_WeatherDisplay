@@ -195,11 +195,11 @@ text_sensor:
                   indicator:
                     arc_color: 0x292929
   
-              - lvgl.button.update:
-                  id: btn_ch_disable
+              - lvgl.label.update:
+                  id: lbl_ch_enable_text
                   text_color: 0xFF6F22
-              - lvgl.button.update:
-                  id: btn_ch_enable
+              - lvgl.label.update:
+                  id: lbl_ch_disable_text
                   text_color: 0x292929
   
               # Hide enable button, show disable button
@@ -217,11 +217,11 @@ text_sensor:
                   indicator:
                     arc_color: 0xFF6F22
   
-              - lvgl.button.update:
-                  id: btn_ch_disable
+              - lvgl.label.update:
+                  id: lbl_ch_enable_text
                   text_color: 0x292929
-              - lvgl.button.update:
-                  id: btn_ch_enable
+              - lvgl.label.update:
+                  id: lbl_ch_disable_text
                   text_color: 0xFF6F22
   
               # Hide disable button, show enable button
