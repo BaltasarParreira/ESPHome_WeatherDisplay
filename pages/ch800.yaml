@@ -134,12 +134,12 @@
                   width: 70
                   height: 44
                   checkable: true
-                  bg_color: 2697513
+                  color: 2697513
                   shadow_width: 0
                   pressed:
-                    bg_color: 16740130
+                    color: 16740130
                   checked:
-                    bg_color: 6316128
+                    color: 6316128
                   widgets:
                     - label:
                         id: lbl_ch_disable_text
