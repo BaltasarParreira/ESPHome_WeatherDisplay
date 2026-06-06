@@ -62,7 +62,7 @@
                                   temperature: !lambda "return x;"
 
               # -----------------------------------------
-              # SETPOINT LABEL
+              # CURRENT ROOM TEMPERATURE
               # -----------------------------------------
               - label:
                   id: ch_current_temp
@@ -74,7 +74,7 @@
                   text_font: font_roboto_82
 
               # -----------------------------------------
-              # CURRENT ROOM TEMPERATURE
+              # SETPOINT LABEL
               # -----------------------------------------
               - label:
                   id: ch_setpoint_label
@@ -102,13 +102,13 @@
                   y: 125
                   width: 70
                   height: 44
-                  bg_opa: 0%              # Completely clear background
+                  bg_opa: 0%
                   shadow_width: 0
                   widgets:
                     - label:
                         id: lbl_ch_enable_text
                         align: CENTER 
-                        text: "\U000F0238"     # Clean, cross-compatible flame glyph
+                        text: "\U000F0238"
                         text_font: icon_font_big
                         text_color: 2697513 # Default muted color
                         bg_opa: 0%        
@@ -129,13 +129,13 @@
                   y: 125
                   width: 70
                   height: 44
-                  bg_opa: 0%              # Completely clear background
+                  bg_opa: 0%
                   shadow_width: 0
                   widgets:
                     - label:
                         id: lbl_ch_disable_text
                         align: CENTER
-                        text: "\U000F0425"     # Clean, cross-compatible power glyph
+                        text: "\U000F0425" 
                         text_font: icon_font_big
                         text_color: 2697513 # Default muted color
                         bg_opa: 0%        
@@ -240,4 +240,3 @@
                               text: "\U000F1B29" 
                               text_color: 0x566275
                               text_font: icon_font_big
-
