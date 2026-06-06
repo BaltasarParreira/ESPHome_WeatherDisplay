@@ -205,12 +205,12 @@ text_sensor:
                     checked: false
   
               # Hide enable button, show disable button
-              - lvgl.obj.update:
-                  id: btn_ch_enable
-                  hidden: true
-              - lvgl.obj.update:
-                  id: btn_ch_disable
-                  hidden: false
+#              - lvgl.obj.update:
+#                  id: btn_ch_enable
+#                  hidden: true
+#              - lvgl.obj.update:
+#                  id: btn_ch_disable
+#                  hidden: false
   
             else:
               # CH is ON
@@ -229,12 +229,12 @@ text_sensor:
                     checked: true
   
               # Hide disable button, show enable button
-              - lvgl.obj.update:
-                  id: btn_ch_disable
-                  hidden: true
-              - lvgl.obj.update:
-                  id: btn_ch_enable
-                  hidden: false
+#              - lvgl.obj.update:
+#                  id: btn_ch_disable
+#                  hidden: true
+#              - lvgl.obj.update:
+#                  id: btn_ch_enable
+#                  hidden: false
 
   - platform: homeassistant
     id: ha_dhw_temp
