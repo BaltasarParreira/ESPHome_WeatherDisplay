@@ -102,7 +102,6 @@
                   y: 125
                   width: 70
                   height: 44
-                  checkable: true
                   bg_opa: 0%              # Completely clear background
                   shadow_width: 0
                   widgets:
@@ -130,7 +129,6 @@
                   y: 125
                   width: 70
                   height: 44
-                  checkable: true
                   bg_opa: 0%              # Completely clear background
                   shadow_width: 0
                   widgets:
