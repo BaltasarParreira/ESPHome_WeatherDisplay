@@ -649,7 +649,7 @@
     id: btn_to_ch
     align: LEFT_MID
     x: 10
-    y: -40
+    y: -70
     width: 68
     height: 68
     bg_color: black
@@ -679,9 +679,9 @@
 
 - button:
     id: btn_to_dhw
-    align: RIghT_MID
+    align: RIGHT_MID
     x: -10
-    y: -40
+    y: -70
     width: 68
     height: 68
     bg_color: black
