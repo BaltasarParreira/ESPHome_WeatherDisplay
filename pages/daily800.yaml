@@ -647,9 +647,9 @@
 # -------------------------------------------------
 - button:
     id: btn_to_ch
-    align: top_left
-    x: 30
-    y: 30
+    align: LEFT_MID
+    x: 20
+    y: 0
     width: 68
     height: 68
     bg_color: black
@@ -659,9 +659,9 @@
     widgets:
       - label:
           align: CENTER
-          text: "\U000F0F54"   # mdi-fire
+          text: "\U000F1A45"
           text_font: icon_font_big
-          text_color: orange
+          text_color: 0xFF6F22
     on_click:
       - lvgl.page.show:
           id: ch_page
@@ -676,3 +676,29 @@
 #            char buf[16];
 #            snprintf(buf, sizeof(buf), "%.1f°", id(ha_ch_setpoint).state);
 #            return std::string(buf);
+
+- button:
+    id: btn_to_dhw
+    align: RIghT_MID
+    x: -20
+    y: 0
+    width: 68
+    height: 68
+    bg_color: black
+    bg_opa: 100%
+    radius: 12
+    shadow_width: 0
+    widgets:
+      - label:
+          align: CENTER
+          text: "\U000F1B29"
+          text_font: icon_font_big
+          text_color: 0x2095F6
+    on_click:
+      - lvgl.page.show:
+          id: dhw_page
+          animation: FADE_IN
+          time: 300ms
+      - lvgl.arc.update:
+          id: dhw_arc
+          value: !lambda "return (int)id(ha_dhw_setpoint).state;"
