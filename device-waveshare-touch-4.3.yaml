@@ -56,11 +56,6 @@ logger:
     display: DEBUG
     app: DEBUG
 
-api:
-
-ota:
-  platform: esphome
-
 json:
 
 #time:
