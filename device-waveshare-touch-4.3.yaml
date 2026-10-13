@@ -262,7 +262,6 @@ lvgl:
 #  buffer_size: 8%
   rotation: 180
   buffer_size: 30%  # Was 14%
-  buffer_num: 2 # New
   style_definitions:
     - id: clean_box
       border_width: 0
