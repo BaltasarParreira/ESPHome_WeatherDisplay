@@ -261,7 +261,7 @@ display:
 lvgl:
 #  buffer_size: 8%
   rotation: 180
-  buffer_size: 30%  # New
+  buffer_size: 30%  # Was 14%
   buffer_num: 2 # New
   style_definitions:
     - id: clean_box
@@ -276,7 +276,6 @@ lvgl:
 #  byte_order: little_endian
 #  color_depth: 16
 #  color_format: RGB565
-  buffer_size: 14%
   touchscreens:
     - touchscreen_id: my_touch
 
