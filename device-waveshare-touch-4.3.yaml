@@ -9,7 +9,7 @@ esphome:
   #  board_upload.maximum_ram_size: 524288   # --> Bal
   #  board_build.flash_mode: dio
   build_flags:
-    - "-DCONFIG_LV_DISP_DEF_REFR_PERIOD=16" # Was 10
+    - "-DCONFIG_LV_DISP_DEF_REFR_PERIOD=15" # Was 10
 #      - "-DLV_DRAW_SW_SUPPORT_RGB565=1"
     - "-DCONFIG_COMPILER_OPTIMIZATION_PERF=y"
     - "-Wno-deprecated-declarations"
@@ -38,9 +38,9 @@ esp32:
       CONFIG_FREERTOS_PLACE_FUNCTIONS_INTO_FLASH: "y"
       CONFIG_RINGBUF_PLACE_FUNCTIONS_INTO_FLASH: "y"
       # 👇 Native ESP-IDF Memory Routing Optimizations
-      CONFIG_SPIRAM_FETCH_INSTRUCTIONS: "y"
-      CONFIG_SPIRAM_RODATA: "y"
-      CONFIG_ESP32S3_DATA_CACHE_64KB: "y"      
+      #CONFIG_SPIRAM_FETCH_INSTRUCTIONS: "y"
+      #CONFIG_SPIRAM_RODATA: "y"
+      #CONFIG_ESP32S3_DATA_CACHE_64KB: "y"      
 
 psram:
   mode: octal
@@ -49,7 +49,7 @@ psram:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  power_save_mode: light # Was "none"
+  power_save_mode: none
   fast_connect: true
 
 logger:
@@ -261,7 +261,7 @@ display:
 lvgl:
 #  buffer_size: 8%
   rotation: 180
-  buffer_size: 30%  # Was 14%
+  buffer_size: 14%
   style_definitions:
     - id: clean_box
       border_width: 0
