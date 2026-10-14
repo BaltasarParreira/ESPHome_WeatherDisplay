@@ -42,14 +42,14 @@
             # TOP ROW
             - obj:
                 width: 100%
-                height: 140
+                height: 110
                 bg_opa: transp
                 border_opa: transp
                 border_width: 0
                 shadow_width: 0
                 radius: 0
                 pad_all: 0             # Force clear default container padding
-                pad_top: 0
+                pad_top: -15px
                 pad_bottom: 0
                 layout:
                   type: flex
@@ -75,7 +75,7 @@
                         flex_flow: column         # Stacks elements vertically
                         flex_align_main: center   # Centers the stack vertically in the 140px height
                         flex_align_cross: center  # Centers both icon and text horizontally
-                        pad_row: 4                # Adds a clean 4px space between icon and text
+                        pad_row: 2px                # Adds a clean 4px space between icon and text
                         pad_column: 0
                       scrollbar_mode: "OFF"
                       widgets:
