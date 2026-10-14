@@ -133,7 +133,7 @@ script:
                             brightness: !lambda |-
                               // If the Home Assistant entity shows below horizon, apply night dimming
                               if (id(ha_sun_state).state == "below_horizon") {
-                                return 0.40; // 40% brightness for night
+                                return 0.30; // 30% brightness for night
                               } else {
                                 return 0.50; // 50% brightness for day
                               }
