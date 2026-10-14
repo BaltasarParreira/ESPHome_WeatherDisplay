@@ -16,6 +16,11 @@ font:
     bpp: 4
 
   - file: ${font}
+    id: xlgs
+    size: 35
+    bpp: 4
+
+  - file: ${font}
     id: lg
     size: 32
     bpp: 4
