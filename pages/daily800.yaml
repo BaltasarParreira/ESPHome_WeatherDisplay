@@ -40,37 +40,43 @@
           widgets:
 
             # TOP ROW
-            # WEATHER DISPLAY STACK
             - obj:
                 width: 100%
-                height: 100%
+                height: 140
                 bg_opa: transp
                 border_opa: transp
                 border_width: 0
                 shadow_width: 0
                 radius: 0
+                pad_all: 0             # Force clear default container padding
+                pad_top: 0
+                pad_bottom: 0
                 layout:
                   type: flex
-                  flex_flow: column               # Changed to column to stack elements vertically
+                  flex_flow: row       # Forces icon and text strictly side-by-side
+                  flex_align_cross: center
                   flex_align_main: start
-                  flex_align_cross: center        # Keeps everything perfectly centered
-                  pad_row: 10                     # Adds breathing room between image and text
+                  pad_row: 0
                   pad_column: 0
                 scrollbar_mode: "OFF"
                 widgets:
-                  # TOP VISUAL: Weather Icon & Condition Text
+                  # LEFT SIDE - Weather Icon & Condition (Takes 240px of your 800px)
                   - obj:
-                      width: 100%
+                      width: 30%
+                      height: 100%     
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
                       radius: 0
+                      pad_all: 0       
                       layout:
                         type: flex
-                        flex_flow: column
-                        flex_align_main: center
-                        flex_align_cross: center
+                        flex_flow: column         # Stacks elements vertically
+                        flex_align_main: center   # Centers the stack vertically in the 140px height
+                        flex_align_cross: center  # Centers both icon and text horizontally
+                        pad_row: 4                # Adds a clean 4px space between icon and text
+                        pad_column: 0
                       scrollbar_mode: "OFF"
                       widgets:
                         - image:
@@ -83,31 +89,35 @@
                             width: 100%
                             text_font: lg
                             text_color: white
-                            text_align: center
-                            pad_top: 4
+                            text_align: center    # Ensures text wraps/aligns from the center point
+                            pad_top: 0
 
-                  # BOTTOM VISUAL: Date & Time Text Box
+                  # RIGHT SIDE - Date & Time (Takes 560px of your 800px)
                   - obj:
-                      width: 100%
+                      width: 70%
+                      height: 100%     # Fills the 140px row completely
                       bg_opa: transp
                       border_opa: transp
                       border_width: 0
                       shadow_width: 0
                       radius: 0
+                      pad_all: 0       # Clear internal layout padding
                       layout:
                         type: flex
                         flex_flow: column
-                        flex_align_main: center
                         flex_align_cross: center
+                        flex_align_main: center
+                        pad_row: 0
+                        pad_column: 0
                       scrollbar_mode: "OFF"
                       widgets:
                         - label:
                             id: lbl_datetime
-                            width: 100%              # Takes full width so text fits on 1 line
+                            width: 100%     # Uses all 560px to layout text on 1 line
                             text_font: xlg
                             text_color: white
-                            text_align: center       # Centered perfectly under your weather icon
-                            pad_top: 2
+                            text_align: center
+                            pad_top: 0
 
             # SECOND ROW (METRICS)
             - obj:
