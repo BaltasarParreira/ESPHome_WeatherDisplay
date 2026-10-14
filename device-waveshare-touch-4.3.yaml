@@ -135,7 +135,7 @@ script:
                               if (id(ha_sun_state).state == "below_horizon") {
                                 return 0.40; // 40% brightness for night
                               } else {
-                                return 0.60; // 60% brightness for day
+                                return 0.50; // 50% brightness for day
                               }
                       else:
                         - light.turn_on: lcd_backlight
