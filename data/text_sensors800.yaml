@@ -8,22 +8,50 @@ text_sensor:
           - lambda: |-
               parse_json(x, [](JsonObject root) -> bool {
                 if (root.isNull()) return false;
-    
-                // Check if it is currently night
+  
+                // Check the homeassistant sun entity state
                 bool is_currently_night = (id(ha_sun_state).state == "below_horizon");
-    
+  
+                // Define condition text lookup
+                std::map<std::string, std::string> text_map = {
+                  {"0", "Clear Sky"}, {"1", "Mainly Clear"}, {"2", "Partly Cloudy"}, {"3", "Overcast"},
+                  {"45", "Fog"}, {"48", "Fog"}, {"51", "Light Drizzle"}, {"53", "Moderate Drizzle"},
+                  {"55", "Dense Drizzle"}, {"56", "Freezing Light Drizzle"}, {"57", "Freezing Dense Drizzle"},
+                  {"61", "Light Rain"}, {"63", "Moderate Rain"}, {"65", "Heavy Rain"}, {"66", "Freezing Light Rain"},
+                  {"67", "Freezing Heavy Rain"}, {"71", "Light Snow"}, {"73", "Moderate Snow"}, {"75", "Heavy Snowfall"},
+                  {"77", "Snow grains"}, {"80", "Light Rain"}, {"81", "Moderate Rain"}, {"82", "Heavy Rain"},
+                  {"85", "Light Snow"}, {"86", "Heavy Snow"}, {"95", "Thunderstorm"}, {"96", "Thunderstorm Slight Hail"},
+                  {"99", "Thunderstorm Heavy Hail"}
+                };
+  
+                // Define image pointer mapping references safely in C++ space
+                std::map<std::string, const void*> icon_map = {
+                  {"0", id(d0)}, {"1", id(d1)}, {"2", id(d2)}, {"3", id(d3)}, {"45", id(d45)}, {"48", id(d48)},
+                  {"51", id(d51)}, {"53", id(d53)}, {"55", id(d55)}, {"56", id(d56)}, {"57", id(d57)}, 
+                  {"61", id(d61)}, {"63", id(d63)}, {"65", id(d65)}, {"66", id(d66)}, {"67", id(d67)}, 
+                  {"71", id(d71)}, {"73", id(d73)}, {"75", id(d75)}, {"77", id(d77)}, {"80", id(d80)}, 
+                  {"81", id(d81)}, {"82", id(d82)}, {"85", id(d85)}, {"86", id(d86)}, {"95", id(d95)}, 
+                  {"96", id(d96)}, {"99", id(d99)},
+                  {"n0", id(n0)}, {"n1", id(n1)}, {"n2", id(n2)}, {"n3", id(n3)}, {"n45", id(n45)}, {"n48", id(n48)},
+                  {"n51", id(n51)}, {"n53", id(n53)}, {"n55", id(n55)}, {"n56", id(n56)}, {"n57", id(n57)}, 
+                  {"n61", id(n61)}, {"n63", id(n63)}, {"n65", id(n65)}, {"n66", id(n66)}, {"n67", id(n67)}, 
+                  {"n71", id(n71)}, {"n73", id(n73)}, {"n75", id(n75)}, {"n77", id(n77)}, {"n80", id(n80)}, 
+                  {"n81", id(n81)}, {"n82", id(n82)}, {"n85", id(n85)}, {"n86", id(n86)}, {"n95", id(n95)}, 
+                  {"n96", id(n96)}, {"n99", id(n99)}
+                };
+  
                 auto update_fmt = [&](lv_obj_t* obj, const char* key, const char* unit) {
                   if (root[key].is<const char*>()) {
                     lv_label_set_text_fmt(obj, "%s%s", root[key].as<const char*>(), unit);
                   }
                 };
-    
+  
                 update_fmt(id(lbl_day0_curtemp), "cur_t", "°C");
                 update_fmt(id(lbl_day0_curhum), "cur_h", "%");
                 update_fmt(id(lbl_day0_sunr), "d0_sunr", ""); 
                 update_fmt(id(lbl_day0_suns), "d0_suns", "");
                 update_fmt(id(lbl_day0_pres), "d0_pres", " hPa");
-    
+  
                 // --- Day Forecast Loops ---
                 lv_obj_t* day_times[] = {nullptr, id(lbl_day1_time), id(lbl_day2_time), id(lbl_day3_time), id(lbl_day4_time)};
                 lv_obj_t* day_temps[] = {id(lbl_day0_temp), id(lbl_day1_temp), id(lbl_day2_temp), id(lbl_day3_temp), id(lbl_day4_temp)};
@@ -31,32 +59,36 @@ text_sensor:
                 lv_obj_t* day_winds[] = {id(lbl_day0_wind), id(lbl_day1_wind), id(lbl_day2_wind), id(lbl_day3_wind), id(lbl_day4_wind)};
                 lv_obj_t* day_conds[] = {id(lbl_day0_cond), id(lbl_day1_cond), id(lbl_day2_cond), id(lbl_day3_cond), id(lbl_day4_cond)};
                 lv_obj_t* day_imgs[]  = {id(img_day0_code), id(img_day1_code), id(img_day2_code), id(img_day3_code), id(img_day4_code)};
-    
+  
                 for (int i = 0; i < 5; i++) {
                   std::string prefix = "d" + std::to_string(i);
                   if (day_times[i] != nullptr) update_fmt(day_times[i], (prefix + "_t").c_str(), "");
                   update_fmt(day_temps[i], (prefix + "_tp").c_str(), "°");
                   update_fmt(day_pres[i], (prefix + "_pr").c_str(), " cm");
                   update_fmt(day_winds[i], (prefix + "_wd").c_str(), " kph");
-    
+  
                   std::string c_key = prefix + "_c";
                   if (root[c_key].is<int>()) {
                     std::string c_str = std::to_string(root[c_key].as<int>());
-                    lv_label_set_text(day_conds[i], weather_text[c_str].c_str());
-    
-                    // Night logic for today (Day 0)
+                    
+                    if (text_map.count(c_str) > 0) {
+                      lv_label_set_text(day_conds[i], text_map[c_str].c_str());
+                    }
+  
                     std::string icon_key = c_str;
                     if (i == 0 && is_currently_night) {
                       std::string night_key = "n" + c_str;
-                      // Safe fallback check: if the night icon exists in the mapping, use it
-                      if (id(weather_icon).count(night_key) > 0) {
+                      if (icon_map.count(night_key) > 0) {
                         icon_key = night_key;
                       }
                     }
-                    lv_img_set_src(day_imgs[i], id(weather_icon)[icon_key]);
+                    
+                    if (icon_map.count(icon_key) > 0) {
+                      lv_img_set_src(day_imgs[i], icon_map[icon_key]);
+                    }
                   }
                 }
-    
+  
                 // --- Hourly Forecast Loops ---
                 lv_obj_t* hr_times[] = {id(lbl_hour0_time), id(lbl_hour1_time), id(lbl_hour2_time), id(lbl_hour3_time), id(lbl_hour4_time), id(lbl_hour5_time), id(lbl_hour6_time), id(lbl_hour7_time), id(lbl_hour8_time), id(lbl_hour9_time), id(lbl_hour10_time), id(lbl_hour11_time), id(lbl_hour12_time), id(lbl_hour13_time), id(lbl_hour14_time), id(lbl_hour15_time), id(lbl_hour16_time), id(lbl_hour17_time)};
                 lv_obj_t* hr_temps[] = {id(lbl_hour0_temp), id(lbl_hour1_temp), id(lbl_hour2_temp), id(lbl_hour3_temp), id(lbl_hour4_temp), id(lbl_hour5_temp), id(lbl_hour6_temp), id(lbl_hour7_temp), id(lbl_hour8_temp), id(lbl_hour9_temp), id(lbl_hour10_temp), id(lbl_hour11_temp), id(lbl_hour12_temp), id(lbl_hour13_temp), id(lbl_hour14_temp), id(lbl_hour15_temp), id(lbl_hour16_temp), id(lbl_hour17_temp)};
@@ -64,31 +96,32 @@ text_sensor:
                 lv_obj_t* hr_probs[] = {id(lbl_hour0_preprob), id(lbl_hour1_preprob), id(lbl_hour2_preprob), id(lbl_hour3_preprob), id(lbl_hour4_preprob), id(lbl_hour5_preprob), id(lbl_hour6_preprob), id(lbl_hour7_preprob), id(lbl_hour8_preprob), id(lbl_hour9_preprob), id(lbl_hour10_preprob), id(lbl_hour11_preprob), id(lbl_hour12_preprob), id(lbl_hour13_preprob), id(lbl_hour14_preprob), id(lbl_hour15_preprob), id(lbl_hour16_preprob), id(lbl_hour17_preprob)};
                 lv_obj_t* hr_winds[] = {id(lbl_hour0_wind), id(lbl_hour1_wind), id(lbl_hour2_wind), id(lbl_hour3_wind), id(lbl_hour4_wind), id(lbl_hour5_wind), id(lbl_hour6_wind), id(lbl_hour7_wind), id(lbl_hour8_wind), id(lbl_hour9_wind), id(lbl_hour10_wind), id(lbl_hour11_wind), id(lbl_hour12_wind), id(lbl_hour13_wind), id(lbl_hour14_wind), id(lbl_hour15_wind), id(lbl_hour16_wind), id(lbl_hour17_wind)};
                 lv_obj_t* hr_imgs[]  = {id(img_hour0_code), id(img_hour1_code), id(img_hour2_code), id(img_hour3_code), id(img_hour4_code), id(img_hour5_code), id(img_hour6_code), id(img_hour7_code), id(img_hour8_code), id(img_hour9_code), id(img_hour10_code), id(img_hour11_code), id(img_hour12_code), id(img_hour13_code), id(img_hour14_code), id(img_hour15_code), id(img_hour16_code), id(img_hour17_code)};
-    
+  
                 for (int i = 0; i < 18; i++) {
                   std::string prefix = "h" + std::to_string(i);
-                  update_fmt(hr_times[i], (prefix + "_t").c_str(), "");
                   update_fmt(hr_temps[i], (prefix + "_tp").c_str(), "°");
                   update_fmt(hr_accs[i], (prefix + "_pa").c_str(), " cm");
                   update_fmt(hr_probs[i], (prefix + "_pp").c_str(), "%");
                   update_fmt(hr_winds[i], (prefix + "_wd").c_str(), " kph");
-    
+  
                   std::string h_key = prefix + "_c";
                   if (root[h_key].is<int>()) {
                     std::string c_str = std::to_string(root[h_key].as<int>());
-    
-                    // Night logic for current hour (Hour 0)
+  
                     std::string icon_key = c_str;
                     if (i == 0 && is_currently_night) {
                       std::string night_key = "n" + c_str;
-                      if (id(weather_icon).count(night_key) > 0) {
+                      if (icon_map.count(night_key) > 0) {
                         icon_key = night_key;
                       }
                     }
-                    lv_img_set_src(hr_imgs[i], id(weather_icon)[icon_key]);
+                    
+                    if (icon_map.count(icon_key) > 0) {
+                      lv_img_set_src(hr_imgs[i], icon_map[icon_key]);
+                    }
                   }
                 }
-    
+  
                 if (root["updated"].is<const char*>()) {
                   lv_label_set_text_fmt(id(lbl_last_update), "Updated: %s", root["updated"].as<const char*>());
                 }
