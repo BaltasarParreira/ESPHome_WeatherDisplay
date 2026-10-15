@@ -25,8 +25,8 @@ text_sensor:
                 {"99", "Thunderstorm Heavy Hail"}
               };
 
-              // Use standard generic pointers to avoid strict initializer-list structural mismatches
-              std::map<std::string, const void*> icon_map = {
+              // Map string names directly to the native ESPHome LvImage class pointers
+              std::map<std::string, esphome::lvgl::LvImage*> icon_map = {
                 {"0", id(d0)}, {"1", id(d1)}, {"2", id(d2)}, {"3", id(d3)}, {"45", id(d45)}, {"48", id(d48)},
                 {"51", id(d51)}, {"53", id(d53)}, {"55", id(d55)}, {"56", id(d56)}, {"57", id(d57)}, 
                 {"61", id(d61)}, {"63", id(d63)}, {"65", id(d65)}, {"66", id(d66)}, {"67", id(d67)}, 
@@ -85,9 +85,8 @@ text_sensor:
                   }
                   
                   if (icon_map.count(icon_key) > 0) {
-                    // Pull the structural reference safe cast for LVGL image presentation
-                    auto* img_comp = (esphome::lvgl::LVGLImageComponent*)icon_map[icon_key];
-                    lv_img_set_src(day_imgs[i], img_comp->get_src());
+                    // Extract the source data structural pointer using the modern get_src() method
+                    lv_img_set_src(day_imgs[i], icon_map[icon_key]->get_src());
                   }
                 }
               }
@@ -120,8 +119,7 @@ text_sensor:
                   }
                   
                   if (icon_map.count(icon_key) > 0) {
-                    auto* img_comp = (esphome::lvgl::LVGLImageComponent*)icon_map[icon_key];
-                    lv_img_set_src(hr_imgs[i], img_comp->get_src());
+                    lv_img_set_src(hr_imgs[i], icon_map[icon_key]->get_src());
                   }
                 }
               }
