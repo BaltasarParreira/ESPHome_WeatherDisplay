@@ -1,3 +1,4 @@
+# Weather Data Processor
 text_sensor:
   - platform: homeassistant
       id: weather_data
@@ -9,10 +10,10 @@ text_sensor:
               parse_json(x, [](JsonObject root) -> bool {
                 if (root.isNull()) return false;
   
-                // Check the homeassistant sun entity state
+                // Check if it is currently night via the sun state tracker
                 bool is_currently_night = (id(ha_sun_state).state == "below_horizon");
   
-                // Define condition text lookup
+                // Condition text dictionary processed in C++ memory
                 std::map<std::string, std::string> text_map = {
                   {"0", "Clear Sky"}, {"1", "Mainly Clear"}, {"2", "Partly Cloudy"}, {"3", "Overcast"},
                   {"45", "Fog"}, {"48", "Fog"}, {"51", "Light Drizzle"}, {"53", "Moderate Drizzle"},
@@ -24,7 +25,7 @@ text_sensor:
                   {"99", "Thunderstorm Heavy Hail"}
                 };
   
-                // Define image pointer mapping references safely in C++ space
+                // Image resource map references handled cleanly inside C++ 
                 std::map<std::string, const void*> icon_map = {
                   {"0", id(d0)}, {"1", id(d1)}, {"2", id(d2)}, {"3", id(d3)}, {"45", id(d45)}, {"48", id(d48)},
                   {"51", id(d51)}, {"53", id(d53)}, {"55", id(d55)}, {"56", id(d56)}, {"57", id(d57)}, 
@@ -36,8 +37,8 @@ text_sensor:
                   {"n51", id(n51)}, {"n53", id(n53)}, {"n55", id(n55)}, {"n56", id(n56)}, {"n57", id(n57)}, 
                   {"n61", id(n61)}, {"n63", id(n63)}, {"n65", id(n65)}, {"n66", id(n66)}, {"n67", id(n67)}, 
                   {"n71", id(n71)}, {"n73", id(n73)}, {"n75", id(n75)}, {"n77", id(n77)}, {"n80", id(n80)}, 
-                  {"n81", id(n81)}, {"n82", id(n82)}, {"n85", id(n85)}, {"n86", id(n86)}, {"n95", id(n95)}, 
-                  {"n96", id(n96)}, {"n99", id(n99)}
+                  {"81", id(n81)}, {"82", id(n82)}, {"85", id(n85)}, {"86", id(n86)}, {"95", id(n95)}, 
+                  {"96", id(n96)}, {"99", id(n99)}
                 };
   
                 auto update_fmt = [&](lv_obj_t* obj, const char* key, const char* unit) {
@@ -84,7 +85,7 @@ text_sensor:
                     }
                     
                     if (icon_map.count(icon_key) > 0) {
-                      lv_img_set_src(day_imgs[i], icon_map[icon_key]);
+                      lv_img_set_src(day_imgs[i], (lv_img_dsc_t*)icon_map[icon_key]);
                     }
                   }
                 }
@@ -117,7 +118,7 @@ text_sensor:
                     }
                     
                     if (icon_map.count(icon_key) > 0) {
-                      lv_img_set_src(hr_imgs[i], icon_map[icon_key]);
+                      lv_img_set_src(hr_imgs[i], (lv_img_dsc_t*)icon_map[icon_key]);
                     }
                   }
                 }
@@ -127,7 +128,6 @@ text_sensor:
                 }
                 return true;
               });
-
 
   - platform: homeassistant
     id: ha_l_room_temperature
