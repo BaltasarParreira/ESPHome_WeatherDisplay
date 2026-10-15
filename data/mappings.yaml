@@ -3,7 +3,6 @@ mapping:
     from: string
     to: image
     entries:
-      # Day Entries Mapping
       "0": d0
       "1": d1
       "2": d2
@@ -32,8 +31,6 @@ mapping:
       "95": d95
       "96": d96
       "99": d99
-      
-      # Night Entries Mapping
       "n0": n0
       "n1": n1
       "n2": n2
