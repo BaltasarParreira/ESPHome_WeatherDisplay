@@ -10,9 +10,6 @@ text_sensor:
             parse_json(x, [](JsonObject root) -> bool {
               if (root.isNull()) return false;
 
-              // 1. Check if it is currently night via the live sun state tracker
-              bool is_currently_night = (id(ha_sun_state).state == "below_horizon");
-
               // Helper function to turn "HH:MM" time strings into total minutes from midnight
               auto get_minutes = [](const char* time_str) -> int {
                 if (time_str == nullptr || strlen(time_str) < 5) return -1;
@@ -25,7 +22,19 @@ text_sensor:
               int sunrise_mins = root["d0_sunr"].is<const char*>() ? get_minutes(root["d0_sunr"].as<const char*>()) : 420;  // Default 07:00
               int sunset_mins  = root["d0_suns"].is<const char*>() ? get_minutes(root["d0_suns"].as<const char*>()) : 1200; // Default 20:00
 
-              // 2. Condition text dictionary processed in C++ memory
+              // Determine current night state: Use HA sensor if available, otherwise fallback instantly to time payload bounds
+              bool is_currently_night = (id(ha_sun_state).state == "below_horizon");
+              if (id(ha_sun_state).state != "below_horizon" && id(ha_sun_state).state != "above_horizon") {
+                // If api state is missing on boot, use current forecast time payload to judge night profile
+                if (root["h0_t"].is<const char*>()) {
+                  int current_mins = get_minutes(root["h0_t"].as<const char*>());
+                  if (current_mins != -1) {
+                    is_currently_night = (current_mins < sunrise_mins || current_mins >= sunset_mins);
+                  }
+                }
+              }
+
+              // Condition text dictionary processed in C++ memory
               std::map<std::string, std::string> text_map = {
                 {"0", "Clear Sky"}, {"1", "Mainly Clear"}, {"2", "Partly Cloudy"}, {"3", "Overcast"},
                 {"45", "Fog"}, {"48", "Fog"}, {"51", "Light Drizzle"}, {"53", "Moderate Drizzle"},
@@ -37,7 +46,7 @@ text_sensor:
                 {"99", "Thunderstorm Heavy Hail"}
               };
 
-              // 3. Map string condition keys to true raw LVGL descriptors
+              // Map string condition keys to true raw LVGL descriptors
               std::map<std::string, const void*> icon_map = {
                 {"0", id(d0).get_lv_image_dsc()}, {"1", id(d1).get_lv_image_dsc()}, {"2", id(d2).get_lv_image_dsc()}, {"3", id(d3).get_lv_image_dsc()}, {"45", id(d45).get_lv_image_dsc()}, {"48", id(d48).get_lv_image_dsc()},
                 {"51", id(d51).get_lv_image_dsc()}, {"53", id(d53).get_lv_image_dsc()}, {"55", id(d55).get_lv_image_dsc()}, {"56", id(d56).get_lv_image_dsc()}, {"57", id(d57).get_lv_image_dsc()}, 
@@ -124,11 +133,10 @@ text_sensor:
                   std::string c_str = std::to_string(root[h_key].as<int>());
                   std::string icon_key = c_str;
 
-                  // Dynamically evaluate if this specific hour is night using astronomical sunrise/sunset limits
                   if (root[t_key].is<const char*>()) {
                     int target_mins = get_minutes(root[t_key].as<const char*>());
                     if (target_mins != -1 && sunrise_mins != -1 && sunset_mins != -1) {
-                      // It is night if the hour falls before sunrise OR after sunset
+                      // Dynamic seasonal evaluation: true if hour is before sunrise or after sunset
                       if (target_mins < sunrise_mins || target_mins >= sunset_mins) {
                         std::string night_key = "n" + c_str;
                         if (icon_map.count(night_key) > 0) {
