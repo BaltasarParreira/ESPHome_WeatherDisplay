@@ -7,6 +7,7 @@ image:
     id: missing
     resize: 64x64
 
+  # --- Night Icons ---
   - platform: file
     type: rgb565
     byte_order: little_endian
@@ -201,6 +202,92 @@ image:
     byte_order: little_endian
     file: icons/99d_big.png
     id: d99
+    transparency: alpha_channel
+
+  # --- Night Icons ---
+  - file: "icons/0n_big.png"
+    id: n0
+    transparency: alpha_channel
+  - file: "icons/1n_big.png"
+    id: n1
+    transparency: alpha_channel
+  - file: "icons/2n_big.png"
+    id: n2
+    transparency: alpha_channel
+  - file: "icons/3n_big.png"
+    id: n3
+    transparency: alpha_channel
+  - file: "icons/45n_big.png"
+    id: n45
+    transparency: alpha_channel
+  - file: "icons/48n_big.png"
+    id: n48
+    transparency: alpha_channel
+  - file: "icons/51n_big.png"
+    id: n51
+    transparency: alpha_channel
+  - file: "icons/53n_big.png"
+    id: n53
+    transparency: alpha_channel
+  - file: "icons/55n_big.png"
+    id: n55
+    transparency: alpha_channel
+  - file: "icons/56n_big.png"
+    id: n56
+    transparency: alpha_channel
+  - file: "icons/57n_big.png"
+    id: n57
+    transparency: alpha_channel
+  - file: "icons/61n_big.png"
+    id: n61
+    transparency: alpha_channel
+  - file: "icons/63n_big.png"
+    id: n63
+    transparency: alpha_channel
+  - file: "icons/65n_big.png"
+    id: n65
+    transparency: alpha_channel
+  - file: "icons/66n_big.png"
+    id: n66
+    transparency: alpha_channel
+  - file: "icons/67n_big.png"
+    id: n67
+    transparency: alpha_channel
+  - file: "icons/71n_big.png"
+    id: n71
+    transparency: alpha_channel
+  - file: "icons/73n_big.png"
+    id: n73
+    transparency: alpha_channel
+  - file: "icons/75n_big.png"
+    id: n75
+    transparency: alpha_channel
+  - file: "icons/77n_big.png"
+    id: n77
+    transparency: alpha_channel
+  - file: "icons/80n_big.png"
+    id: n80
+    transparency: alpha_channel
+  - file: "icons/81n_big.png"
+    id: n81
+    transparency: alpha_channel
+  - file: "icons/82n_big.png"
+    id: n82
+    transparency: alpha_channel
+  - file: "icons/85n_big.png"
+    id: n85
+    transparency: alpha_channel
+  - file: "icons/86n_big.png"
+    id: n86
+    transparency: alpha_channel
+  - file: "icons/95n_big.png"
+    id: n95
+    transparency: alpha_channel
+  - file: "icons/96n_big.png"
+    id: n96
+    transparency: alpha_channel
+  - file: "icons/99n_big.png"
+    id: n99
     transparency: alpha_channel
 
   - platform: file
