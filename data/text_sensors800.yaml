@@ -10,10 +10,20 @@ text_sensor:
             parse_json(x, [](JsonObject root) -> bool {
               if (root.isNull()) return false;
 
-              // 1. Check live time and calculate sun horizon trends
-              auto time_now = id(sntp_time).now();
-              int current_hour = time_now.hour;
+              // 1. Check if it is currently night via the live sun state tracker
               bool is_currently_night = (id(ha_sun_state).state == "below_horizon");
+
+              // Helper function to turn "HH:MM" time strings into total minutes from midnight
+              auto get_minutes = [](const char* time_str) -> int {
+                if (time_str == nullptr || strlen(time_str) < 5) return -1;
+                int h = (time_str[0] - '0') * 10 + (time_str[1] - '0');
+                int m = (time_str[3] - '0') * 10 + (time_str[4] - '0');
+                return (h * 60) + m;
+              };
+
+              // Parse today's dynamic sunrise and sunset times into minutes
+              int sunrise_mins = root["d0_sunr"].is<const char*>() ? get_minutes(root["d0_sunr"].as<const char*>()) : 420;  // Default 07:00
+              int sunset_mins  = root["d0_suns"].is<const char*>() ? get_minutes(root["d0_suns"].as<const char*>()) : 1200; // Default 20:00
 
               // 2. Condition text dictionary processed in C++ memory
               std::map<std::string, std::string> text_map = {
@@ -30,7 +40,7 @@ text_sensor:
               // 3. Map string condition keys to true raw LVGL descriptors
               std::map<std::string, const void*> icon_map = {
                 {"0", id(d0).get_lv_image_dsc()}, {"1", id(d1).get_lv_image_dsc()}, {"2", id(d2).get_lv_image_dsc()}, {"3", id(d3).get_lv_image_dsc()}, {"45", id(d45).get_lv_image_dsc()}, {"48", id(d48).get_lv_image_dsc()},
-                {"51", id(d51).get_lv_image_dsc()}, {"53", id(d53).get_lv_image_dsc()}, {"55", id(d55)->get_lv_image_dsc()}, {"56", id(d56).get_lv_image_dsc()}, {"57", id(d57).get_lv_image_dsc()}, 
+                {"51", id(d51).get_lv_image_dsc()}, {"53", id(d53).get_lv_image_dsc()}, {"55", id(d55).get_lv_image_dsc()}, {"56", id(d56).get_lv_image_dsc()}, {"57", id(d57).get_lv_image_dsc()}, 
                 {"61", id(d61).get_lv_image_dsc()}, {"63", id(d63).get_lv_image_dsc()}, {"65", id(d65).get_lv_image_dsc()}, {"66", id(d66).get_lv_image_dsc()}, {"67", id(d67).get_lv_image_dsc()}, 
                 {"71", id(d71).get_lv_image_dsc()}, {"73", id(d73).get_lv_image_dsc()}, {"75", id(d75).get_lv_image_dsc()}, {"77", id(d77).get_lv_image_dsc()}, {"80", id(d80).get_lv_image_dsc()}, 
                 {"81", id(d81).get_lv_image_dsc()}, {"82", id(d82).get_lv_image_dsc()}, {"85", id(d85).get_lv_image_dsc()}, {"86", id(d86).get_lv_image_dsc()}, {"95", id(d95).get_lv_image_dsc()}, 
@@ -78,7 +88,6 @@ text_sensor:
                   }
 
                   std::string icon_key = c_str;
-                  // Only apply night icon to today's card (Day 0) if it is currently night
                   if (i == 0 && is_currently_night) {
                     std::string night_key = "n" + c_str;
                     if (icon_map.count(night_key) > 0) {
@@ -115,15 +124,12 @@ text_sensor:
                   std::string c_str = std::to_string(root[h_key].as<int>());
                   std::string icon_key = c_str;
 
-                  // Parse the time string (e.g. "03:00") to check if it's night time
+                  // Dynamically evaluate if this specific hour is night using astronomical sunrise/sunset limits
                   if (root[t_key].is<const char*>()) {
-                    std::string time_str = root[t_key].as<const char*>();
-                    if (time_str.length() >= 2) {
-                      // Extract the hour digits and convert them to an integer
-                      int hr_val = std::stoi(time_str.substr(0, 2));
-
-                      // Mark as night if hour is before 7 AM or after 8 PM (20:00)
-                      if (hr_val < 7 || hr_val >= 20) {
+                    int target_mins = get_minutes(root[t_key].as<const char*>());
+                    if (target_mins != -1 && sunrise_mins != -1 && sunset_mins != -1) {
+                      // It is night if the hour falls before sunrise OR after sunset
+                      if (target_mins < sunrise_mins || target_mins >= sunset_mins) {
                         std::string night_key = "n" + c_str;
                         if (icon_map.count(night_key) > 0) {
                           icon_key = night_key;
