@@ -25,22 +25,21 @@ text_sensor:
                 {"99", "Thunderstorm Heavy Hail"}
               };
 
-              // Use standard C generic pointers (const void*) to bypass class namespace visibility limits
+              // Map string condition keys to the true raw underlying LVGL descriptor structures via get_lv_img_dsc()
               std::map<std::string, const void*> icon_map = {
-                {"0", id(d0)}, {"1", id(d1)}, {"2", id(d2)}, {"3", id(d3)}, {"45", id(d45)}, {"48", id(d48)},
-                {"51", id(d51)}, {"53", id(d53)}, {"55", id(d55)}, {"56", id(d56)}, {"57", id(d57)}, 
-                {"61", id(d61)}, {"63", id(d63)}, {"65", id(d65)}, {"66", id(d66)}, {"67", id(d67)}, 
-                {"71", id(d71)}, {"73", id(d73)}, {"75", id(d75)}, {"77", id(d77)}, {"80", id(d80)}, 
-                {"81", id(d81)}, {"82", id(d82)}, {"85", id(d85)}, {"86", id(d86)}, {"95", id(d95)}, 
-                {"96", id(d96)}, {"99", id(d99)},
-                {"n0", id(n0)}, {"n1", id(n1)}, {"n2", id(n2)}, {"n3", id(n3)}, {"n45", id(n45)}, {"n48", id(n48)},
-                {"n51", id(n51)}, {"n53", id(n53)}, {"n55", id(n55)}, {"n56", id(n56)}, {"n57", id(n57)}, 
-                {"n61", id(n61)}, {"n63", id(n63)}, {"n65", id(n65)}, {"n66", id(n66)}, {"n67", id(n67)}, 
-                {"n71", id(n71)}, {"n73", id(n73)}, {"n75", id(n75)}, {"n77", id(n77)}, {"n80", id(n80)}, 
-                {"81", id(n81)}, {"82", id(n82)}, {"85", id(n85)}, {"86", id(n86)}, {"95", id(n95)}, 
-                {"96", id(n96)}, {"99", id(n99)}
+                {"0", id(d0)->get_lv_img_dsc()}, {"1", id(d1)->get_lv_img_dsc()}, {"2", id(d2)->get_lv_img_dsc()}, {"3", id(d3)->get_lv_img_dsc()}, {"45", id(d45)->get_lv_img_dsc()}, {"48", id(d48)->get_lv_img_dsc()},
+                {"51", id(d51)->get_lv_img_dsc()}, {"53", id(d53)->get_lv_img_dsc()}, {"55", id(d55)->get_lv_img_dsc()}, {"56", id(d56)->get_lv_img_dsc()}, {"57", id(d57)->get_lv_img_dsc()}, 
+                {"61", id(d61)->get_lv_img_dsc()}, {"63", id(d63)->get_lv_img_dsc()}, {"65", id(d65)->get_lv_img_dsc()}, {"66", id(d66)->get_lv_img_dsc()}, {"67", id(d67)->get_lv_img_dsc()}, 
+                {"71", id(d71)->get_lv_img_dsc()}, {"73", id(d73)->get_lv_img_dsc()}, {"75", id(d75)->get_lv_img_dsc()}, {"77", id(d77)->get_lv_img_dsc()}, {"80", id(d80)->get_lv_img_dsc()}, 
+                {"81", id(d81)->get_lv_img_dsc()}, {"82", id(d82)->get_lv_img_dsc()}, {"85", id(d85)->get_lv_img_dsc()}, {"86", id(d86)->get_lv_img_dsc()}, {"95", id(d95)->get_lv_img_dsc()}, 
+                {"96", id(d96)->get_lv_img_dsc()}, {"99", id(d99)->get_lv_img_dsc()},
+                {"n0", id(n0)->get_lv_img_dsc()}, {"n1", id(n1)->get_lv_img_dsc()}, {"n2", id(n2)->get_lv_img_dsc()}, {"n3", id(n3)->get_lv_img_dsc()}, {"n45", id(n45)->get_lv_img_dsc()}, {"n48", id(n48)->get_lv_img_dsc()},
+                {"n51", id(n51)->get_lv_img_dsc()}, {"n53", id(n53)->get_lv_img_dsc()}, {"n55", id(n55)->get_lv_img_dsc()}, {"n56", id(n56)->get_lv_img_dsc()}, {"n57", id(n57)->get_lv_img_dsc()}, 
+                {"n61", id(n61)->get_lv_img_dsc()}, {"n63", id(n63)->get_lv_img_dsc()}, {"n65", id(n65)->get_lv_img_dsc()}, {"n66", id(n66)->get_lv_img_dsc()}, {"n67", id(n67)->get_lv_img_dsc()}, 
+                {"n71", id(n71)->get_lv_img_dsc()}, {"n73", id(n73)->get_lv_img_dsc()}, {"n75", id(n75)->get_lv_img_dsc()}, {"n77", id(n77)->get_lv_img_dsc()}, {"n80", id(n80)->get_lv_img_dsc()}, 
+                {"81", id(n81)->get_lv_img_dsc()}, {"82", id(n82)->get_lv_img_dsc()}, {"85", id(n85)->get_lv_img_dsc()}, {"86", id(n86)->get_lv_img_dsc()}, {"95", id(n95)->get_lv_img_dsc()}, 
+                {"96", id(n96)->get_lv_img_dsc()}, {"99", id(n99)->get_lv_img_dsc()}
               };
-
               auto update_fmt = [&](lv_obj_t* obj, const char* key, const char* unit) {
                 if (root[key].is<const char*>()) {
                   lv_label_set_text_fmt(obj, "%s%s", root[key].as<const char*>(), unit);
@@ -85,11 +84,7 @@ text_sensor:
                   }
                   
                   if (icon_map.count(icon_key) > 0) {
-                    // Bypass ESPHome classes entirely. Cast via raw conversion pattern to fetch internal C-source directly
-                    auto* raw_img = icon_map[icon_key];
-                    if (raw_img != nullptr) {
-                      lv_img_set_src(day_imgs[i], raw_img);
-                    }
+                    lv_img_set_src(day_imgs[i], icon_map[icon_key]);
                   }
                 }
               }
@@ -122,10 +117,7 @@ text_sensor:
                   }
                   
                   if (icon_map.count(icon_key) > 0) {
-                    auto* raw_img = icon_map[icon_key];
-                    if (raw_img != nullptr) {
-                      lv_img_set_src(hr_imgs[i], raw_img);
-                    }
+                    lv_img_set_src(hr_imgs[i], icon_map[icon_key]);
                   }
                 }
               }
@@ -135,6 +127,7 @@ text_sensor:
               }
               return true;
             });
+                  
 
 
   - platform: homeassistant
