@@ -32,6 +32,8 @@ esp32:
   cpu_frequency: 240MHz
   framework:
     type: esp-idf
+    advanced:
+      flash_chip: generic
     sdkconfig_options:
       CONFIG_ESP_TASK_WDT_TIMEOUT_S: "60"
       CONFIG_LWIP_IPV6: "n"
