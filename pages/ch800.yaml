@@ -114,10 +114,15 @@
                         bg_opa: 0%        
                   on_click:
                     then:
-                      - homeassistant.service:
-                          service: switch.turn_on
-                          data:
-                            entity_id: switch.opentherm_gateway_ch_enable
+                      - if:
+                          condition:
+                            api.connected:
+                          then:
+                            - homeassistant.service:
+                                service: climate.set_hvac_mode
+                                data:
+                                  entity_id: climate.opentherm_gateway_central_heating
+                                  hvac_mode: "heat"
 
               # -----------------------------------------------------
               # CH DISABLE BUTTON (OFF ICON - RIGHT SIDE)
@@ -141,10 +146,15 @@
                         bg_opa: 0%        
                   on_click:
                     then:
-                      - homeassistant.service:
-                          service: switch.turn_off
-                          data:
-                            entity_id: switch.opentherm_gateway_ch_enable
+                      - if:
+                          condition:
+                            api.connected:
+                          then:
+                            - homeassistant.service:
+                                service: climate.set_hvac_mode
+                                data:
+                                  entity_id: climate.opentherm_gateway_central_heating
+                                  hvac_mode: "off"
 
 
               # -----------------------------------------------------
