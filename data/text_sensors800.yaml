@@ -234,89 +234,114 @@ text_sensor:
         - lvgl.label.update:
             id: ch_current_temp
             text: !lambda |-
-              // x is a std::string
-              float v = atof(x.c_str());
-              if (v == 0 && x != "0" && x != "0.0") {
+              if (x == "unknown" || x == "unavailable" || x.empty()) {
                 return std::string("--.-°");
               }
+
+              char *endptr;
+              float v = strtof(x.c_str(), &endptr);
+
+              if (endptr == x.c_str()) {
+                return std::string("--.-°");
+              }
+
               char buf[16];
               snprintf(buf, sizeof(buf), "%.1f°", v);
               return std::string(buf);
+
 
   - platform: homeassistant
     id: ha_ch_action
     entity_id: climate.opentherm_gateway_central_heating
     attribute: hvac_action
     on_value:
-        then:
-          - lvgl.label.update:
-              id: ch_action_label
-              text: !lambda |-
-                // Make a copy of x to mutate safely
-                std::string str = x;
-                
-                // 1. Force the string completely into lowercase characters to prevent case failures
-                std::transform(str.begin(), str.end(), str.begin(), ::tolower);
-                
-                // 2. Scan using substrings (.find) to handle accidental quotes or extra text
-                if (str.find("heating") != std::string::npos) return std::string("HEATING");
-                if (str.find("idle")    != std::string::npos) return std::string("IDLE");
-                if (str.find("off")     != std::string::npos) return std::string("OFF");
-                
-                // If Home Assistant sends something unexpected, print it on screen to debug it
-                return "ERR: " + x;
+      then:
+        - lvgl.label.update:
+            id: ch_action_label
+            text: !lambda |-
+              std::string str = x;
+              std::transform(
+                str.begin(),
+                str.end(),
+                str.begin(),
+                ::tolower
+              );
+
+              if (str.find("heating") != std::string::npos) {
+                return std::string("HEATING");
+              }
+
+              if (str.find("idle") != std::string::npos) {
+                return std::string("IDLE");
+              }
+
+              if (str.find("off") != std::string::npos) {
+                return std::string("OFF");
+              }
+
+              if (
+                str.empty() ||
+                str.find("unknown") != std::string::npos ||
+                str.find("unavailable") != std::string::npos
+              ) {
+                return std::string("--");
+              }
+
+              return "ERR: " + x;
+
 
   - platform: homeassistant
-    id: ha_ch_enable_state
-    entity_id: switch.opentherm_gateway_ch_enable
+    id: ha_ch_mode
+    entity_id: climate.opentherm_gateway_central_heating
     on_value:
       then:
         - if:
             condition:
-              lambda: 'return x == "off";'
+              lambda: |-
+                std::string mode = x;
+                std::transform(
+                  mode.begin(),
+                  mode.end(),
+                  mode.begin(),
+                  ::tolower
+                );
+
+                return (
+                  mode == "off" ||
+                  mode == "unknown" ||
+                  mode == "unavailable" ||
+                  mode.empty()
+                );
+
             then:
-              # CH is OFF
+              # Climate thermostat is OFF
               - lvgl.arc.update:
                   id: ch_arc
                   indicator:
                     arc_color: 0x292929
-  
+
               - lvgl.label.update:
                   id: lbl_ch_enable_text
                   text_color: 0x292929
+
               - lvgl.label.update:
                   id: lbl_ch_disable_text
                   text_color: 0xFF6F22
-  
-              # Hide enable button, show disable button
-#              - lvgl.obj.update:
-#                  id: btn_ch_enable
-#                  hidden: true
-#              - lvgl.obj.update:
-#                  id: btn_ch_disable
-#                  hidden: false
-  
+
             else:
-              # CH is ON
+              # Climate thermostat is in HEAT mode
               - lvgl.arc.update:
                   id: ch_arc
                   indicator:
                     arc_color: 0xFF6F22
-  
+
               - lvgl.label.update:
                   id: lbl_ch_enable_text
                   text_color: 0xFF6F22
+
               - lvgl.label.update:
                   id: lbl_ch_disable_text
                   text_color: 0x292929
-  
-              # Hide disable button, show enable button
-#              - lvgl.obj.update:
-#                  id: btn_ch_disable
-#                  hidden: true
-#              - lvgl.obj.update:
-#                  id: btn_ch_enable
-#                  hidden: false
 
   - platform: homeassistant
     id: ha_dhw_temp
