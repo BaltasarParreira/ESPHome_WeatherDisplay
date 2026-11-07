@@ -52,10 +52,10 @@
                   knob:
                     bg_color: 0xFF6F22
                     bg_opa: 100%
-                    border_width: 4
+                    pad_all: 14
+                    border_width: 5
                     border_color: 0xFFFFFF
                     border_opa: 100%
-                    pad_all: 8
 
               # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
