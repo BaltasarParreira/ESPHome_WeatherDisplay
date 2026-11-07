@@ -406,6 +406,93 @@ lvgl:
     - id: ch_page
       widgets: !include pages/ch800.yaml
       skip: true
+
+      on_load:
+        then:
+          # Restore setpoint position on arc
+          - lvgl.arc.update:
+              id: ch_arc
+              value: !lambda |-
+                float value = id(ch_local_setpoint);
+
+                if (value < 15.0f) value = 15.0f;
+                if (value > 30.0f) value = 30.0f;
+
+                return static_cast<int>(
+                  roundf(value * 2.0f)
+                );
+
+          # Restore setpoint text
+          - lvgl.label.update:
+              id: ch_setpoint_label
+              text: !lambda |-
+                char buf[16];
+                snprintf(
+                  buf,
+                  sizeof(buf),
+                  "%.1f°",
+                  id(ch_local_setpoint)
+                );
+                return std::string(buf);
+
+          # Restore HEAT/OFF colors from current HA climate state
+          - if:
+              condition:
+                lambda: |-
+                  std::string mode = id(ha_ch_mode).state;
+
+                  std::transform(
+                    mode.begin(),
+                    mode.end(),
+                    mode.begin(),
+                    ::tolower
+                  );
+
+                  return mode == "heat";
+
+              then:
+                # HEAT
+                - lvgl.arc.update:
+                    id: ch_arc
+                    indicator:
+                      arc_color: 0xFF6F22
+                    knob:
+                      bg_color: 0xFF6F22
+                      border_color: 0xFFFFFF
+
+                - lvgl.label.update:
+                    id: ch_setpoint_label
+                    text_color: 0xFF6F22
+
+                - lvgl.label.update:
+                    id: lbl_ch_enable_text
+                    text_color: 0xFF6F22
+
+                - lvgl.label.update:
+                    id: lbl_ch_disable_text
+                    text_color: 0x292929
+
+              else:
+                # OFF
+                - lvgl.arc.update:
+                    id: ch_arc
+                    indicator:
+                      arc_color: 0x566275
+                    knob:
+                      bg_color: 0x566275
+                      border_color: 0x8A93A3
+
+                - lvgl.label.update:
+                    id: ch_setpoint_label
+                    text_color: 0x566275
+
+                - lvgl.label.update:
+                    id: lbl_ch_enable_text
+                    text_color: 0x292929
+
+                - lvgl.label.update:
+                    id: lbl_ch_disable_text
+                    text_color: 0xFF6F22
     - id: dhw_page
       widgets: !include pages/dhw800.yaml
       skip: true
