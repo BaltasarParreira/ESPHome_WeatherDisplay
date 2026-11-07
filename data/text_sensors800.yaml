@@ -314,31 +314,61 @@ text_sensor:
                 );
 
             then:
-              # Climate thermostat is OFF
+              # -----------------------------------------
+              # CLIMATE OFF - MUTED APPEARANCE
+              # -----------------------------------------
+
+              # Setpoint/progress portion of arc
               - lvgl.arc.update:
                   id: ch_arc
                   indicator:
-                    arc_color: 0x292929
+                    arc_color: 0x566275
 
+                  # Endpoint dot
+                  knob:
+                    bg_color: 0x566275
+
+              # Set temperature value
+              - lvgl.label.update:
+                  id: ch_setpoint_label
+                  text_color: 0x566275
+
+              # HEAT icon muted
               - lvgl.label.update:
                   id: lbl_ch_enable_text
                   text_color: 0x292929
 
+              # OFF icon orange
               - lvgl.label.update:
                   id: lbl_ch_disable_text
                   text_color: 0xFF6F22
 
             else:
-              # Climate thermostat is in HEAT mode
+              # -----------------------------------------
+              # CLIMATE HEAT - ACTIVE APPEARANCE
+              # -----------------------------------------
+
+              # Setpoint/progress portion of arc
               - lvgl.arc.update:
                   id: ch_arc
                   indicator:
                     arc_color: 0xFF6F22
 
+                  # Endpoint dot
+                  knob:
+                    bg_color: 0xFF6F22
+
+              # Set temperature value
+              - lvgl.label.update:
+                  id: ch_setpoint_label
+                  text_color: 0xFF6F22
+
+              # HEAT icon orange
               - lvgl.label.update:
                   id: lbl_ch_enable_text
                   text_color: 0xFF6F22
 
+              # OFF icon muted
               - lvgl.label.update:
                   id: lbl_ch_disable_text
                   text_color: 0x292929
