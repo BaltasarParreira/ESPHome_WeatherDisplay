@@ -56,7 +56,6 @@
 
                   knob:
                     bg_color: 0xFFFFFF
-                    bg_opa: 100%
 
               # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
