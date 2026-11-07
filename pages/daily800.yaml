@@ -665,8 +665,8 @@
     on_click:
       - lvgl.page.show:
           id: ch_page
-          animation: FADE_IN
-          time: 300ms
+          animation: MOVE_RIGHT
+          time: 250ms
       - lvgl.arc.update:
           id: ch_arc
           value: !lambda "return (int)id(ha_ch_setpoint).state;"
@@ -697,8 +697,8 @@
     on_click:
       - lvgl.page.show:
           id: dhw_page
-          animation: FADE_IN
-          time: 300ms
+          animation: MOVE_LEFT
+          time: 250ms
       - lvgl.arc.update:
           id: dhw_arc
           value: !lambda "return (int)id(ha_dhw_setpoint).state;"
