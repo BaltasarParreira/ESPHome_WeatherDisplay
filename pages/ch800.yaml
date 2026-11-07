@@ -19,7 +19,14 @@
             widgets:
 
               # -----------------------------------------
-              # ARC (centered)
+              # CH SETPOINT ARC
+              #
+              # Doubled internal scale for 0.5°C:
+              # 30 = 15.0°C
+              # 31 = 15.5°C
+              # 40 = 20.0°C
+              # 45 = 22.5°C
+              # 60 = 30.0°C
               # -----------------------------------------
               - arc:
                   id: ch_arc
@@ -36,14 +43,19 @@
                   border_width: 0
                   radius: 0
 
+                  # Colored section representing target temperature
                   indicator:
                     arc_color: 0xFF6F22
                     arc_width: 24
 
+                  # Larger endpoint marker
                   knob:
                     bg_color: 0xFF6F22
                     bg_opa: 100%
-                    border_width: 0
+                    border_width: 4
+                    border_color: 0xFFFFFF
+                    border_opa: 100%
+                    pad_all: 8
 
               # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
