@@ -321,7 +321,7 @@ text_sensor:
                   indicator:
                     arc_color: 0x566275
                   knob:
-                    bg_color: 0x566275
+                    bg_color: 0x8A93A3
 
               - lvgl.label.update:
                   id: ch_setpoint_label
