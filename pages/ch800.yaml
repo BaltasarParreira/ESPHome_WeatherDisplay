@@ -282,7 +282,8 @@
                         on_click:
                           - lvgl.page.show:
                               id: daily_page
-                              animation: FADE_IN
+                              animation: MOVE_RIGHT
+                              time: 250ms
                         widgets:
                           - label:
                               align: CENTER
@@ -312,7 +313,8 @@
                         on_click:
                           - lvgl.page.show:
                               id: dhw_page
-                              animation: FADE_IN
+                              animation: MOVE_LEFT
+                              time: 250ms
                         widgets:
                           - label:
                               align: CENTER
