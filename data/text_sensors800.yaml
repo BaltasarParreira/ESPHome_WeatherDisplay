@@ -409,22 +409,72 @@ sensor:
     id: ha_ch_setpoint
     entity_id: climate.opentherm_gateway_central_heating
     attribute: temperature
+
     on_value:
       then:
-        - delay: 200ms
-        - lambda: |-
-            ESP_LOGI("CH", "Setpoint update: x=%f", x);
-        - lvgl.arc.update:
-            id: ch_arc
-            value: !lambda |-
-              return (int)x;
-  
-        - lvgl.label.update:
-            id: ch_setpoint_label
-            text: !lambda |-
-              char buf[16];
-              snprintf(buf, sizeof(buf), "%.1f°", x);
-              return std::string(buf);
+        - if:
+            condition:
+              lambda: |-
+                if (std::isnan(x)) {
+                  return false;
+                }
+
+                // When a local change is pending, accept only the
+                // matching confirmation from Home Assistant.
+                if (id(ch_setpoint_pending)) {
+                  return fabsf(
+                    x - id(ch_local_setpoint)
+                  ) <= 0.01f;
+                }
+
+                // No local change is pending, accept external HA updates.
+                return true;
+
+            then:
+              - lambda: |-
+                  id(ch_local_setpoint) = x;
+                  id(ch_setpoint_pending) = false;
+
+                  ESP_LOGI(
+                    "CH",
+                    "Target accepted from HA: %.1f°C",
+                    x
+                  );
+
+              - lvgl.arc.update:
+                  id: ch_arc
+                  value: !lambda |-
+                    float value = id(ch_local_setpoint);
+
+                    if (value < 15.0f) value = 15.0f;
+                    if (value > 30.0f) value = 30.0f;
+
+                    return static_cast<int>(
+                      roundf(value * 2.0f)
+                    );
+
+              - lvgl.label.update:
+                  id: ch_setpoint_label
+                  text: !lambda |-
+                    char buf[16];
+
+                    snprintf(
+                      buf,
+                      sizeof(buf),
+                      "%.1f°",
+                      id(ch_local_setpoint)
+                    );
+
+                    return std::string(buf);
+
+            else:
+              - lambda: |-
+                  ESP_LOGD(
+                    "CH",
+                    "Ignoring stale HA target %.1f; local target is %.1f",
+                    x,
+                    id(ch_local_setpoint)
+                  );
 
   - platform: homeassistant
     id: ha_dhw_setpoint
