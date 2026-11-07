@@ -27,7 +27,7 @@
                   x: 0
                   width: 420
                   height: 420
-                  adjustable: true
+                  adjustable: false
                   value: 50
                   min_value: 15
                   max_value: 30
@@ -107,36 +107,26 @@
                   bg_opa: 100%
                   border_width: 0
                   shadow_width: 0
-
                   widgets:
                     - label:
                         align: CENTER
                         text: "-"
                         text_font: montserrat_42
                         text_color: 0xFFFFFF
-
                   on_click:
                     then:
                       - if:
                           condition:
                             api.connected:
                           then:
-                            - lambda: |-
-                                float value = id(ha_ch_setpoint).state - 0.5f;
-
-                                if (value < 15.0f)
-                                  value = 15.0f;
-
-                                // Update local value immediately
-                                id(ha_ch_setpoint).publish_state(value);
-
                             - homeassistant.service:
                                 service: climate.set_temperature
                                 data:
                                   entity_id: climate.opentherm_gateway_central_heating
                                   temperature: !lambda |-
-                                    return id(ha_ch_setpoint).state;
-
+                                    float value = id(ha_ch_setpoint).state - 0.5f;
+                                    if (value < 15.0f) value = 15.0f;
+                                    return value;
 
               # -----------------------------------------------------
               # SETPOINT PLUS BUTTON
@@ -153,35 +143,26 @@
                   bg_opa: 100%
                   border_width: 0
                   shadow_width: 0
-
                   widgets:
                     - label:
                         align: CENTER
                         text: "+"
                         text_font: montserrat_42
                         text_color: 0xFFFFFF
-
                   on_click:
                     then:
                       - if:
                           condition:
                             api.connected:
                           then:
-                            - lambda: |-
-                                float value = id(ha_ch_setpoint).state + 0.5f;
-
-                                if (value > 30.0f)
-                                  value = 30.0f;
-
-                                // Update local value immediately
-                                id(ha_ch_setpoint).publish_state(value);
-
                             - homeassistant.service:
                                 service: climate.set_temperature
                                 data:
                                   entity_id: climate.opentherm_gateway_central_heating
                                   temperature: !lambda |-
-                                    return id(ha_ch_setpoint).state;
+                                    float value = id(ha_ch_setpoint).state + 0.5f;
+                                    if (value > 30.0f) value = 30.0f;
+                                    return value;
        
 
               # -----------------------------------------------------
