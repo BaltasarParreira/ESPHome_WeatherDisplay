@@ -533,6 +533,79 @@ lvgl:
       widgets: !include pages/dhw800.yaml
       skip: true
 
+      on_load:
+        then:
+          - lvgl.arc.update:
+              id: dhw_arc
+              value: !lambda |-
+                float value = id(dhw_local_setpoint);
+
+                if (value < 35.0f) value = 35.0f;
+                if (value > 60.0f) value = 60.0f;
+
+                return static_cast<int>(
+                  roundf(value)
+                );
+
+          - lvgl.label.update:
+              id: dhw_setpoint_label
+              text: !lambda |-
+                char buf[16];
+
+                snprintf(
+                  buf,
+                  sizeof(buf),
+                  "%.0f°",
+                  id(dhw_local_setpoint)
+                );
+
+                return std::string(buf);
+
+          - if:
+              condition:
+                lambda: |-
+                  return id(ha_dhw_enable_state).state == "on";
+
+              then:
+                - lvgl.arc.update:
+                    id: dhw_arc
+                    indicator:
+                      arc_color: 0x2095F6
+                    knob:
+                      bg_color: 0xFFFFFF
+
+                - lvgl.label.update:
+                    id: dhw_setpoint_label
+                    text_color: 0x2095F6
+
+                - lvgl.label.update:
+                    id: lbl_dhw_enable_text
+                    text_color: 0x2095F6
+
+                - lvgl.label.update:
+                    id: lbl_dhw_disable_text
+                    text_color: 0x292929
+
+              else:
+                - lvgl.arc.update:
+                    id: dhw_arc
+                    indicator:
+                      arc_color: 0x566275
+                    knob:
+                      bg_color: 0x8A93A3
+
+                - lvgl.label.update:
+                    id: dhw_setpoint_label
+                    text_color: 0x566275
+
+                - lvgl.label.update:
+                    id: lbl_dhw_enable_text
+                    text_color: 0x292929
+
+                - lvgl.label.update:
+                    id: lbl_dhw_disable_text
+                    text_color: 0x2095F6
+
 # -----------------------------
 # REQUIRED DUMMY SWITCH
 # -----------------------------
