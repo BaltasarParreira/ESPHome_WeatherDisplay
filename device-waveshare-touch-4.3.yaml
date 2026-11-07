@@ -70,6 +70,7 @@ json:
 # CENTRAL HEATING LOCAL SETPOINT STATE
 # -----------------------------------------------------
 globals:
+  # CH local setpoint
   - id: ch_local_setpoint
     type: float
     restore_value: false
@@ -79,7 +80,17 @@ globals:
     type: bool
     restore_value: false
     initial_value: 'false'
+    
+  # DHW local setpoint
+  - id: dhw_local_setpoint
+    type: float
+    restore_value: false
+    initial_value: '48.0'
 
+  - id: dhw_setpoint_pending
+    type: bool
+    restore_value: false
+    initial_value: 'false'
 #time:
 #  - platform: sntp
 #    id: sntp_time
@@ -188,6 +199,31 @@ script:
 
       - lambda: |-
           id(ch_setpoint_pending) = false;
+
+  # -----------------------------------------------------
+  # DHW SETPOINT DEBOUNCED SEND
+  # -----------------------------------------------------
+  - id: send_dhw_setpoint
+    mode: restart
+    then:
+      - delay: 250ms
+
+      - if:
+          condition:
+            api.connected:
+          then:
+            - homeassistant.service:
+                service: number.set_value
+                data:
+                  entity_id: number.opentherm_gateway_dhw_setpoint
+                  value: !lambda |-
+                    return id(dhw_local_setpoint);
+
+      - delay: 750ms
+
+      - lambda: |-
+          id(dhw_setpoint_pending) = false;
+
 
 ch422g:
   - id: ch422g_hub
