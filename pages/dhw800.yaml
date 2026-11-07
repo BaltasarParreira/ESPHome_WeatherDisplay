@@ -21,45 +21,38 @@
               # -----------------------------------------
               # ARC (centered)
               # -----------------------------------------
+              # -----------------------------------------
+              # DHW SETPOINT ARC
+              # -----------------------------------------
               - arc:
                   id: dhw_arc
                   align: CENTER
                   x: 0
                   width: 420
                   height: 420
+
+                  # Keep adjustable so the white endpoint knob exists
                   adjustable: true
-                  value: 50
+
+                  # But don't allow direct touch control
+                  clickable: false
+
+                  value: 48
                   min_value: 35
                   max_value: 60
+
                   arc_width: 24
                   arc_color: 0x292929
                   border_width: 0
                   radius: 0
+
                   indicator:
                     arc_color: 0x2095F6
                     arc_width: 24
+
                   knob:
                     bg_color: 0xFFFFFF
-                  on_value:
-                    then:
-                      # 1. Update the label immediately
-                      - lvgl.label.update:
-                          id: dhw_setpoint_label
-                          text: !lambda |-
-                            char buf[16];
-                            snprintf(buf, sizeof(buf), "%.1f°", x);
-                            return std::string(buf);
 
-                      # 2. Only write to HA if API is connected (prevents crashes)
-#                      - if:
-#                          condition:
-#                            api.connected:
-#                          then:
-#                            - homeassistant.service:
-#                                service: climate.set_temperature
-#                                data:
-#                                  entity_id: climate.opentherm_gateway_heating_climate
-#                                  temperature: !lambda "return x;"
 
               # -----------------------------------------
               # CURRENT DHW TEMPERATURE
@@ -83,6 +76,118 @@
                   text_font: montserrat_42
                   text_color: 0x2095F6
                   y: 20
+
+              # -----------------------------------------------------
+              # DHW SETPOINT MINUS
+              # -----------------------------------------------------
+              - button:
+                  id: btn_dhw_minus
+                  align: CENTER
+                  x: -300
+                  y: 20
+                  width: 96
+                  height: 96
+                  radius: 18
+                  bg_color: 0x292929
+                  bg_opa: 100%
+                  border_width: 0
+                  shadow_width: 0
+
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "-"
+                        text_font: montserrat_42
+                        text_color: 0xFFFFFF
+
+                  on_click:
+                    then:
+                      - lambda: |-
+                          id(dhw_local_setpoint) -= 1.0f;
+
+                          if (id(dhw_local_setpoint) < 35.0f) {
+                            id(dhw_local_setpoint) = 35.0f;
+                          }
+
+                          id(dhw_setpoint_pending) = true;
+
+                      - lvgl.label.update:
+                          id: dhw_setpoint_label
+                          text: !lambda |-
+                            char buf[16];
+                            snprintf(
+                              buf,
+                              sizeof(buf),
+                              "%.0f°",
+                              id(dhw_local_setpoint)
+                            );
+                            return std::string(buf);
+
+                      - lvgl.arc.update:
+                          id: dhw_arc
+                          value: !lambda |-
+                            return static_cast<int>(
+                              roundf(id(dhw_local_setpoint))
+                            );
+
+                      - script.execute: send_dhw_setpoint
+
+
+              # -----------------------------------------------------
+              # DHW SETPOINT PLUS
+              # -----------------------------------------------------
+              - button:
+                  id: btn_dhw_plus
+                  align: CENTER
+                  x: 300
+                  y: 20
+                  width: 96
+                  height: 96
+                  radius: 18
+                  bg_color: 0x292929
+                  bg_opa: 100%
+                  border_width: 0
+                  shadow_width: 0
+
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "+"
+                        text_font: montserrat_42
+                        text_color: 0xFFFFFF
+
+                  on_click:
+                    then:
+                      - lambda: |-
+                          id(dhw_local_setpoint) += 1.0f;
+
+                          if (id(dhw_local_setpoint) > 60.0f) {
+                            id(dhw_local_setpoint) = 60.0f;
+                          }
+
+                          id(dhw_setpoint_pending) = true;
+
+                      - lvgl.label.update:
+                          id: dhw_setpoint_label
+                          text: !lambda |-
+                            char buf[16];
+                            snprintf(
+                              buf,
+                              sizeof(buf),
+                              "%.0f°",
+                              id(dhw_local_setpoint)
+                            );
+                            return std::string(buf);
+
+                      - lvgl.arc.update:
+                          id: dhw_arc
+                          value: !lambda |-
+                            return static_cast<int>(
+                              roundf(id(dhw_local_setpoint))
+                            );
+
+                      - script.execute: send_dhw_setpoint
+
 
               # -----------------------------------------
               # DHW ENABLE BUTTON (WATER DROP ICON - LEFT SIDE)
