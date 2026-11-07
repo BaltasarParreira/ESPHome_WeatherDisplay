@@ -34,7 +34,14 @@
                   x: 0
                   width: 420
                   height: 420
-                  adjustable: false
+
+                  # Needed for LVGL to render the endpoint knob
+                  adjustable: true
+
+                  # Prevent touch interaction with the arc.
+                  # Temperature is controlled only by +/- buttons.
+                  clickable: false
+
                   value: 40
                   min_value: 30
                   max_value: 60
@@ -43,14 +50,13 @@
                   border_width: 0
                   radius: 0
 
-                  # Colored section representing target temperature
                   indicator:
                     arc_color: 0xFF6F22
                     arc_width: 24
 
-                  # Larger endpoint marker
                   knob:
                     bg_color: 0xFFFFFF
+                    bg_opa: 100%
 
               # -----------------------------------------
               # CURRENT ROOM TEMPERATURE
