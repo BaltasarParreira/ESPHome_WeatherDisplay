@@ -66,6 +66,20 @@ logger:
 
 json:
 
+# -----------------------------------------------------
+# CENTRAL HEATING LOCAL SETPOINT STATE
+# -----------------------------------------------------
+globals:
+  - id: ch_local_setpoint
+    type: float
+    restore_value: false
+    initial_value: '20.0'
+
+  - id: ch_setpoint_pending
+    type: bool
+    restore_value: false
+    initial_value: 'false'
+
 #time:
 #  - platform: sntp
 #    id: sntp_time
@@ -150,6 +164,30 @@ script:
                           return id(clock_page).is_showing();
                       then:
                         - light.turn_off: lcd_backlight
+
+  # -----------------------------------------------------
+  # CH SETPOINT DEBOUNCED SEND
+  # -----------------------------------------------------
+  - id: send_ch_setpoint
+    mode: restart
+    then:
+      - delay: 250ms
+
+      - if:
+          condition:
+            api.connected:
+          then:
+            - homeassistant.service:
+                service: climate.set_temperature
+                data:
+                  entity_id: climate.opentherm_gateway_central_heating
+                  temperature: !lambda |-
+                    return id(ch_local_setpoint);
+
+      - delay: 750ms
+
+      - lambda: |-
+          id(ch_setpoint_pending) = false;
 
 ch422g:
   - id: ch422g_hub
