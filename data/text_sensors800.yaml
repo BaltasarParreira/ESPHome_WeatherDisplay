@@ -314,61 +314,46 @@ text_sensor:
                 );
 
             then:
-              # -----------------------------------------
-              # CLIMATE OFF - MUTED APPEARANCE
-              # -----------------------------------------
-
-              # Setpoint/progress portion of arc
+              # Climate OFF
+              # Keep selected target visible, but muted
               - lvgl.arc.update:
                   id: ch_arc
                   indicator:
                     arc_color: 0x566275
-
-                  # Endpoint dot
                   knob:
                     bg_color: 0x566275
+                    border_color: 0x8A93A3
 
-              # Set temperature value
               - lvgl.label.update:
                   id: ch_setpoint_label
                   text_color: 0x566275
 
-              # HEAT icon muted
               - lvgl.label.update:
                   id: lbl_ch_enable_text
                   text_color: 0x292929
 
-              # OFF icon orange
               - lvgl.label.update:
                   id: lbl_ch_disable_text
                   text_color: 0xFF6F22
 
             else:
-              # -----------------------------------------
-              # CLIMATE HEAT - ACTIVE APPEARANCE
-              # -----------------------------------------
-
-              # Setpoint/progress portion of arc
+              # Climate HEAT
               - lvgl.arc.update:
                   id: ch_arc
                   indicator:
                     arc_color: 0xFF6F22
-
-                  # Endpoint dot
                   knob:
                     bg_color: 0xFF6F22
+                    border_color: 0xFFFFFF
 
-              # Set temperature value
               - lvgl.label.update:
                   id: ch_setpoint_label
                   text_color: 0xFF6F22
 
-              # HEAT icon orange
               - lvgl.label.update:
                   id: lbl_ch_enable_text
                   text_color: 0xFF6F22
 
-              # OFF icon muted
               - lvgl.label.update:
                   id: lbl_ch_disable_text
                   text_color: 0x292929
@@ -439,7 +424,6 @@ sensor:
     id: ha_ch_setpoint
     entity_id: climate.opentherm_gateway_central_heating
     attribute: temperature
-
     on_value:
       then:
         - if:
@@ -449,15 +433,14 @@ sensor:
                   return false;
                 }
 
-                // When a local change is pending, accept only the
-                // matching confirmation from Home Assistant.
+                // A local +/- change is waiting for HA.
+                // Ignore an older HA target during that period.
                 if (id(ch_setpoint_pending)) {
                   return fabsf(
                     x - id(ch_local_setpoint)
                   ) <= 0.01f;
                 }
 
-                // No local change is pending, accept external HA updates.
                 return true;
 
             then:
@@ -467,10 +450,14 @@ sensor:
 
                   ESP_LOGI(
                     "CH",
-                    "Target accepted from HA: %.1f°C",
+                    "Target accepted from HA: %.1f C",
                     x
                   );
 
+              # Arc uses doubled scale:
+              # 40 = 20.0C
+              # 41 = 20.5C
+              # 45 = 22.5C
               - lvgl.arc.update:
                   id: ch_arc
                   value: !lambda |-
@@ -501,7 +488,7 @@ sensor:
               - lambda: |-
                   ESP_LOGD(
                     "CH",
-                    "Ignoring stale HA target %.1f; local target is %.1f",
+                    "Ignoring stale HA target %.1f; local target %.1f",
                     x,
                     id(ch_local_setpoint)
                   );
