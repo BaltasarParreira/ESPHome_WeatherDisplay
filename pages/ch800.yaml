@@ -109,7 +109,7 @@
                         text: "-"
                         text_font: montserrat_42
                         text_color: 0xFFFFFF
-                  on_click:
+                  on_press:
                     then:
                       - if:
                           condition:
@@ -145,7 +145,7 @@
                         text: "+"
                         text_font: montserrat_42
                         text_color: 0xFFFFFF
-                  on_click:
+                  on_press:
                     then:
                       - if:
                           condition:
@@ -181,7 +181,7 @@
                         text_font: icon_font_big
                         text_color: 2697513 # Default muted color
                         bg_opa: 0%        
-                  on_click:
+                  on_press:
                     then:
                       - if:
                           condition:
@@ -213,7 +213,7 @@
                         text_font: icon_font_big
                         text_color: 2697513 # Default muted color
                         bg_opa: 0%        
-                  on_click:
+                  on_press:
                     then:
                       - if:
                           condition:
@@ -279,7 +279,7 @@
                         height: 44
                         bg_opa: 0%
                         shadow_width: 0
-                        on_click:
+                        on_press:
                           - lvgl.page.show:
                               id: daily_page
                               animation: MOVE_RIGHT
@@ -310,7 +310,7 @@
                         height: 44
                         bg_opa: 0%
                         shadow_width: 0
-                        on_click:
+                        on_press:
                           - lvgl.page.show:
                               id: dhw_page
                               animation: MOVE_RIGHT
