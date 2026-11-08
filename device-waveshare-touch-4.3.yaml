@@ -115,7 +115,10 @@ light:
     # This block triggers every time HA or ESPHome turns the light on
     on_turn_on:
       then:
-        - lvgl.page.show: daily_page
+        - lvgl.page.show: 
+            id: daily_page
+            animation: FADE_IN
+            time: 300ms
         - script.execute: backlight_watchdog
 
 script:
@@ -126,7 +129,10 @@ script:
           id: lcd_backlight
           brightness: 1.00
       - delay: 2min
-      - lvgl.page.show: clock_page  # Target page ID to show
+      - lvgl.page.show: 
+          id: clock_page  # Target page ID to show
+          animation: FADE_IN
+          time: 500ms
       - script.execute: backlight_saver
 
   - id: backlight_saver
@@ -265,8 +271,10 @@ touchscreen:
               light.is_off: lcd_backlight
             then:
               - light.turn_on: lcd_backlight
-              - lvgl.page.show: daily_page
-    
+              - lvgl.page.show: 
+                  id: daily_page
+                  animation: FADE_IN
+                  time: 250ms     
             else:
               # CASE 2 — Backlight ON → check if we are on clock_page
               - if:
@@ -274,7 +282,10 @@ touchscreen:
                     lambda: |-
                       return lv_scr_act() == id(clock_page).obj;
                   then:
-                    - lvgl.page.show: daily_page
+                    - lvgl.page.show: 
+                        id: daily_page
+                        animation: OVER_LEFT
+                        time: 300ms
     
                   # CASE 3 — Backlight ON and NOT on clock_page → allow LVGL gestures
                   else:
