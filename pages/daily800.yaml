@@ -662,7 +662,7 @@
           text: "\U000F1A45"
           text_font: icon_font_big
           text_color: 0xFF6F22
-    on_click:
+    on_press:
       - lvgl.page.show:
           id: ch_page
           animation: MOVE_LEFT
@@ -694,7 +694,7 @@
           text: "\U000F1B29"
           text_font: icon_font_big
           text_color: 0x2095F6
-    on_click:
+    on_press:
       - lvgl.page.show:
           id: dhw_page
           animation: MOVE_RIGHT
