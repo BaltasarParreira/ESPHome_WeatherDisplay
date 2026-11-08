@@ -368,8 +368,6 @@ lvgl:
   rotation: 180
   buffer_size: 20% # Was 14%
   update_interval: 16ms
-  top_layer:
-    transparent: true
   style_definitions:
     - id: clean_box
       border_width: 0
