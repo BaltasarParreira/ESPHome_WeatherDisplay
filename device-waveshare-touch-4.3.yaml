@@ -250,6 +250,7 @@ touchscreen:
     display: tft_display
     i2c_id: i2c_bus
     interrupt_pin: GPIO4
+    update_interval: 16ms
     reset_pin:
         ch422g: ch422g_hub
         number: 1
