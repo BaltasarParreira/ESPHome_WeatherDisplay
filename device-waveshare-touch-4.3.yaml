@@ -290,7 +290,8 @@ touchscreen:
     
                   # CASE 3 — Backlight ON and NOT on clock_page → allow LVGL gestures
                   else:
-                    - lambda: |- // '/* allow LVGL to process swipe + buttons */'
+                    - lambda: |- 
+                        // '/* allow LVGL to process swipe + buttons */'
                         return;
 
 # -----------------------------
