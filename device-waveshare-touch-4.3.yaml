@@ -280,7 +280,7 @@ touchscreen:
               - if:
                   condition:
                     lambda: |-
-                      #return lv_scr_act() == id(clock_page).obj;
+                      // return lv_scr_act() == id(clock_page).obj;
                       return id(clock_page).is_showing();
                   then:
                     - lvgl.page.show: 
@@ -290,7 +290,7 @@ touchscreen:
     
                   # CASE 3 — Backlight ON and NOT on clock_page → allow LVGL gestures
                   else:
-                    - lambda: |- #'/* allow LVGL to process swipe + buttons */'
+                    - lambda: |- // '/* allow LVGL to process swipe + buttons */'
                         return;
 
 # -----------------------------
