@@ -280,7 +280,8 @@ touchscreen:
               - if:
                   condition:
                     lambda: |-
-                      return lv_scr_act() == id(clock_page).obj;
+                      #return lv_scr_act() == id(clock_page).obj;
+                      return id(clock_page).is_showing();
                   then:
                     - lvgl.page.show: 
                         id: daily_page
@@ -289,7 +290,8 @@ touchscreen:
     
                   # CASE 3 — Backlight ON and NOT on clock_page → allow LVGL gestures
                   else:
-                    - lambda: '/* allow LVGL to process swipe + buttons */'
+                    - lambda: |- #'/* allow LVGL to process swipe + buttons */'
+                        return;
 
 # -----------------------------
 # DISPLAY (OFFICIAL ESPHOME MODEL)
@@ -301,7 +303,8 @@ display:
     update_interval: never
     auto_clear_enabled: false
     color_order: RGB
-    pclk_frequency: 14MHZ # Was 16MHZ
+    #pclk_frequency: 14MHZ # Was 16MHZ
+    pclk_frequency: 16MHZ 
     dimensions:
       width: 800
       height: 480
@@ -317,6 +320,12 @@ display:
     reset_pin:
       ch422g: ch422g_hub
       number: 3
+    hsync_back_porch: 8
+    hsync_front_porch: 8
+    hsync_pulse_width: 4
+    vsync_back_porch: 8
+    vsync_front_porch: 8
+    vsync_pulse_width: 4
     #hsync_back_porch: 30
     #hsync_front_porch: 210
     #hsync_pulse_width: 30
@@ -324,12 +333,12 @@ display:
     #vsync_front_porch: 4
     #vsync_pulse_width: 4
     # 👇 Re-calculated tight timing constraints
-    hsync_back_porch: 40
-    hsync_front_porch: 40
-    hsync_pulse_width: 48
-    vsync_back_porch: 32
-    vsync_front_porch: 13
-    vsync_pulse_width: 3
+    #hsync_back_porch: 40
+    #hsync_front_porch: 40
+    #hsync_pulse_width: 48
+    #vsync_back_porch: 32
+    #vsync_front_porch: 13
+    #vsync_pulse_width: 3
     data_pins:
       red:
         - 1         #r3
@@ -359,6 +368,8 @@ lvgl:
   rotation: 180
   buffer_size: 20% # Was 14%
   update_interval: 16ms
+  top_layer:
+    transparent: true
   style_definitions:
     - id: clean_box
       border_width: 0
